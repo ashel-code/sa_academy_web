@@ -65,12 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(color: Color(0xffffffff), fontSize: 100),
         ),
         Image.asset("assets/logo.png", fit: BoxFit.scaleDown),
-        AutoSizeText(
-          "qwerty -- some text some text some text some texttext some text some text some text",
+        SelectableText(
+          "qwerty -- some text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text some text",
           textAlign: TextAlign.center,
           style: TextStyle(
               color: Color(0xffffffff),
-              fontSize: 100,
+              fontSize: 18,
               backgroundColor: Color(0xBB000000)),
         ),
         GridOfText()
@@ -83,12 +83,15 @@ class _MyHomePageState extends State<MyHomePage> {
       shrinkWrap: true,
       crossAxisCount: 3,
       children: <Widget>[
-        Text("text1"),
+        SelectableText("text1"),
         Container(
             decoration: BoxDecoration(color: Color(0xff000000)),
             child: AutoSizeText("text2",
                 style: TextStyle(color: Color(0xffffffff), fontSize: 30))),
-        Text("email: $email"),
+        Text(
+          "email: $email",
+          style: TextStyle(color: Color(0xFFffffff)),
+        ),
         Text("text4"),
         Text("text5"),
         Text("text6"),
@@ -147,3 +150,5 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 }
+
+// email example: email@example.com
