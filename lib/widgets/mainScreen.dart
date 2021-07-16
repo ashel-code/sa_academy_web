@@ -25,8 +25,10 @@ TextStyle boldTextStyle(double fontSize) {
 bool isNavBarOpened = false;
 double navBarHeight = 30.0;
 double navBarIndent = navBarHeight;
+double menuButtonWidth = navBarHeight;
 
-double normalTextSize = 14.0;
+double normalTextSize = 18.0;
+double navBarTextSize = 14.0;
 
 class MyHomePageState extends State<MyHomePage> {
   @override
@@ -52,7 +54,7 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget aboutCources(double width) {
-    if (width > 800) {
+    if (width > 600) {
       return Container(
         child: Row(
           children: [
@@ -60,18 +62,22 @@ class MyHomePageState extends State<MyHomePage> {
                 child: Container(
                     child: RichText(
                         text: TextSpan(children: [
-              TextSpan(text: "Что за курсы?\n", style: boldTextStyle(64.0)),
+              TextSpan(text: "Что за курсы?\n", style: boldTextStyle(36.0)),
               TextSpan(
                   text: "Это спецпрограмма, где ты получишь практические ",
-                  style: normalTextStyle(36.0)),
-              TextSpan(text: "навыки разработки ", style: boldTextStyle(36.0)),
+                  style: normalTextStyle(normalTextSize)),
+              TextSpan(
+                  text: "навыки разработки ",
+                  style: boldTextStyle(normalTextSize)),
               TextSpan(
                   text: "на языке программирования C# и ",
-                  style: normalTextStyle(36.0)),
-              TextSpan(text: "закодишь в команде ", style: boldTextStyle(36.0)),
+                  style: normalTextStyle(normalTextSize)),
+              TextSpan(
+                  text: "закодишь в команде ",
+                  style: boldTextStyle(normalTextSize)),
               TextSpan(
                   text: "с нуля проект на пратформе .NET! ",
-                  style: normalTextStyle(36.0))
+                  style: normalTextStyle(normalTextSize))
             ])))),
             Image(image: AssetImage("assets/logo.png"), height: 300)
           ],
@@ -81,21 +87,29 @@ class MyHomePageState extends State<MyHomePage> {
       return Column(
         children: [
           Container(
-              child: RichText(
-                  text: TextSpan(children: [
-            TextSpan(text: "Что за курсы?\n", style: boldTextStyle(64.0)),
-            TextSpan(
-                text: "Это спецпрограмма, где ты получишь практические ",
-                style: normalTextStyle(36.0)),
-            TextSpan(text: "навыки разработки ", style: boldTextStyle(36.0)),
-            TextSpan(
-                text: "на языке программирования C# и ",
-                style: normalTextStyle(36.0)),
-            TextSpan(text: "закодишь в команде ", style: boldTextStyle(36.0)),
-            TextSpan(
-                text: "с нуля проект на пратформе .NET! ",
-                style: normalTextStyle(36.0))
-          ]))),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(text: "Что за курсы?\n", style: boldTextStyle(36.0)),
+                  TextSpan(
+                      text: "Это спецпрограмма, где ты получишь практические ",
+                      style: normalTextStyle(normalTextSize)),
+                  TextSpan(
+                      text: "навыки разработки ",
+                      style: boldTextStyle(normalTextSize)),
+                  TextSpan(
+                      text: "на языке программирования C# и ",
+                      style: normalTextStyle(normalTextSize)),
+                  TextSpan(
+                      text: "закодишь в команде ",
+                      style: boldTextStyle(normalTextSize)),
+                  TextSpan(
+                      text: "с нуля проект на пратформе .NET! ",
+                      style: normalTextStyle(normalTextSize))
+                ],
+              ),
+            ),
+          ),
           Center(
               child: Image(image: AssetImage("assets/logo.png"), height: 300))
         ],
@@ -104,61 +118,97 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget navBar(double width, double height) {
-    if (width > 500) {
+    if (width > 600) {
       return Align(
-          alignment: Alignment.topCenter,
+        alignment: Alignment.topCenter,
+        child: Container(
+          decoration: BoxDecoration(color: Color(0xFF000000)),
           child: Container(
-              decoration: BoxDecoration(color: Color(0xFF000000)),
-              child: Container(
-                  width: double.infinity,
-                  height: navBarHeight,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Spacer(flex: 20),
-                      logoAndTextButton(),
-                      Spacer(flex: 10),
-                      navBarTextButton("Академия"),
-                      Spacer(flex: 10),
-                      navBarTextButton("О нас"),
-                      Spacer(flex: 10),
-                      navBarTextButton("FAQ"),
-                      Spacer(flex: 10),
-                      navBarTextButton("Аккаунт"),
-                      Spacer(flex: 20),
-                    ],
-                  ))));
+            width: double.infinity,
+            height: navBarHeight,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Spacer(flex: 20),
+                logoAndTextButton(),
+                Spacer(flex: 10),
+                navBarTextButton("Академия"),
+                Spacer(flex: 10),
+                navBarTextButton("О нас"),
+                Spacer(flex: 10),
+                navBarTextButton("FAQ"),
+                Spacer(flex: 10),
+                navBarTextButton("Аккаунт"),
+                Spacer(flex: 20),
+              ],
+            ),
+          ),
+        ),
+      );
     } else {
       return AnimatedContainer(
-          duration: Duration(seconds: 2),
-          curve: Curves.linear,
-          height: !isNavBarOpened ? navBarHeight : 300,
-          decoration: BoxDecoration(color: Color(0xFF000000)),
-          child: Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                  width: double.infinity,
-                  height: navBarHeight,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Spacer(),
-                      logoAndTextButton(),
-                      Spacer(),
-                      menuButton(height)
-                    ],
-                  ))));
+        duration: Duration(seconds: 1),
+        curve: Curves.fastLinearToSlowEaseIn,
+        height: !isNavBarOpened ? navBarHeight : height,
+        width: double.infinity,
+        decoration: BoxDecoration(color: Color(0xFF000000)),
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: Container(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(width: menuButtonWidth),
+                    Spacer(),
+                    logoAndTextButton(),
+                    Spacer(),
+                    menuButton(height)
+                  ],
+                ),
+                AnimatedOpacity(
+                  opacity: isNavBarOpened ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: isNavBarOpened ? 100 : 400),
+                  child: navBarTextButton("Академия"),
+                ),
+                AnimatedOpacity(
+                  opacity: isNavBarOpened ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: isNavBarOpened ? 200 : 300),
+                  child: navBarTextButton("О нас"),
+                ),
+                AnimatedOpacity(
+                  opacity: isNavBarOpened ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: isNavBarOpened ? 300 : 200),
+                  child: navBarTextButton("FAQ"),
+                ),
+                AnimatedOpacity(
+                  opacity: isNavBarOpened ? 1.0 : 0.0,
+                  duration: Duration(milliseconds: isNavBarOpened ? 400 : 100),
+                  child: navBarTextButton("Аккаунт"),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
     }
   }
 
   Widget menuButton(double height) {
-    return TextButton(
-        onPressed: () {
-          setState(() {
-            isNavBarOpened = !isNavBarOpened;
-          });
-        },
-        child: Icon(Icons.menu, color: Color(0xFFFFFFFF)));
+    return Container(
+        width: menuButtonWidth,
+        child: TextButton(
+          onPressed: () {
+            setState(() {
+              isNavBarOpened = !isNavBarOpened;
+            });
+          },
+          child: Icon(
+            Icons.menu,
+            color: Color(0xFFFFFFFF),
+          ),
+        ));
   }
 
   Widget navBarTextButton(String text) {
@@ -170,23 +220,24 @@ class MyHomePageState extends State<MyHomePage> {
             default:
           }
         },
-        child: Text(text, style: normalTextStyle(14.0)),
+        child: Text(text, style: normalTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
   Widget logoAndTextButton() {
     return TextButton(
-        onPressed: () {},
-        child: Row(
-          children: [
-            Image(
-              image: AssetImage("assets/logo.png"),
-              width: 20,
-              height: 20,
-            ),
-            Text("Some Academy", style: normalTextStyle(18))
-          ],
-        ));
+      onPressed: () {},
+      child: Row(
+        children: [
+          Image(
+            image: AssetImage("assets/logo.png"),
+            width: 20,
+            height: 20,
+          ),
+          Text("Some Academy", style: normalTextStyle(18))
+        ],
+      ),
+    );
   }
 
   Widget academyText1() {
