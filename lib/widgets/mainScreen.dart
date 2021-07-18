@@ -23,12 +23,12 @@ TextStyle boldTextStyle(double fontSize) {
 }
 
 bool isNavBarOpened = false;
-double navBarHeight = 30.0;
+double navBarHeight = 60.0;
 double navBarIndent = navBarHeight;
 double menuButtonWidth = navBarHeight;
 
 double normalTextSize = 18.0;
-double navBarTextSize = 14.0;
+double navBarTextSize = 18.0;
 
 class MyHomePageState extends State<MyHomePage> {
   @override
@@ -126,21 +126,24 @@ class MyHomePageState extends State<MyHomePage> {
           child: Container(
             width: double.infinity,
             height: navBarHeight,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Spacer(flex: 20),
-                logoAndTextButton(),
-                Spacer(flex: 10),
-                navBarTextButton("Академия"),
-                Spacer(flex: 10),
-                navBarTextButton("О нас"),
-                Spacer(flex: 10),
-                navBarTextButton("FAQ"),
-                Spacer(flex: 10),
-                navBarTextButton("Аккаунт"),
-                Spacer(flex: 20),
-              ],
+            child: Align(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Spacer(flex: 20),
+                  logoAndTextButton(),
+                  Spacer(flex: 10),
+                  navBarTextButton("Академия"),
+                  Spacer(flex: 10),
+                  navBarTextButton("О нас"),
+                  Spacer(flex: 10),
+                  navBarTextButton("FAQ"),
+                  Spacer(flex: 10),
+                  navBarTextButton("Аккаунт"),
+                  Spacer(flex: 20),
+                ],
+              ),
             ),
           ),
         ),
