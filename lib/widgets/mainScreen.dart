@@ -11,19 +11,19 @@ import 'package:sa_academy_web/main.dart';
 
 TextStyle normalTextStyle(double fontSize) {
   return TextStyle(
-      fontSize: fontSize, color: Colors.white, fontFamily: "roboto");
+      fontSize: fontSize, color: Colors.white, fontFamily: "menlo");
 }
 
 TextStyle boldTextStyle(double fontSize) {
   return TextStyle(
       fontSize: fontSize,
       color: Colors.white,
-      fontFamily: "roboto",
+      fontFamily: "menlo",
       fontWeight: FontWeight.bold);
 }
 
 bool isNavBarOpened = false;
-double navBarHeight = 60.0;
+double navBarHeight = 50.0;
 double navBarIndent = navBarHeight;
 double menuButtonWidth = navBarHeight;
 
@@ -134,13 +134,13 @@ class MyHomePageState extends State<MyHomePage> {
                   Spacer(flex: 20),
                   logoAndTextButton(),
                   Spacer(flex: 10),
-                  navBarTextButton("Академия"),
+                  aboutTextButton(),
                   Spacer(flex: 10),
-                  navBarTextButton("О нас"),
+                  directionsTextButton(),
                   Spacer(flex: 10),
-                  navBarTextButton("FAQ"),
+                  selectionTextButton(),
                   Spacer(flex: 10),
-                  navBarTextButton("Аккаунт"),
+                  contactsTextButton(),
                   Spacer(flex: 20),
                 ],
               ),
@@ -156,11 +156,12 @@ class MyHomePageState extends State<MyHomePage> {
         width: double.infinity,
         decoration: BoxDecoration(color: Color(0xFF000000)),
         child: Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            child: Column(
-              children: [
-                Row(
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              Container(
+                height: navBarHeight,
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(width: menuButtonWidth),
@@ -170,32 +171,75 @@ class MyHomePageState extends State<MyHomePage> {
                     menuButton(height)
                   ],
                 ),
-                AnimatedOpacity(
-                  opacity: isNavBarOpened ? 1.0 : 0.0,
-                  duration: Duration(milliseconds: isNavBarOpened ? 100 : 400),
-                  child: navBarTextButton("Академия"),
-                ),
-                AnimatedOpacity(
-                  opacity: isNavBarOpened ? 1.0 : 0.0,
-                  duration: Duration(milliseconds: isNavBarOpened ? 200 : 300),
-                  child: navBarTextButton("О нас"),
-                ),
-                AnimatedOpacity(
-                  opacity: isNavBarOpened ? 1.0 : 0.0,
-                  duration: Duration(milliseconds: isNavBarOpened ? 300 : 200),
-                  child: navBarTextButton("FAQ"),
-                ),
-                AnimatedOpacity(
-                  opacity: isNavBarOpened ? 1.0 : 0.0,
-                  duration: Duration(milliseconds: isNavBarOpened ? 400 : 100),
-                  child: navBarTextButton("Аккаунт"),
-                ),
-              ],
-            ),
+              ),
+              AnimatedOpacity(
+                opacity: isNavBarOpened ? 1.0 : 0.0,
+                duration: Duration(milliseconds: isNavBarOpened ? 100 : 400),
+                child: aboutTextButton(),
+              ),
+              AnimatedOpacity(
+                opacity: isNavBarOpened ? 1.0 : 0.0,
+                duration: Duration(milliseconds: isNavBarOpened ? 200 : 300),
+                child: directionsTextButton(),
+              ),
+              AnimatedOpacity(
+                opacity: isNavBarOpened ? 1.0 : 0.0,
+                duration: Duration(milliseconds: isNavBarOpened ? 300 : 200),
+                child: directionsTextButton(),
+              ),
+              AnimatedOpacity(
+                opacity: isNavBarOpened ? 1.0 : 0.0,
+                duration: Duration(milliseconds: isNavBarOpened ? 400 : 100),
+                child: contactsTextButton(),
+              ),
+            ],
           ),
         ),
       );
     }
+  }
+
+  Widget aboutTextButton() {
+    return TextButton(
+        onPressed: () {},
+        child: Text("О нас", style: normalTextStyle(navBarTextSize)),
+        style: ButtonStyle());
+  }
+
+  Widget directionsTextButton() {
+    return TextButton(
+        onPressed: () {},
+        child: Text("Направления", style: normalTextStyle(navBarTextSize)),
+        style: ButtonStyle());
+  }
+
+  Widget selectionTextButton() {
+    return TextButton(
+        onPressed: () {},
+        child: Text("Отбор", style: normalTextStyle(navBarTextSize)),
+        style: ButtonStyle());
+  }
+
+  // ignore: non_constant_identifier_names
+  Widget FAQTextButton() {
+    return TextButton(
+        onPressed: () {},
+        child: Text("FAQ", style: normalTextStyle(navBarTextSize)),
+        style: ButtonStyle());
+  }
+
+  Widget academyTextButton() {
+    return TextButton(
+        onPressed: () {},
+        child: Text("Academy", style: normalTextStyle(navBarTextSize)),
+        style: ButtonStyle());
+  }
+
+  Widget contactsTextButton() {
+    return TextButton(
+        onPressed: () {},
+        child: Text("Контакты", style: normalTextStyle(navBarTextSize)),
+        style: ButtonStyle());
   }
 
   Widget menuButton(double height) {
@@ -212,19 +256,6 @@ class MyHomePageState extends State<MyHomePage> {
             color: Color(0xFFFFFFFF),
           ),
         ));
-  }
-
-  Widget navBarTextButton(String text) {
-    return TextButton(
-        onPressed: () {
-          switch (text) {
-            case "Академия":
-              break;
-            default:
-          }
-        },
-        child: Text(text, style: normalTextStyle(navBarTextSize)),
-        style: ButtonStyle());
   }
 
   Widget logoAndTextButton() {
