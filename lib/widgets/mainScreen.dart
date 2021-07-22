@@ -27,7 +27,7 @@ double navBarHeight = 50.0;
 double navBarIndent = navBarHeight;
 double menuButtonWidth = navBarHeight;
 
-double textIndent = 50.0;
+double textIndent = 70.0;
 
 double normalTextSize = 18.0;
 double navBarTextSize = 18.0;
@@ -62,43 +62,74 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget coverFrame(double width, height) {
     return Container(
-      height: (height - navBarHeight),
-      decoration: BoxDecoration(color: Color(0x00222222)),
-      child: Row(
+      height: (width > 650) ? (height - navBarHeight) : null,
+      decoration: BoxDecoration(
+        color: Color(0x00222222),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment:
+            (width > 650) ? MainAxisAlignment.center : MainAxisAlignment.start,
         children: [
-          SizedBox(
-            width: textIndent,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: Color(0xFF4772FF),
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(13),
-                        bottomRight: Radius.circular(13))),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "онлайн-курсы\n",
+          (width > 650) ? SizedBox(height: 0) : SizedBox(height: 25),
+          Container(
+            width: 130 + textIndent,
+            height: 32,
+            decoration: BoxDecoration(
+              color: Color(0xFF4772FF),
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(13),
+                bottomRight: Radius.circular(13),
+              ),
+            ),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: navBarIndent,
+                  ),
+                  Text(
+                    "онлайн-курсы",
                     style: normalTextStyle(normalTextSize),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: textIndent,
+              ),
+              Container(
+                child: Flexible(
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: ".NET academy\n",
+                          style: normalTextStyle(64),
+                        ),
+                        TextSpan(
+                          text: (width > 650)
+                              ? "Бесплатная программа дополнительного образования для\nстаршеклассников по изучению языка C#\n\n"
+                              : "Бесплатная программа дополнительного образования для старшеклассников по изучению языка C#\n\n",
+                          style: normalTextStyle(normalTextSize),
+                        ),
+                        TextSpan(
+                          text: "Подача заявок открыта до 31 сентября.",
+                          style: TextStyle(
+                            fontSize: normalTextSize,
+                            color: Color(0xFF808080),
+                            fontFamily: "menlo",
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Text(
-                ".NET academy\n",
-                style: normalTextStyle(normalTextSize),
-              ),
-              Text(
-                "Бесплатная программа дополнительного образования\nдля старшеклассников по изучению языка C#\n",
-                style: normalTextStyle(normalTextSize),
-              ),
-              Text(
-                "Подача заявок открыта до 31 сентября.",
-                style: normalTextStyle(normalTextSize),
-              )
             ],
           ),
         ],
