@@ -27,6 +27,8 @@ double navBarHeight = 50.0;
 double navBarIndent = navBarHeight;
 double menuButtonWidth = navBarHeight;
 
+double textIndent = 50.0;
+
 double normalTextSize = 18.0;
 double navBarTextSize = 18.0;
 
@@ -43,14 +45,65 @@ class MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       drawer: menuButton(height),
       backgroundColor: Color(0xFF292929),
-      body: Stack(
-          children: [content(width), Positioned(child: navBar(width, height))]),
+      body: Stack(children: [
+        content(width, height),
+        Positioned(child: navBar(width, height))
+      ]),
     );
   }
 
-  Widget content(double width) {
-    return ListView(
-        children: [SizedBox(height: navBarHeight), aboutCources(width)]);
+  Widget content(double width, height) {
+    return ListView(children: [
+      SizedBox(height: navBarHeight),
+      coverFrame(width, height),
+      aboutCources(width)
+    ]);
+  }
+
+  Widget coverFrame(double width, height) {
+    return Container(
+      height: (height - navBarHeight),
+      decoration: BoxDecoration(color: Color(0x00222222)),
+      child: Row(
+        children: [
+          SizedBox(
+            width: textIndent,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFF4772FF),
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(13),
+                        bottomRight: Radius.circular(13))),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "онлайн-курсы\n",
+                    style: normalTextStyle(normalTextSize),
+                  ),
+                ),
+              ),
+              Text(
+                ".NET academy\n",
+                style: normalTextStyle(normalTextSize),
+              ),
+              Text(
+                "Бесплатная программа дополнительного образования\nдля старшеклассников по изучению языка C#\n",
+                style: normalTextStyle(normalTextSize),
+              ),
+              Text(
+                "Подача заявок открыта до 31 сентября.",
+                style: normalTextStyle(normalTextSize),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget aboutCources(double width) {
@@ -79,7 +132,7 @@ class MyHomePageState extends State<MyHomePage> {
                   text: "с нуля проект на пратформе .NET! ",
                   style: normalTextStyle(normalTextSize))
             ])))),
-            Image(image: AssetImage("assets/logo.png"), height: 300)
+            Image(image: AssetImage("assets/images/logo.png"), height: 300)
           ],
         ),
       );
@@ -111,7 +164,8 @@ class MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Center(
-              child: Image(image: AssetImage("assets/logo.png"), height: 300))
+              child: Image(
+                  image: AssetImage("assets/images/logo.png"), height: 300))
         ],
       );
     }
@@ -264,7 +318,7 @@ class MyHomePageState extends State<MyHomePage> {
       child: Row(
         children: [
           Image(
-            image: AssetImage("assets/logo.png"),
+            image: AssetImage("assets/images/logo.png"),
             width: 20,
             height: 20,
           ),
@@ -287,7 +341,7 @@ class MyHomePageState extends State<MyHomePage> {
           textAlign: TextAlign.center,
           style: TextStyle(color: Color(0xffffffff), fontSize: 100),
         ),
-        Image.asset("assets/logo.png", fit: BoxFit.scaleDown),
+        Image.asset("assets/images/logo.png", fit: BoxFit.scaleDown),
         SelectableText(
           "qwerty -- some text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text some text",
           textAlign: TextAlign.center,
