@@ -64,10 +64,41 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+     - family: segoeui
+       fonts:
+        - asset: assets/fonts/SegoeUI/segoeui.ttf
+          style: normal
+        - asset: assets/fonts/SegoeUI/segoeuib.ttf
+          weight: 700
+        - asset: assets/fonts/SegoeUI/segoeuii.ttf
+          style: italic
+
+        - asset: assets/fonts/SegoeUI/segoeuil.ttf
+          weight: 200
+        - asset: assets/fonts/SegoeUI/segoeuisl.ttf
+          weight: 300
+        - asset: assets/fonts/SegoeUI/segoeuiz.ttf
+          style: italic
+          weight: 500
+
+        - asset: assets/fonts/SegoeUI/seguibl.ttf
+          weight: 800
+        - asset: assets/fonts/SegoeUI/seguibli.ttf
+          style: italic
+          weight: 800
+        - asset: assets/fonts/SegoeUI/seguili.ttf
+          weight: 200
+          style: italic
+
+        - asset: assets/fonts/SegoeUI/seguisb.ttf
+          weight: 600
+        - asset: assets/fonts/SegoeUI/seguisbi.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/SegoeUI/seguisli.ttf
+          weight: 300
+          style: italic
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

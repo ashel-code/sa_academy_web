@@ -11,7 +11,15 @@ import 'package:sa_academy_web/main.dart';
 
 TextStyle normalTextStyle(double fontSize) {
   return TextStyle(
-      fontSize: fontSize, color: Colors.white, fontFamily: "menlo");
+      fontSize: fontSize, color: Colors.white, fontFamily: "segoeui");
+}
+
+TextStyle lightTextStyle(double fontSize) {
+  return TextStyle(
+      fontSize: fontSize,
+      color: Colors.white,
+      fontFamily: "segoeui",
+      fontWeight: FontWeight.w200);
 }
 
 TextStyle boldTextStyle(double fontSize) {
@@ -28,6 +36,9 @@ double navBarIndent = navBarHeight;
 double menuButtonWidth = navBarHeight;
 
 double textIndent = 70.0;
+
+double switchToMobileSize = 600;
+double navBarToMobile = 1000;
 
 double normalTextSize = 18.0;
 double navBarTextSize = 18.0;
@@ -62,16 +73,19 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget coverFrame(double width, height) {
     return Container(
-      height: (width > 650) ? (height - navBarHeight) : null,
+      height: height - navBarHeight,
       decoration: BoxDecoration(
         color: Color(0x00222222),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment:
-            (width > 650) ? MainAxisAlignment.center : MainAxisAlignment.start,
+        mainAxisAlignment: (width > switchToMobileSize)
+            ? MainAxisAlignment.center
+            : MainAxisAlignment.start,
         children: [
-          (width > 650) ? SizedBox(height: 0) : SizedBox(height: 25),
+          (width > switchToMobileSize)
+              ? SizedBox(height: 0)
+              : SizedBox(height: 25),
           Container(
             width: 130 + textIndent,
             height: 32,
@@ -112,7 +126,7 @@ class MyHomePageState extends State<MyHomePage> {
                           style: normalTextStyle(64),
                         ),
                         TextSpan(
-                          text: (width > 650)
+                          text: (width > switchToMobileSize)
                               ? "Бесплатная программа дополнительного образования для\nстаршеклассников по изучению языка C#\n\n"
                               : "Бесплатная программа дополнительного образования для старшеклассников по изучению языка C#\n\n",
                           style: normalTextStyle(normalTextSize),
@@ -138,7 +152,7 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget aboutCources(double width) {
-    if (width > 600) {
+    if (width > navBarToMobile) {
       return Container(
         child: Row(
           children: [
@@ -203,7 +217,7 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget navBar(double width, double height) {
-    if (width > 600) {
+    if (width > navBarToMobile) {
       return Align(
         alignment: Alignment.topCenter,
         child: Container(
@@ -216,17 +230,23 @@ class MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Spacer(flex: 20),
+                  SizedBox(width: 20),
+                  //  Spacer(flex: 20),
                   logoAndTextButton(),
-                  Spacer(flex: 10),
-                  aboutTextButton(),
-                  Spacer(flex: 10),
-                  directionsTextButton(),
-                  Spacer(flex: 10),
-                  selectionTextButton(),
-                  Spacer(flex: 10),
-                  contactsTextButton(),
+                  SizedBox(width: 50),
                   Spacer(flex: 20),
+                  aboutTextButton(),
+                  SizedBox(width: 50),
+                  directionsTextButton(),
+                  SizedBox(width: 50),
+                  selectionTextButton(),
+                  SizedBox(width: 50),
+                  FAQTextButton(),
+                  SizedBox(width: 50),
+                  contactsTextButton(),
+                  SizedBox(width: 50),
+                  fuckedButton(),
+                  SizedBox(width: 30),
                 ],
               ),
             ),
@@ -259,23 +279,33 @@ class MyHomePageState extends State<MyHomePage> {
               ),
               AnimatedOpacity(
                 opacity: isNavBarOpened ? 1.0 : 0.0,
-                duration: Duration(milliseconds: isNavBarOpened ? 100 : 400),
+                duration: Duration(milliseconds: isNavBarOpened ? 100 : 350),
                 child: aboutTextButton(),
               ),
               AnimatedOpacity(
                 opacity: isNavBarOpened ? 1.0 : 0.0,
-                duration: Duration(milliseconds: isNavBarOpened ? 200 : 300),
+                duration: Duration(milliseconds: isNavBarOpened ? 150 : 300),
                 child: directionsTextButton(),
               ),
               AnimatedOpacity(
                 opacity: isNavBarOpened ? 1.0 : 0.0,
-                duration: Duration(milliseconds: isNavBarOpened ? 300 : 200),
+                duration: Duration(milliseconds: isNavBarOpened ? 200 : 250),
                 child: directionsTextButton(),
               ),
               AnimatedOpacity(
                 opacity: isNavBarOpened ? 1.0 : 0.0,
-                duration: Duration(milliseconds: isNavBarOpened ? 400 : 100),
+                duration: Duration(milliseconds: isNavBarOpened ? 250 : 200),
+                child: FAQTextButton(),
+              ),
+              AnimatedOpacity(
+                opacity: isNavBarOpened ? 1.0 : 0.0,
+                duration: Duration(milliseconds: isNavBarOpened ? 300 : 150),
                 child: contactsTextButton(),
+              ),
+              AnimatedOpacity(
+                opacity: isNavBarOpened ? 1.0 : 0.0,
+                duration: Duration(milliseconds: isNavBarOpened ? 350 : 100),
+                child: fuckedButton(),
               ),
             ],
           ),
@@ -287,21 +317,21 @@ class MyHomePageState extends State<MyHomePage> {
   Widget aboutTextButton() {
     return TextButton(
         onPressed: () {},
-        child: Text("О нас", style: normalTextStyle(navBarTextSize)),
+        child: Text("О курсах", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
   Widget directionsTextButton() {
     return TextButton(
         onPressed: () {},
-        child: Text("Направления", style: normalTextStyle(navBarTextSize)),
+        child: Text("Направления", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
   Widget selectionTextButton() {
     return TextButton(
         onPressed: () {},
-        child: Text("Отбор", style: normalTextStyle(navBarTextSize)),
+        child: Text("Отбор", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
@@ -309,22 +339,40 @@ class MyHomePageState extends State<MyHomePage> {
   Widget FAQTextButton() {
     return TextButton(
         onPressed: () {},
-        child: Text("FAQ", style: normalTextStyle(navBarTextSize)),
+        child: Text("FAQ", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
   Widget academyTextButton() {
     return TextButton(
         onPressed: () {},
-        child: Text("Academy", style: normalTextStyle(navBarTextSize)),
+        child: Text("Academy", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
   Widget contactsTextButton() {
     return TextButton(
         onPressed: () {},
-        child: Text("Контакты", style: normalTextStyle(navBarTextSize)),
+        child: Text("Контакты", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
+  }
+
+  Widget fuckedButton() {
+    return Container(
+      height: 30,
+      width: 190,
+      decoration: BoxDecoration(
+        color: Color(0xFF4772FF),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+      ),
+      child: TextButton(
+        onPressed: () {},
+        child: Text(
+          "Стать участником",
+          style: normalTextStyle(normalTextSize),
+        ),
+      ),
+    );
   }
 
   Widget menuButton(double height) {
@@ -348,12 +396,12 @@ class MyHomePageState extends State<MyHomePage> {
       onPressed: () {},
       child: Row(
         children: [
-          Image(
-            image: AssetImage("assets/images/logo.png"),
-            width: 20,
-            height: 20,
-          ),
-          Text("Some Academy", style: normalTextStyle(18))
+          // Image(
+          //   image: AssetImage("assets/images/logo.png"),
+          //   width: 20,
+          //   height: 20,
+          // ),
+          Text("Academy", style: boldTextStyle(22))
         ],
       ),
     );
