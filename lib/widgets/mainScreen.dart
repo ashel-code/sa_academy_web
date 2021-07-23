@@ -14,6 +14,11 @@ TextStyle normalTextStyle(double fontSize) {
       fontSize: fontSize, color: Colors.white, fontFamily: "segoeui");
 }
 
+TextStyle normalBlackTextStyle(double fontSize) {
+  return TextStyle(
+      fontSize: fontSize, color: Colors.black, fontFamily: "segoeui");
+}
+
 TextStyle lightTextStyle(double fontSize) {
   return TextStyle(
       fontSize: fontSize,
@@ -26,8 +31,8 @@ TextStyle boldTextStyle(double fontSize) {
   return TextStyle(
       fontSize: fontSize,
       color: Colors.white,
-      fontFamily: "menlo",
-      fontWeight: FontWeight.bold);
+      fontFamily: "segoeui",
+      fontWeight: FontWeight.w600);
 }
 
 bool isNavBarOpened = false;
@@ -37,13 +42,25 @@ double menuButtonWidth = navBarHeight;
 
 double textIndent = 70.0;
 
-double switchToMobileSize = 600;
+double switchToMobileSize = 650;
 double navBarToMobile = 1000;
 
 double normalTextSize = 18.0;
 double navBarTextSize = 18.0;
 
+// images
+// what is academy answer block
+String skillsImage = "assets/images/logo.png";
+String practiceImage = "assets/images/logo.png";
+String projectImage = "assets/images/logo.png";
+//
+
 class MyHomePageState extends State<MyHomePage> {
+  // keys
+  final aboutKey = new GlobalKey();
+  final answersKey = new GlobalKey();
+  final aboutCourcesKey = new GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -64,11 +81,18 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget content(double width, height) {
-    return ListView(children: [
-      SizedBox(height: navBarHeight),
-      coverFrame(width, height),
-      aboutCources(width)
-    ]);
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: navBarHeight),
+          coverFrame(width, height),
+          whatIsAcademyText(),
+          whatIsAcademyAnswer(width),
+          united(width),
+          aboutCources(width),
+        ],
+      ),
+    );
   }
 
   Widget coverFrame(double width, height) {
@@ -90,7 +114,11 @@ class MyHomePageState extends State<MyHomePage> {
             width: 130 + textIndent,
             height: 32,
             decoration: BoxDecoration(
-              color: Color(0xFF4772FF),
+              gradient: LinearGradient(
+                colors: [Color(0xff1E88E5), Color(0xff0060B4)],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(13),
                 bottomRight: Radius.circular(13),
@@ -104,7 +132,7 @@ class MyHomePageState extends State<MyHomePage> {
                     width: navBarIndent,
                   ),
                   Text(
-                    "онлайн-курсы",
+                    "онлайн-курс",
                     style: normalTextStyle(normalTextSize),
                   ),
                 ],
@@ -151,69 +179,279 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget aboutCources(double width) {
-    if (width > navBarToMobile) {
-      return Container(
-        child: Row(
+  Widget united(double width) {
+    return Stack(
+      alignment: Alignment(0, 0),
+      children: [
+        Column(
           children: [
-            Flexible(
-                child: Container(
-                    child: RichText(
-                        text: TextSpan(children: [
-              TextSpan(text: "Что за курсы?\n", style: boldTextStyle(36.0)),
-              TextSpan(
-                  text: "Это спецпрограмма, где ты получишь практические ",
-                  style: normalTextStyle(normalTextSize)),
-              TextSpan(
-                  text: "навыки разработки ",
-                  style: boldTextStyle(normalTextSize)),
-              TextSpan(
-                  text: "на языке программирования C# и ",
-                  style: normalTextStyle(normalTextSize)),
-              TextSpan(
-                  text: "закодишь в команде ",
-                  style: boldTextStyle(normalTextSize)),
-              TextSpan(
-                  text: "с нуля проект на пратформе .NET! ",
-                  style: normalTextStyle(normalTextSize))
-            ])))),
-            Image(image: AssetImage("assets/images/logo.png"), height: 300)
+            Container(
+              height: 55,
+              color: Color(0xffCECECE),
+            ),
+            Container(
+              height: 55,
+              color: Color(0xFF292929),
+            )
           ],
         ),
-      );
-    } else {
-      return Column(
+        fuckedLine()
+      ],
+    );
+  }
+
+  Widget fuckedLine() {
+    return Material(
+      color: Color(0xff404040),
+      borderRadius: BorderRadius.all(
+        Radius.circular(70),
+      ),
+      elevation: 10.0,
+      child: Container(
+          child: Column(
         children: [
-          Container(
-            child: RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(text: "Что за курсы?\n", style: boldTextStyle(36.0)),
-                  TextSpan(
-                      text: "Это спецпрограмма, где ты получишь практические ",
-                      style: normalTextStyle(normalTextSize)),
-                  TextSpan(
-                      text: "навыки разработки ",
-                      style: boldTextStyle(normalTextSize)),
-                  TextSpan(
-                      text: "на языке программирования C# и ",
-                      style: normalTextStyle(normalTextSize)),
-                  TextSpan(
-                      text: "закодишь в команде ",
-                      style: boldTextStyle(normalTextSize)),
-                  TextSpan(
-                      text: "с нуля проект на пратформе .NET! ",
-                      style: normalTextStyle(normalTextSize))
-                ],
+          SizedBox(height: 15),
+          Text(
+            "  Курс будет проходить онлайн с октября 2021 года по апрель 2022 года.  ",
+            style: normalTextStyle(normalTextSize),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 15),
+        ],
+      )),
+    );
+  }
+
+  Widget aboutCources(double width) {
+    return Container(
+      child: Row(
+        children: [
+          SizedBox(width: textIndent),
+          Flexible(
+            child: Container(
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Что за курсы?\n",
+                      style: boldTextStyle(36.0),
+                    ),
+                    TextSpan(
+                      text:
+                          "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.\n",
+                      style: normalTextStyle(normalTextSize),
+                    ),
+                    TextSpan(
+                      text:
+                          "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.\n\n",
+                      style: normalTextStyle(normalTextSize),
+                    ),
+                    TextSpan(
+                      text:
+                          "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
+                      style: normalTextStyle(normalTextSize),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          Center(
-              child: Image(
-                  image: AssetImage("assets/images/logo.png"), height: 300))
+          Image(image: AssetImage("assets/images/logo.png"), height: 500),
+          // SizedBox(width: textIndent),
         ],
-      );
-    }
+      ),
+    );
+  }
+
+  Widget aboutCourcesOld(double width) {
+    return Container(
+      key: aboutCourcesKey,
+      child: (width > navBarToMobile)
+          ? Container(
+              child: Row(
+                children: [
+                  Flexible(
+                      child: Container(
+                          child: RichText(
+                              text: TextSpan(children: [
+                    TextSpan(
+                        text: "Что за курсы?\n", style: boldTextStyle(36.0)),
+                    TextSpan(
+                        text:
+                            "Это спецпрограмма, где ты получишь практические ",
+                        style: normalTextStyle(normalTextSize)),
+                    TextSpan(
+                        text: "навыки разработки ",
+                        style: boldTextStyle(normalTextSize)),
+                    TextSpan(
+                        text: "на языке программирования C# и ",
+                        style: normalTextStyle(normalTextSize)),
+                    TextSpan(
+                        text: "закодишь в команде ",
+                        style: boldTextStyle(normalTextSize)),
+                    TextSpan(
+                        text: "с нуля проект на пратформе .NET! ",
+                        style: normalTextStyle(normalTextSize))
+                  ])))),
+                  Image(
+                      image: AssetImage("assets/images/logo.png"), height: 300)
+                ],
+              ),
+            )
+          : Column(
+              children: [
+                Container(
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                            text: "Что за курсы?\n",
+                            style: boldTextStyle(36.0)),
+                        TextSpan(
+                            text:
+                                "Это спецпрограмма, где ты получишь практические ",
+                            style: normalTextStyle(normalTextSize)),
+                        TextSpan(
+                            text: "навыки разработки ",
+                            style: boldTextStyle(normalTextSize)),
+                        TextSpan(
+                            text: "на языке программирования C# и ",
+                            style: normalTextStyle(normalTextSize)),
+                        TextSpan(
+                            text: "закодишь в команде ",
+                            style: boldTextStyle(normalTextSize)),
+                        TextSpan(
+                            text: "с нуля проект на пратформе .NET! ",
+                            style: normalTextStyle(normalTextSize))
+                      ],
+                    ),
+                  ),
+                ),
+                Center(
+                    child: Image(
+                        image: AssetImage("assets/images/logo.png"),
+                        height: 300))
+              ],
+            ),
+    );
+  }
+
+  Widget whatIsAcademyText() {
+    return Container(
+      height: 100,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color(0xff1E88E5),
+            Color(0xff1F67A7),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          "Что такое академия?",
+          style: boldTextStyle(48.0),
+        ),
+      ),
+    );
+  }
+
+  Widget whatIsAcademyAnswer(double width) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Color(0xffCECECE),
+      ),
+      child: (width > switchToMobileSize)
+          ? Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(width: width / 16),
+                skills(width),
+                SizedBox(width: width / 16),
+                practice(width),
+                SizedBox(width: width / 16),
+                project(width),
+                SizedBox(width: width / 16),
+              ],
+            )
+          : Row(
+              children: [
+                SizedBox(width: width / 16),
+                Column(
+                  children: [
+                    skills(width),
+                    practice(width),
+                    project(width),
+                  ],
+                ),
+                SizedBox(width: width / 16),
+              ],
+            ),
+    );
+  }
+
+  // 1 4 1 4 1 4 1 sum
+  Widget skills(double width) {
+    return Container(
+      width: (width > switchToMobileSize) ? (width / 4) : (width / 8 * 7),
+      child: Column(
+        children: [
+          SizedBox(height: 25),
+          Image(
+            image: AssetImage(skillsImage),
+          ),
+          Text(
+            "Здесь получают крутые навыки разработки на языке программирования C#",
+            style: normalBlackTextStyle(normalTextSize),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 25),
+        ],
+      ),
+    );
+  }
+
+  Widget practice(double width) {
+    return Container(
+      width: (width > switchToMobileSize) ? (width / 4) : (width / 8 * 7),
+      child: Column(
+        children: [
+          SizedBox(height: 25),
+          Image(
+            image: AssetImage(practiceImage),
+          ),
+          Text(
+            "Тебя ждет проект, который ты запилишь вместе с командой и добавишь в свое портфолио",
+            style: normalBlackTextStyle(normalTextSize),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 25),
+        ],
+      ),
+    );
+  }
+
+  Widget project(double width) {
+    return Container(
+      width: (width > switchToMobileSize) ? (width / 4) : (width / 8 * 7),
+      child: Column(
+        children: [
+          SizedBox(height: 25),
+          Image(
+            image: AssetImage(projectImage),
+          ),
+          Text(
+            "Практические занятия, лекции и домашка уже в комплекте, так что времени скучать не будет!",
+            style: normalBlackTextStyle(normalTextSize),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 25),
+        ],
+      ),
+    );
   }
 
   Widget navBar(double width, double height) {
@@ -316,7 +554,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget aboutTextButton() {
     return TextButton(
-        onPressed: () {},
+        onPressed: () => Scrollable.ensureVisible(aboutKey.currentContext!),
         child: Text("О курсах", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
@@ -362,7 +600,7 @@ class MyHomePageState extends State<MyHomePage> {
       height: 30,
       width: 190,
       decoration: BoxDecoration(
-        color: Color(0xFF4772FF),
+        color: Color(0xff0079D5),
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
       child: TextButton(
