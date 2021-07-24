@@ -5,8 +5,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/rendering.dart';
-import 'package:sa_academy_web/widgets/oldWidgets.dart' as old;
+import 'package:dotted_line/dotted_line.dart';
 
+import 'package:sa_academy_web/widgets/oldWidgets.dart' as old;
 import 'package:sa_academy_web/main.dart';
 
 TextStyle normalTextStyle(double fontSize) {
@@ -27,6 +28,11 @@ TextStyle lightTextStyle(double fontSize) {
       fontWeight: FontWeight.w200);
 }
 
+TextSpan spaceEnter = TextSpan(
+  text: "\n\n",
+  style: TextStyle(height: 0.5),
+);
+
 TextStyle boldTextStyle(double fontSize) {
   return TextStyle(
       fontSize: fontSize,
@@ -41,12 +47,16 @@ double navBarIndent = navBarHeight;
 double menuButtonWidth = navBarHeight;
 
 double textIndent = 70.0;
+double schemeIndent = 8.0;
+double schemeHorizontalIndent = 20;
 
 double switchToMobileSize = 650;
 double navBarToMobile = 1000;
 
 double normalTextSize = 18.0;
 double navBarTextSize = 18.0;
+
+double normalElevation = 5.0;
 
 // images
 // what is academy answer block
@@ -90,6 +100,7 @@ class MyHomePageState extends State<MyHomePage> {
           whatIsAcademyAnswer(width),
           united(width),
           aboutCources(width),
+          learningScheme()
         ],
       ),
     );
@@ -206,7 +217,7 @@ class MyHomePageState extends State<MyHomePage> {
       borderRadius: BorderRadius.all(
         Radius.circular(70),
       ),
-      elevation: 10.0,
+      elevation: normalElevation,
       child: Container(
           child: Column(
         children: [
@@ -224,42 +235,95 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget aboutCources(double width) {
     return Container(
-      child: Row(
-        children: [
-          SizedBox(width: textIndent),
-          Flexible(
-            child: Container(
-              child: RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Что за курсы?\n",
-                      style: boldTextStyle(36.0),
+      child: (width > switchToMobileSize)
+          ? Row(
+              children: [
+                SizedBox(width: textIndent),
+                Flexible(
+                  child: Container(
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: "Что за курсы?",
+                            style: boldTextStyle(36.0),
+                          ),
+                          spaceEnter,
+                          TextSpan(
+                            text:
+                                "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
+                            style: normalTextStyle(normalTextSize),
+                          ),
+                          spaceEnter,
+                          TextSpan(
+                            text:
+                                "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
+                            style: normalTextStyle(normalTextSize),
+                          ),
+                          spaceEnter,
+                          TextSpan(
+                            text:
+                                "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
+                            style: normalTextStyle(normalTextSize),
+                          ),
+                        ],
+                      ),
                     ),
-                    TextSpan(
-                      text:
-                          "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.\n",
-                      style: normalTextStyle(normalTextSize),
-                    ),
-                    TextSpan(
-                      text:
-                          "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.\n\n",
-                      style: normalTextStyle(normalTextSize),
-                    ),
-                    TextSpan(
-                      text:
-                          "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
-                      style: normalTextStyle(normalTextSize),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                Flexible(
+                  child: Image(
+                    image: AssetImage("assets/images/logo.png"),
+                  ),
+                ),
+                // SizedBox(width: textIndent),
+              ],
+            )
+          : Row(
+              children: [
+                SizedBox(width: textIndent / 2),
+                Flexible(
+                  child: Column(
+                    children: [
+                      Container(
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Что за курсы?",
+                                style: boldTextStyle(36.0),
+                              ),
+                              spaceEnter,
+                              TextSpan(
+                                text:
+                                    "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
+                                style: normalTextStyle(normalTextSize),
+                              ),
+                              spaceEnter,
+                              TextSpan(
+                                text:
+                                    "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
+                                style: normalTextStyle(normalTextSize),
+                              ),
+                              spaceEnter,
+                              TextSpan(
+                                text:
+                                    "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
+                                style: normalTextStyle(normalTextSize),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Image(
+                          image: AssetImage("assets/images/logo.png"),
+                          height: 500),
+                    ],
+                  ),
+                ),
+                SizedBox(width: textIndent / 2),
+              ],
             ),
-          ),
-          Image(image: AssetImage("assets/images/logo.png"), height: 500),
-          // SizedBox(width: textIndent),
-        ],
-      ),
     );
   }
 
@@ -451,6 +515,281 @@ class MyHomePageState extends State<MyHomePage> {
           SizedBox(height: 25),
         ],
       ),
+    );
+  }
+
+  Widget learningScheme() {
+    return Container(
+      color: Color(0xff404040),
+      child: Row(
+        children: [
+          firstPeriod(),
+          SizedBox(width: schemeHorizontalIndent),
+          DottedLine(
+            direction: Axis.vertical,
+            lineLength: 150,
+            dashColor: Color(0xffC4C4C4),
+          ),
+          SizedBox(width: schemeHorizontalIndent),
+          secondPeriod(),
+          SizedBox(width: schemeHorizontalIndent),
+          DottedLine(
+            direction: Axis.vertical,
+            lineLength: 150,
+            dashColor: Color(0xffC4C4C4),
+          ),
+          SizedBox(width: schemeHorizontalIndent),
+          thirdPeriod(),
+        ],
+      ),
+    );
+  }
+
+  Widget firstPeriod() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "октябрь-ноябрь",
+          style: normalTextStyle(14),
+          textAlign: TextAlign.left,
+        ),
+        SizedBox(
+          height: schemeIndent,
+        ),
+        Material(
+          color: Color(0xffC7C7C7),
+          borderRadius: BorderRadius.all(
+            Radius.circular(70),
+          ),
+          elevation: normalElevation,
+          child: Container(
+            height: 40,
+            width: 240,
+            child: Column(
+              children: [
+                Spacer(),
+                Text(
+                  "Изучение синтаксиса",
+                  style: normalBlackTextStyle(normalTextSize),
+                  textAlign: TextAlign.center,
+                ),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget secondPeriod() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "ноябрь-декабрь",
+          style: normalTextStyle(14),
+          textAlign: TextAlign.left,
+        ),
+        SizedBox(
+          height: schemeIndent,
+        ),
+        Material(
+          color: Color(0xffC7C7C7),
+          borderRadius: BorderRadius.all(
+            Radius.circular(70),
+          ),
+          elevation: normalElevation,
+          child: Container(
+            height: 40,
+            width: 240,
+            child: Column(
+              children: [
+                Spacer(),
+                Text(
+                  "Веб-направление",
+                  style: normalBlackTextStyle(normalTextSize),
+                  textAlign: TextAlign.center,
+                ),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(
+          height: schemeIndent,
+        ),
+        Material(
+          color: Color(0xffC7C7C7),
+          borderRadius: BorderRadius.all(
+            Radius.circular(70),
+          ),
+          elevation: normalElevation,
+          child: Container(
+            height: 40,
+            width: 240,
+            child: Column(
+              children: [
+                Spacer(),
+                Text(
+                  "Десктопное направление",
+                  style: normalBlackTextStyle(normalTextSize),
+                  textAlign: TextAlign.center,
+                ),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(
+          height: schemeIndent,
+        ),
+        Material(
+          color: Color(0xffC7C7C7),
+          borderRadius: BorderRadius.all(
+            Radius.circular(70),
+          ),
+          elevation: normalElevation,
+          child: Container(
+            height: 40,
+            width: 240,
+            child: Column(
+              children: [
+                Spacer(),
+                Text(
+                  "GameDev направление",
+                  style: normalBlackTextStyle(normalTextSize),
+                  textAlign: TextAlign.center,
+                ),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget thirdPeriod() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "январь-апрель",
+          style: normalTextStyle(14),
+          textAlign: TextAlign.left,
+        ),
+        SizedBox(
+          height: schemeIndent,
+        ),
+        Row(
+          children: [
+            Material(
+              color: Color(0xffC7C7C7),
+              borderRadius: BorderRadius.all(
+                Radius.circular(70),
+              ),
+              elevation: normalElevation,
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Text(
+                      "SQL",
+                      style: normalBlackTextStyle(normalTextSize),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(width: schemeHorizontalIndent),
+            Material(
+              color: Color(0xffC7C7C7),
+              borderRadius: BorderRadius.all(
+                Radius.circular(70),
+              ),
+              elevation: normalElevation,
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Text(
+                      "Боты",
+                      style: normalBlackTextStyle(normalTextSize),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(width: schemeHorizontalIndent),
+            Material(
+              color: Color(0xffC7C7C7),
+              borderRadius: BorderRadius.all(
+                Radius.circular(70),
+              ),
+              elevation: normalElevation,
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Text(
+                      "ML",
+                      style: normalBlackTextStyle(normalTextSize),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(width: schemeHorizontalIndent),
+            Material(
+              color: Color(0xffC7C7C7),
+              borderRadius: BorderRadius.all(
+                Radius.circular(70),
+              ),
+              elevation: normalElevation,
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Text(
+                      "...",
+                      style: normalBlackTextStyle(normalTextSize),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: schemeIndent,
+        ),
+        SizedBox(
+          height: schemeIndent,
+        ),
+        Text(
+          "проектная деятельность",
+          style: normalTextStyle(12),
+          textAlign: TextAlign.left,
+        )
+      ],
     );
   }
 
