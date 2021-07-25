@@ -235,60 +235,16 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget aboutCources(double width) {
     return Container(
+        key: aboutKey,
         child: Column(
-      children: [
-        SizedBox(height: horizontalIndent * 2),
-        (width > switchToMobileSize)
-            ? Row(
-                children: [
-                  SizedBox(width: textIndent),
-                  Flexible(
-                    child: Container(
-                      child: RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: "Что за курсы?",
-                              style: boldTextStyle(36.0),
-                            ),
-                            spaceEnter,
-                            TextSpan(
-                              text:
-                                  "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
-                              style: normalTextStyle(normalTextSize),
-                            ),
-                            spaceEnter,
-                            TextSpan(
-                              text:
-                                  "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
-                              style: normalTextStyle(normalTextSize),
-                            ),
-                            spaceEnter,
-                            TextSpan(
-                              text:
-                                  "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
-                              style: normalTextStyle(normalTextSize),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Image(
-                      image: AssetImage("assets/images/logo.png"),
-                    ),
-                  ),
-                  // SizedBox(width: textIndent),
-                ],
-              )
-            : Row(
-                children: [
-                  SizedBox(width: textIndent / 2),
-                  Flexible(
-                    child: Column(
-                      children: [
-                        Container(
+          children: [
+            SizedBox(height: horizontalIndent * 2),
+            (width > switchToMobileSize)
+                ? Row(
+                    children: [
+                      SizedBox(width: textIndent),
+                      Flexible(
+                        child: Container(
                           child: RichText(
                             text: TextSpan(
                               children: [
@@ -318,18 +274,64 @@ class MyHomePageState extends State<MyHomePage> {
                             ),
                           ),
                         ),
-                        Image(
-                            image: AssetImage("assets/images/logo.png"),
-                            height: 500),
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: horizontalIndent * 2),
+                      // maybe
+                      FittedBox(
+                        child: Image(
+                          image: AssetImage("assets/images/logo.png"),
+                        ),
+                      )
+                    ],
+                  )
+                : Row(
+                    children: [
+                      SizedBox(width: textIndent / 2),
+                      Flexible(
+                        child: Column(
+                          children: [
+                            Container(
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: "Что за курсы?",
+                                      style: boldTextStyle(36.0),
+                                    ),
+                                    spaceEnter,
+                                    TextSpan(
+                                      text:
+                                          "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
+                                      style: normalTextStyle(normalTextSize),
+                                    ),
+                                    spaceEnter,
+                                    TextSpan(
+                                      text:
+                                          "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
+                                      style: normalTextStyle(normalTextSize),
+                                    ),
+                                    spaceEnter,
+                                    TextSpan(
+                                      text:
+                                          "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
+                                      style: normalTextStyle(normalTextSize),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Image(
+                                image: AssetImage("assets/images/logo.png"),
+                                height: 500),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: textIndent / 2),
+                    ],
                   ),
-                  SizedBox(width: textIndent / 2),
-                ],
-              ),
-        SizedBox(height: horizontalIndent * 2),
-      ],
-    ));
+            SizedBox(height: horizontalIndent * 2),
+          ],
+        ));
   }
 
   Widget aboutCourcesOld(double width) {
