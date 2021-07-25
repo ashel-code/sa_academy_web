@@ -60,10 +60,11 @@ double normalElevation = 5.0;
 
 // images
 // what is academy answer block
-String skillsImage = "assets/images/logo.png";
-String practiceImage = "assets/images/logo.png";
-String projectImage = "assets/images/logo.png";
-//
+String skillsImage = "assets/images/smile.png";
+String practiceImage = "assets/images/school.png";
+String projectImage = "assets/images/graduation.png";
+// what is academy question block
+String threeGaysImage = "assets/images/three-guys.png";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
@@ -100,7 +101,8 @@ class MyHomePageState extends State<MyHomePage> {
           whatIsAcademyAnswer(width),
           united(width),
           aboutCources(width),
-          learningScheme(width)
+          learningScheme(width),
+          howItWorks(width)
         ],
       ),
     );
@@ -279,7 +281,8 @@ class MyHomePageState extends State<MyHomePage> {
                       // maybe
                       FittedBox(
                         child: Image(
-                          image: AssetImage("assets/images/logo.png"),
+                          image: AssetImage(threeGaysImage),
+                          width: (width > 800) ? 400 : 300,
                         ),
                       )
                     ],
@@ -321,8 +324,7 @@ class MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                             Image(
-                                image: AssetImage("assets/images/logo.png"),
-                                height: 500),
+                                image: AssetImage(threeGaysImage), height: 500),
                           ],
                         ),
                       ),
@@ -473,7 +475,9 @@ class MyHomePageState extends State<MyHomePage> {
           SizedBox(height: 25),
           Image(
             image: AssetImage(skillsImage),
+            height: 80,
           ),
+          SizedBox(height: schemeIndent),
           Text(
             "Здесь получают крутые навыки разработки на языке программирования C#",
             style: normalBlackTextStyle(normalTextSize),
@@ -493,7 +497,9 @@ class MyHomePageState extends State<MyHomePage> {
           SizedBox(height: 25),
           Image(
             image: AssetImage(practiceImage),
+            height: 80,
           ),
+          SizedBox(height: schemeIndent),
           Text(
             "Тебя ждет проект, который ты запилишь вместе с командой и добавишь в свое портфолио",
             style: normalBlackTextStyle(normalTextSize),
@@ -513,7 +519,9 @@ class MyHomePageState extends State<MyHomePage> {
           SizedBox(height: 25),
           Image(
             image: AssetImage(projectImage),
+            height: 80,
           ),
+          SizedBox(height: schemeIndent),
           Text(
             "Практические занятия, лекции и домашка уже в комплекте, так что времени скучать не будет!",
             style: normalBlackTextStyle(normalTextSize),
@@ -528,62 +536,72 @@ class MyHomePageState extends State<MyHomePage> {
   Widget learningScheme(double width) {
     return Container(
       color: Color(0xff404040),
-      child: (width > navBarToMobile)
-          ? Column(
-              children: [
-                SizedBox(height: horizontalIndent),
-                Row(
+      child: Column(
+        children: [
+          SizedBox(height: horizontalIndent),
+          Text(
+            "Схема обучения",
+            style: boldTextStyle(36.0),
+            textAlign: TextAlign.center,
+          ),
+          (width > navBarToMobile)
+              ? Column(
                   children: [
-                    SizedBox(width: textIndent),
-                    firstPeriod(),
-                    SizedBox(width: horizontalIndent),
-                    DottedLine(
-                      direction: Axis.vertical,
-                      lineLength: 150,
-                      dashColor: Color(0xffC4C4C4),
+                    SizedBox(height: horizontalIndent),
+                    Row(
+                      children: [
+                        SizedBox(width: textIndent),
+                        firstPeriod(),
+                        SizedBox(width: horizontalIndent),
+                        DottedLine(
+                          direction: Axis.vertical,
+                          lineLength: 200,
+                          dashColor: Color(0xffC4C4C4),
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        secondPeriod(),
+                        SizedBox(width: horizontalIndent),
+                        DottedLine(
+                          direction: Axis.vertical,
+                          lineLength: 200,
+                          dashColor: Color(0xffC4C4C4),
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        thirdPeriod(width),
+                      ],
                     ),
-                    SizedBox(width: horizontalIndent),
-                    secondPeriod(),
-                    SizedBox(width: horizontalIndent),
-                    DottedLine(
-                      direction: Axis.vertical,
-                      lineLength: 150,
-                      dashColor: Color(0xffC4C4C4),
-                    ),
-                    SizedBox(width: horizontalIndent),
-                    thirdPeriod(width),
-                  ],
-                ),
-                SizedBox(height: horizontalIndent),
-              ],
-            )
-          : Row(
-              children: [
-                Spacer(),
-                Column(
-                  children: [
-                    SizedBox(height: horizontalIndent * 2),
-                    firstPeriod(),
-                    SizedBox(height: horizontalIndent / 2),
-                    DottedLine(
-                      lineLength: 350,
-                      dashColor: Color(0xffC4C4C4),
-                    ),
-                    SizedBox(height: horizontalIndent / 2),
-                    secondPeriod(),
-                    SizedBox(height: horizontalIndent / 2),
-                    DottedLine(
-                      lineLength: 350,
-                      dashColor: Color(0xffC4C4C4),
-                    ),
-                    SizedBox(height: horizontalIndent / 2),
-                    thirdPeriod(width),
                     SizedBox(height: horizontalIndent),
                   ],
+                )
+              : Row(
+                  children: [
+                    Spacer(),
+                    Column(
+                      children: [
+                        SizedBox(height: horizontalIndent * 2),
+                        firstPeriod(),
+                        SizedBox(height: horizontalIndent / 2),
+                        DottedLine(
+                          lineLength: 350,
+                          dashColor: Color(0xffC4C4C4),
+                        ),
+                        SizedBox(height: horizontalIndent / 2),
+                        secondPeriod(),
+                        SizedBox(height: horizontalIndent / 2),
+                        DottedLine(
+                          lineLength: 350,
+                          dashColor: Color(0xffC4C4C4),
+                        ),
+                        SizedBox(height: horizontalIndent / 2),
+                        thirdPeriod(width),
+                        SizedBox(height: horizontalIndent),
+                      ],
+                    ),
+                    Spacer()
+                  ],
                 ),
-                Spacer()
-              ],
-            ),
+        ],
+      ),
     );
   }
 
@@ -707,6 +725,13 @@ class MyHomePageState extends State<MyHomePage> {
                 Spacer(),
               ],
             ),
+          ),
+        ),
+        Container(
+          width: 240,
+          child: Text(
+            "* На данном этапе выбор направления производится по конкурсу посещаемости и оценок за практические работы.",
+            style: normalTextStyle(12.0),
           ),
         ),
       ],
@@ -842,6 +867,198 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget howItWorks(double width) {
+    if (width > navBarToMobile) {
+      // Big size
+      return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Column(
+            children: [
+              Text(
+                "Как это работает",
+                style: normalTextStyle(36.0),
+              ),
+              Row(
+                children: [
+                  firstTime(),
+                  secondTime(),
+                  thirdTime(),
+                  fourthTime(),
+                ],
+              ),
+            ],
+          ));
+    } else if (width > switchToMobileSize) {
+      // Middle size
+      return Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Row(
+          children: [
+            SizedBox(width: textIndent),
+            Flexible(
+              child: Column(
+                children: [
+                  Text(
+                    "Как это работает",
+                    style: normalTextStyle(36.0),
+                  ),
+                  Row(
+                    children: [
+                      Flexible(child: firstTime()),
+                      Flexible(child: secondTime()),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Flexible(child: thirdTime()),
+                      Flexible(child: fourthTime()),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            SizedBox(width: textIndent),
+          ],
+        ),
+      );
+    } else {
+      // Little size
+      return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Row(
+            children: [
+              SizedBox(width: textIndent),
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: width,
+                      child: Text(
+                        "Как это работает",
+                        style: normalTextStyle(36.0),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    firstTime(),
+                    secondTime(),
+                    thirdTime(),
+                    fourthTime(),
+                  ],
+                ),
+              ),
+              SizedBox(width: textIndent),
+            ],
+          ));
+    }
+  }
+
+  Widget firstTime() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image(
+          image: AssetImage(""),
+          height: 70,
+        ),
+        Text(
+          "1-31 сентября",
+          style: normalTextStyle(24),
+          textAlign: TextAlign.start,
+        ),
+        Text(
+          "Вписываетесь через форму регистрации на сайте",
+          style: normalTextStyle(normalTextSize),
+          textAlign: TextAlign.start,
+        ),
+      ],
+    );
+  }
+
+  Widget secondTime() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image(
+          image: AssetImage(""),
+          height: 70,
+        ),
+        Text(
+          "4 октября",
+          style: normalTextStyle(24),
+          textAlign: TextAlign.start,
+        ),
+        Text(
+          "Первая встреча: знакомимся друг с другом",
+          style: normalTextStyle(normalTextSize),
+          textAlign: TextAlign.start,
+        ),
+      ],
+    );
+  }
+
+  Widget thirdTime() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image(
+          image: AssetImage(""),
+          height: 70,
+        ),
+        Text(
+          "6 окт - 24 апр",
+          style: normalTextStyle(24),
+          textAlign: TextAlign.start,
+        ),
+        Text(
+          "Проходите обучение и работаете над проектом",
+          style: normalTextStyle(normalTextSize),
+          textAlign: TextAlign.start,
+        ),
+      ],
+    );
+  }
+
+  Widget fourthTime() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image(
+          image: AssetImage(""),
+          height: 70,
+        ),
+        Text(
+          "25-30 апреля",
+          style: normalTextStyle(24),
+          textAlign: TextAlign.start,
+        ),
+        Text(
+          "Демо-день: презентуете результаты своей работы, подводим итоги",
+          style: normalTextStyle(normalTextSize),
+          textAlign: TextAlign.start,
+        ),
+      ],
+    );
+  }
+
   Widget navBar(double width, double height) {
     if (width > navBarToMobile) {
       return Align(
@@ -942,7 +1159,12 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget aboutTextButton() {
     return TextButton(
-        onPressed: () => Scrollable.ensureVisible(aboutKey.currentContext!),
+        onPressed: () {
+          Scrollable.ensureVisible(aboutKey.currentContext!);
+          setState(() {
+            isNavBarOpened = false;
+          });
+        },
         child: Text("О курсах", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }

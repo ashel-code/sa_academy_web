@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    
+
   dotted_line: ^3.0.0
 
 
@@ -53,6 +53,13 @@ flutter:
 
   - assets/images/code.jpg
   - assets/images/logo.png
+
+  - assets/images/graduation.png
+  - assets/images/smile.png
+  - assets/images/school.png
+
+  - assets/images/three-guys.png
+  - assets/images/three-guys.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
