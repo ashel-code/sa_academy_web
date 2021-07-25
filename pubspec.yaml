@@ -60,6 +60,11 @@ flutter:
 
   - assets/images/three-guys.png
   - assets/images/three-guys.png
+
+  - assets/images/pencil.png
+  - assets/images/briefcase.png
+  - assets/images/pc.png
+  - assets/images/party-popper.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

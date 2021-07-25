@@ -65,6 +65,11 @@ String practiceImage = "assets/images/school.png";
 String projectImage = "assets/images/graduation.png";
 // what is academy question block
 String threeGaysImage = "assets/images/three-guys.png";
+// how it works block
+String penisImage = "assets/images/pencil.png";
+String shittyCase = "assets/images/briefcase.png";
+String notMacbook = "assets/images/pc.png";
+String carrotidk = "assets/images/party-popper.png";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
@@ -871,6 +876,41 @@ class MyHomePageState extends State<MyHomePage> {
     if (width > navBarToMobile) {
       // Big size
       return Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Column(
+          children: [
+            SizedBox(height: horizontalIndent),
+            Text(
+              "Как это работает",
+              style: normalTextStyle(36.0),
+            ),
+            SizedBox(height: horizontalIndent),
+            Row(
+              children: [
+                SizedBox(width: textIndent),
+                Flexible(child: firstTime()),
+                SizedBox(width: textIndent),
+                Flexible(child: secondTime()),
+                SizedBox(width: textIndent),
+                Flexible(child: thirdTime()),
+                SizedBox(width: textIndent),
+                Flexible(child: fourthTime()),
+                SizedBox(width: textIndent),
+              ],
+            ),
+            SizedBox(height: horizontalIndent),
+          ],
+        ),
+      );
+    } else if (width > switchToMobileSize) {
+      // Middle size
+      return Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
@@ -880,59 +920,41 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           child: Column(
             children: [
-              Text(
-                "Как это работает",
-                style: normalTextStyle(36.0),
-              ),
               Row(
                 children: [
-                  firstTime(),
-                  secondTime(),
-                  thirdTime(),
-                  fourthTime(),
+                  SizedBox(width: textIndent),
+                  Flexible(
+                    child: Column(
+                      children: [
+                        SizedBox(height: horizontalIndent),
+                        Text(
+                          "Как это работает",
+                          style: normalTextStyle(36.0),
+                        ),
+                        SizedBox(height: horizontalIndent),
+                        Row(
+                          children: [
+                            Flexible(child: firstTime()),
+                            SizedBox(width: textIndent),
+                            Flexible(child: secondTime()),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Flexible(child: thirdTime()),
+                            SizedBox(width: textIndent),
+                            Flexible(child: fourthTime()),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: textIndent),
                 ],
               ),
+              SizedBox(height: horizontalIndent),
             ],
           ));
-    } else if (width > switchToMobileSize) {
-      // Middle size
-      return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: Row(
-          children: [
-            SizedBox(width: textIndent),
-            Flexible(
-              child: Column(
-                children: [
-                  Text(
-                    "Как это работает",
-                    style: normalTextStyle(36.0),
-                  ),
-                  Row(
-                    children: [
-                      Flexible(child: firstTime()),
-                      Flexible(child: secondTime()),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Flexible(child: thirdTime()),
-                      Flexible(child: fourthTime()),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            SizedBox(width: textIndent),
-          ],
-        ),
-      );
     } else {
       // Little size
       return Container(
@@ -950,6 +972,7 @@ class MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(height: horizontalIndent),
                     Container(
                       width: width,
                       child: Text(
@@ -958,9 +981,13 @@ class MyHomePageState extends State<MyHomePage> {
                         textAlign: TextAlign.center,
                       ),
                     ),
+                    SizedBox(height: horizontalIndent),
                     firstTime(),
+                    SizedBox(height: horizontalIndent),
                     secondTime(),
+                    SizedBox(height: horizontalIndent),
                     thirdTime(),
+                    SizedBox(height: horizontalIndent),
                     fourthTime(),
                   ],
                 ),
@@ -976,7 +1003,7 @@ class MyHomePageState extends State<MyHomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image(
-          image: AssetImage(""),
+          image: AssetImage(penisImage),
           height: 70,
         ),
         Text(
@@ -998,7 +1025,7 @@ class MyHomePageState extends State<MyHomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image(
-          image: AssetImage(""),
+          image: AssetImage(shittyCase),
           height: 70,
         ),
         Text(
@@ -1020,7 +1047,7 @@ class MyHomePageState extends State<MyHomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image(
-          image: AssetImage(""),
+          image: AssetImage(notMacbook),
           height: 70,
         ),
         Text(
@@ -1042,7 +1069,7 @@ class MyHomePageState extends State<MyHomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image(
-          image: AssetImage(""),
+          image: AssetImage(carrotidk),
           height: 70,
         ),
         Text(
