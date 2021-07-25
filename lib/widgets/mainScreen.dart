@@ -48,7 +48,7 @@ double menuButtonWidth = navBarHeight;
 
 double textIndent = 70.0;
 double schemeIndent = 8.0;
-double schemeHorizontalIndent = 20;
+double horizontalIndent = 20;
 
 double switchToMobileSize = 650;
 double navBarToMobile = 1000;
@@ -100,7 +100,7 @@ class MyHomePageState extends State<MyHomePage> {
           whatIsAcademyAnswer(width),
           united(width),
           aboutCources(width),
-          learningScheme()
+          learningScheme(width)
         ],
       ),
     );
@@ -235,96 +235,101 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget aboutCources(double width) {
     return Container(
-      child: (width > switchToMobileSize)
-          ? Row(
-              children: [
-                SizedBox(width: textIndent),
-                Flexible(
-                  child: Container(
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Что за курсы?",
-                            style: boldTextStyle(36.0),
-                          ),
-                          spaceEnter,
-                          TextSpan(
-                            text:
-                                "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
-                            style: normalTextStyle(normalTextSize),
-                          ),
-                          spaceEnter,
-                          TextSpan(
-                            text:
-                                "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
-                            style: normalTextStyle(normalTextSize),
-                          ),
-                          spaceEnter,
-                          TextSpan(
-                            text:
-                                "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
-                            style: normalTextStyle(normalTextSize),
-                          ),
-                        ],
+        child: Column(
+      children: [
+        SizedBox(height: horizontalIndent * 2),
+        (width > switchToMobileSize)
+            ? Row(
+                children: [
+                  SizedBox(width: textIndent),
+                  Flexible(
+                    child: Container(
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Что за курсы?",
+                              style: boldTextStyle(36.0),
+                            ),
+                            spaceEnter,
+                            TextSpan(
+                              text:
+                                  "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
+                              style: normalTextStyle(normalTextSize),
+                            ),
+                            spaceEnter,
+                            TextSpan(
+                              text:
+                                  "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
+                              style: normalTextStyle(normalTextSize),
+                            ),
+                            spaceEnter,
+                            TextSpan(
+                              text:
+                                  "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
+                              style: normalTextStyle(normalTextSize),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Flexible(
-                  child: Image(
-                    image: AssetImage("assets/images/logo.png"),
+                  Flexible(
+                    child: Image(
+                      image: AssetImage("assets/images/logo.png"),
+                    ),
                   ),
-                ),
-                // SizedBox(width: textIndent),
-              ],
-            )
-          : Row(
-              children: [
-                SizedBox(width: textIndent / 2),
-                Flexible(
-                  child: Column(
-                    children: [
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "Что за курсы?",
-                                style: boldTextStyle(36.0),
-                              ),
-                              spaceEnter,
-                              TextSpan(
-                                text:
-                                    "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
-                                style: normalTextStyle(normalTextSize),
-                              ),
-                              spaceEnter,
-                              TextSpan(
-                                text:
-                                    "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
-                                style: normalTextStyle(normalTextSize),
-                              ),
-                              spaceEnter,
-                              TextSpan(
-                                text:
-                                    "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
-                                style: normalTextStyle(normalTextSize),
-                              ),
-                            ],
+                  // SizedBox(width: textIndent),
+                ],
+              )
+            : Row(
+                children: [
+                  SizedBox(width: textIndent / 2),
+                  Flexible(
+                    child: Column(
+                      children: [
+                        Container(
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "Что за курсы?",
+                                  style: boldTextStyle(36.0),
+                                ),
+                                spaceEnter,
+                                TextSpan(
+                                  text:
+                                      "Тебе ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
+                                  style: normalTextStyle(normalTextSize),
+                                ),
+                                spaceEnter,
+                                TextSpan(
+                                  text:
+                                      "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
+                                  style: normalTextStyle(normalTextSize),
+                                ),
+                                spaceEnter,
+                                TextSpan(
+                                  text:
+                                      "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
+                                  style: normalTextStyle(normalTextSize),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      Image(
-                          image: AssetImage("assets/images/logo.png"),
-                          height: 500),
-                    ],
+                        Image(
+                            image: AssetImage("assets/images/logo.png"),
+                            height: 500),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(width: textIndent / 2),
-              ],
-            ),
-    );
+                  SizedBox(width: textIndent / 2),
+                ],
+              ),
+        SizedBox(height: horizontalIndent * 2),
+      ],
+    ));
   }
 
   Widget aboutCourcesOld(double width) {
@@ -518,30 +523,65 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget learningScheme() {
+  Widget learningScheme(double width) {
     return Container(
       color: Color(0xff404040),
-      child: Row(
-        children: [
-          firstPeriod(),
-          SizedBox(width: schemeHorizontalIndent),
-          DottedLine(
-            direction: Axis.vertical,
-            lineLength: 150,
-            dashColor: Color(0xffC4C4C4),
-          ),
-          SizedBox(width: schemeHorizontalIndent),
-          secondPeriod(),
-          SizedBox(width: schemeHorizontalIndent),
-          DottedLine(
-            direction: Axis.vertical,
-            lineLength: 150,
-            dashColor: Color(0xffC4C4C4),
-          ),
-          SizedBox(width: schemeHorizontalIndent),
-          thirdPeriod(),
-        ],
-      ),
+      child: (width > navBarToMobile)
+          ? Column(
+              children: [
+                SizedBox(height: horizontalIndent),
+                Row(
+                  children: [
+                    SizedBox(width: textIndent),
+                    firstPeriod(),
+                    SizedBox(width: horizontalIndent),
+                    DottedLine(
+                      direction: Axis.vertical,
+                      lineLength: 150,
+                      dashColor: Color(0xffC4C4C4),
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    secondPeriod(),
+                    SizedBox(width: horizontalIndent),
+                    DottedLine(
+                      direction: Axis.vertical,
+                      lineLength: 150,
+                      dashColor: Color(0xffC4C4C4),
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    thirdPeriod(width),
+                  ],
+                ),
+                SizedBox(height: horizontalIndent),
+              ],
+            )
+          : Row(
+              children: [
+                Spacer(),
+                Column(
+                  children: [
+                    SizedBox(height: horizontalIndent * 2),
+                    firstPeriod(),
+                    SizedBox(height: horizontalIndent / 2),
+                    DottedLine(
+                      lineLength: 350,
+                      dashColor: Color(0xffC4C4C4),
+                    ),
+                    SizedBox(height: horizontalIndent / 2),
+                    secondPeriod(),
+                    SizedBox(height: horizontalIndent / 2),
+                    DottedLine(
+                      lineLength: 350,
+                      dashColor: Color(0xffC4C4C4),
+                    ),
+                    SizedBox(height: horizontalIndent / 2),
+                    thirdPeriod(width),
+                    SizedBox(height: horizontalIndent),
+                  ],
+                ),
+                Spacer()
+              ],
+            ),
     );
   }
 
@@ -671,7 +711,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget thirdPeriod() {
+  Widget thirdPeriod(double width) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -707,7 +747,7 @@ class MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(width: schemeHorizontalIndent),
+            SizedBox(width: horizontalIndent),
             Material(
               color: Color(0xffC7C7C7),
               borderRadius: BorderRadius.all(
@@ -730,7 +770,7 @@ class MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(width: schemeHorizontalIndent),
+            SizedBox(width: horizontalIndent),
             Material(
               color: Color(0xffC7C7C7),
               borderRadius: BorderRadius.all(
@@ -753,7 +793,7 @@ class MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(width: schemeHorizontalIndent),
+            SizedBox(width: horizontalIndent),
             Material(
               color: Color(0xffC7C7C7),
               borderRadius: BorderRadius.all(
@@ -780,6 +820,13 @@ class MyHomePageState extends State<MyHomePage> {
         ),
         SizedBox(
           height: schemeIndent,
+        ),
+        Container(
+          color: Color(0xff1E88E5),
+          height: 5,
+          width: (width > navBarToMobile)
+              ? (width - textIndent * 2 - 240 * 2 - horizontalIndent * 4)
+              : 400,
         ),
         SizedBox(
           height: schemeIndent,
