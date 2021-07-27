@@ -70,6 +70,10 @@ String penisImage = "assets/images/pencil.png";
 String shittyCase = "assets/images/briefcase.png";
 String notMacbook = "assets/images/pc.png";
 String carrotidk = "assets/images/party-popper.png";
+// directions block
+String aspDirectionImage = "assets/images/school.png";
+String wpfDirectionImage = "assets/images/school.png";
+String xamarinDirectionImage = "assets/images/school.png";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
@@ -107,7 +111,8 @@ class MyHomePageState extends State<MyHomePage> {
           united(width),
           aboutCources(width),
           learningScheme(width),
-          howItWorks(width)
+          howItWorks(width),
+          directions(width)
         ],
       ),
     );
@@ -1081,6 +1086,225 @@ class MyHomePageState extends State<MyHomePage> {
           "Демо-день: презентуете результаты своей работы, подводим итоги",
           style: normalTextStyle(normalTextSize),
           textAlign: TextAlign.start,
+        ),
+      ],
+    );
+  }
+
+  Widget directions(double width) {
+    if (width > navBarToMobile) {
+      // Big size
+      return Container(
+        color: Color(0xff2F2F2F),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: horizontalIndent),
+            Row(children: [
+              SizedBox(width: textIndent),
+              Text(
+                "Направления программы",
+                style: normalTextStyle(36.0),
+              ),
+            ]),
+            SizedBox(height: horizontalIndent),
+            Row(
+              children: [
+                SizedBox(width: textIndent),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xff404040),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  width: (width - textIndent * 2 - schemeIndent * 2) / 3,
+                  height: (width - textIndent * 2 - schemeIndent * 2) / 3,
+                  child: firstDirection(width),
+                ),
+                SizedBox(width: schemeIndent),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xff404040),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  width: (width - textIndent * 2 - schemeIndent * 2) / 3,
+                  height: (width - textIndent * 2 - schemeIndent * 2) / 3,
+                  child: secondDirection(width),
+                ),
+                SizedBox(width: schemeIndent),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xff404040),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  width: (width - textIndent * 2 - schemeIndent * 2) / 3,
+                  height: (width - textIndent * 2 - schemeIndent * 2) / 3,
+                  child: thirdDirection(width),
+                ),
+                SizedBox(width: textIndent),
+              ],
+            ),
+            SizedBox(height: horizontalIndent),
+          ],
+        ),
+      );
+    } else if (width > switchToMobileSize) {
+      // Middle size
+      return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(width: textIndent),
+                  Flexible(
+                    child: Column(
+                      children: [
+                        SizedBox(height: horizontalIndent),
+                        Text(
+                          "Как это работает",
+                          style: normalTextStyle(36.0),
+                        ),
+                        SizedBox(height: horizontalIndent),
+                        Row(
+                          children: [
+                            Flexible(child: firstTime()),
+                            SizedBox(width: textIndent),
+                            Flexible(child: secondTime()),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Flexible(child: thirdTime()),
+                            SizedBox(width: textIndent),
+                            Flexible(child: fourthTime()),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: textIndent),
+                ],
+              ),
+              SizedBox(height: horizontalIndent),
+            ],
+          ));
+    } else {
+      // Little size
+      return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Row(
+            children: [
+              SizedBox(width: textIndent),
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: horizontalIndent),
+                    Container(
+                      width: width,
+                      child: Text(
+                        "Как это работает",
+                        style: normalTextStyle(36.0),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(height: horizontalIndent),
+                    firstTime(),
+                    SizedBox(height: horizontalIndent),
+                    secondTime(),
+                    SizedBox(height: horizontalIndent),
+                    thirdTime(),
+                    SizedBox(height: horizontalIndent),
+                    fourthTime(),
+                  ],
+                ),
+              ),
+              SizedBox(width: textIndent),
+            ],
+          ));
+    }
+  }
+
+  Widget firstDirection(double width) {
+    return Row(
+      children: [
+        SizedBox(width: textIndent),
+        Column(children: [
+          FittedBox(
+            child: Image(
+              image: AssetImage(aspDirectionImage),
+            ),
+            alignment: Alignment.center,
+          ),
+          Text("ASP.NET"),
+        ])
+      ],
+    );
+  }
+
+  Widget secondDirection(double width) {
+    return Row(
+      children: [
+        SizedBox(width: textIndent),
+        Column(
+          children: [
+            Image(
+              image: AssetImage(wpfDirectionImage),
+              width: (width - textIndent * 2 - schemeIndent * 2) / 3,
+            ),
+            Text("WPF"),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget thirdDirection(double width) {
+    return Row(
+      children: [
+        SizedBox(width: textIndent),
+        Column(
+          children: [
+            FittedBox(
+              child: Image(
+                image: AssetImage(xamarinDirectionImage),
+              ),
+            ),
+            Text("Xamarin"),
+          ],
         ),
       ],
     );
