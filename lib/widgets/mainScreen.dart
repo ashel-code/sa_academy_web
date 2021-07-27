@@ -59,7 +59,7 @@ double navBarTextSize = 18.0;
 double normalElevation = 5.0;
 
 double textHeight = 48.0;
-
+double maxWidth = 1500;
 // images
 // what is academy answer block
 String skillsImage = "assets/images/smile.png";
@@ -167,7 +167,9 @@ class MyHomePageState extends State<MyHomePage> {
           Row(
             children: [
               SizedBox(
-                width: textIndent,
+                width: (width > switchToMobileSize)
+                    ? textIndent
+                    : (textIndent / 2),
               ),
               Container(
                 child: Flexible(
@@ -196,6 +198,9 @@ class MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
+              ),
+              SizedBox(
+                width: (width > switchToMobileSize) ? 0 : (textIndent / 2),
               ),
             ],
           ),
@@ -256,7 +261,10 @@ class MyHomePageState extends State<MyHomePage> {
             (width > switchToMobileSize)
                 ? Row(
                     children: [
-                      SizedBox(width: textIndent),
+                      SizedBox(
+                          width: (width < maxWidth)
+                              ? (textIndent)
+                              : ((width - maxWidth) / 2 + textIndent)),
                       Flexible(
                         child: Container(
                           child: RichText(
@@ -289,14 +297,16 @@ class MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: horizontalIndent * 2),
+                      SizedBox(height: horizontalIndent * 4),
                       // maybe
-                      FittedBox(
-                        child: Image(
-                          image: AssetImage(threeGuysImage),
-                          width: (width > 800) ? 400 : 300,
-                        ),
-                      )
+                      Image(
+                        image: AssetImage(threeGuysImage),
+                        width: (width > 800) ? 400 : 300,
+                      ),
+                      SizedBox(
+                          width: (width < maxWidth)
+                              ? (textIndent)
+                              : ((width - maxWidth) / 2 + textIndent)),
                     ],
                   )
                 : Row(
@@ -446,42 +456,54 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget whatIsAcademyAnswer(double width) {
     return Container(
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Color(0xffCECECE),
       ),
-      child: (width > switchToMobileSize)
-          ? Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(width: width / 16),
-                skills(width),
-                SizedBox(width: width / 16),
-                practice(width),
-                SizedBox(width: width / 16),
-                project(width),
-                SizedBox(width: width / 16),
-              ],
-            )
-          : Row(
-              children: [
-                SizedBox(width: width / 16),
-                Column(
-                  children: [
-                    skills(width),
-                    practice(width),
-                    project(width),
-                  ],
-                ),
-                SizedBox(width: width / 16),
-              ],
-            ),
+      child: Container(
+        width: maxWidth,
+        child: (width > switchToMobileSize)
+            ? Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                      width: (width < maxWidth)
+                          ? (width / 16)
+                          : ((width - maxWidth) / 2 + textIndent)),
+                  Flexible(child: skills()),
+                  SizedBox(width: horizontalIndent),
+                  Spacer(),
+                  Flexible(child: practice()),
+                  Spacer(),
+                  Flexible(child: project()),
+                  SizedBox(
+                      width: (width < maxWidth)
+                          ? (width / 16)
+                          : ((width - maxWidth) / 2 + textIndent)),
+                ],
+              )
+            : Row(
+                children: [
+                  SizedBox(width: horizontalIndent),
+                  Flexible(
+                    child: Column(
+                      children: [
+                        skills(),
+                        practice(),
+                        project(),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: width / 16),
+                ],
+              ),
+      ),
     );
   }
 
   // 1 4 1 4 1 4 1 sum
-  Widget skills(double width) {
+  Widget skills() {
     return Container(
-      width: (width > switchToMobileSize) ? (width / 4) : (width / 8 * 7),
       child: Column(
         children: [
           SizedBox(height: 25),
@@ -501,9 +523,8 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget practice(double width) {
+  Widget practice() {
     return Container(
-      width: (width > switchToMobileSize) ? (width / 4) : (width / 8 * 7),
       child: Column(
         children: [
           SizedBox(height: 25),
@@ -523,9 +544,8 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget project(double width) {
+  Widget project() {
     return Container(
-      width: (width > switchToMobileSize) ? (width / 4) : (width / 8 * 7),
       child: Column(
         children: [
           SizedBox(height: 25),
@@ -559,10 +579,14 @@ class MyHomePageState extends State<MyHomePage> {
           (width > navBarToMobile)
               ? Column(
                   children: [
-                    SizedBox(height: horizontalIndent),
+                    SizedBox(height: textIndent),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(width: textIndent),
+                        SizedBox(
+                            width: (width < maxWidth)
+                                ? (textIndent)
+                                : ((width - maxWidth) / 2 + textIndent)),
                         firstPeriod(),
                         SizedBox(width: horizontalIndent),
                         DottedLine(
@@ -580,9 +604,13 @@ class MyHomePageState extends State<MyHomePage> {
                         ),
                         SizedBox(width: horizontalIndent),
                         thirdPeriod(width),
+                        SizedBox(
+                            width: (width < maxWidth)
+                                ? (textHeight)
+                                : ((width - maxWidth) / 2 + textIndent)),
                       ],
                     ),
-                    SizedBox(height: horizontalIndent),
+                    SizedBox(height: textIndent),
                   ],
                 )
               : Row(
@@ -864,7 +892,9 @@ class MyHomePageState extends State<MyHomePage> {
           color: Color(0xff1E88E5),
           height: 5,
           width: (width > navBarToMobile)
-              ? (width - textIndent * 2 - 240 * 2 - horizontalIndent * 4)
+              ? ((width < maxWidth)
+                  ? (width - textIndent * 2 - 240 * 2 - horizontalIndent * 4)
+                  : 500)
               : 400,
         ),
         SizedBox(
@@ -899,10 +929,10 @@ class MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: horizontalIndent),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(width: textIndent),
                 Flexible(child: firstTime()),
-                SizedBox(width: textIndent),
                 Flexible(child: secondTime()),
                 SizedBox(width: textIndent),
                 Flexible(child: thirdTime()),
@@ -1340,11 +1370,8 @@ class MyHomePageState extends State<MyHomePage> {
       children: [
         SizedBox(width: textIndent),
         Column(children: [
-          FittedBox(
-            child: Image(
-              image: AssetImage(aspDirectionImage),
-            ),
-            alignment: Alignment.center,
+          Image(
+            image: AssetImage(aspDirectionImage),
           ),
           Text("ASP.NET"),
         ])
@@ -1379,10 +1406,8 @@ class MyHomePageState extends State<MyHomePage> {
         SizedBox(width: textIndent),
         Column(
           children: [
-            FittedBox(
-              child: Image(
-                image: AssetImage(xamarinDirectionImage),
-              ),
+            Image(
+              image: AssetImage(xamarinDirectionImage),
             ),
             Text("Xamarin"),
           ],
@@ -1393,36 +1418,40 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget navBar(double width, double height) {
     if (width > navBarToMobile) {
-      return Align(
-        alignment: Alignment.topCenter,
-        child: Container(
-          decoration: BoxDecoration(color: Color(0xFF000000)),
+      return Container(
+        decoration: BoxDecoration(color: Color(0xFF000000)),
+        width: double.infinity,
+        height: navBarHeight,
+        child: Align(
+          alignment: Alignment.topCenter,
           child: Container(
-            width: double.infinity,
-            height: navBarHeight,
-            child: Align(
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(width: 20),
-                  //  Spacer(flex: 20),
-                  logoAndTextButton(),
-                  SizedBox(width: 50),
-                  Spacer(flex: 20),
-                  aboutTextButton(),
-                  SizedBox(width: 50),
-                  directionsTextButton(),
-                  SizedBox(width: 50),
-                  selectionTextButton(),
-                  SizedBox(width: 50),
-                  FAQTextButton(),
-                  SizedBox(width: 50),
-                  contactsTextButton(),
-                  SizedBox(width: 50),
-                  fuckedButton(),
-                  SizedBox(width: 30),
-                ],
+            child: Container(
+              width: maxWidth,
+              height: navBarHeight,
+              child: Align(
+                alignment: Alignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(width: 20),
+                    //  Spacer(flex: 20),
+                    logoAndTextButton(),
+                    SizedBox(width: 50),
+                    Spacer(flex: 20),
+                    aboutTextButton(),
+                    SizedBox(width: 50),
+                    directionsTextButton(),
+                    SizedBox(width: 50),
+                    selectionTextButton(),
+                    SizedBox(width: 50),
+                    FAQTextButton(),
+                    SizedBox(width: 50),
+                    contactsTextButton(),
+                    SizedBox(width: 50),
+                    fuckedButton(),
+                    SizedBox(width: 30),
+                  ],
+                ),
               ),
             ),
           ),
@@ -1584,32 +1613,6 @@ class MyHomePageState extends State<MyHomePage> {
           Text("Academy", style: boldTextStyle(22))
         ],
       ),
-    );
-  }
-
-  Widget academyText1() {
-    return ListView(
-      children: [
-        SizedBox(height: navBarIndent),
-        Container(
-          decoration: BoxDecoration(color: Color(0xDDffffff)),
-        ),
-        AutoSizeText(
-          "Student Ambassadors Academy",
-          maxLines: 2,
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Color(0xffffffff), fontSize: 100),
-        ),
-        Image.asset("assets/images/logo.png", fit: BoxFit.scaleDown),
-        SelectableText(
-          "qwerty -- some text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text somsome text some text some text some texttext some text some text some text",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: Color(0xffffffff),
-              fontSize: 18,
-              backgroundColor: Color(0xBB000000)),
-        )
-      ],
     );
   }
 }
