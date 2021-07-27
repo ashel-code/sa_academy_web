@@ -913,6 +913,7 @@ class MyHomePageState extends State<MyHomePage> {
     if (width > navBarToMobile) {
       // Big size
       return Container(
+        width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
@@ -920,29 +921,39 @@ class MyHomePageState extends State<MyHomePage> {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: Column(
-          children: [
-            SizedBox(height: horizontalIndent),
-            Text(
-              "Как это работает",
-              style: normalTextStyle(36.0),
-            ),
-            SizedBox(height: horizontalIndent),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(width: textIndent),
-                Flexible(child: firstTime()),
-                Flexible(child: secondTime()),
-                SizedBox(width: textIndent),
-                Flexible(child: thirdTime()),
-                SizedBox(width: textIndent),
-                Flexible(child: fourthTime()),
-                SizedBox(width: textIndent),
-              ],
-            ),
-            SizedBox(height: horizontalIndent),
-          ],
+        child: Container(
+          width: maxWidth,
+          child: Column(
+            children: [
+              SizedBox(height: horizontalIndent),
+              Text(
+                "Как это работает",
+                style: normalTextStyle(36.0),
+              ),
+              SizedBox(height: horizontalIndent),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                      width: (width < maxWidth)
+                          ? (textIndent)
+                          : ((width - maxWidth) / 2 + textIndent)),
+                  Flexible(child: firstTime()),
+                  Spacer(),
+                  Flexible(child: secondTime()),
+                  Spacer(),
+                  Flexible(child: thirdTime()),
+                  Spacer(),
+                  Flexible(child: fourthTime()),
+                  SizedBox(
+                      width: (width < maxWidth)
+                          ? (textIndent)
+                          : ((width - maxWidth) / 2 + textIndent)),
+                ],
+              ),
+              SizedBox(height: horizontalIndent),
+            ],
+          ),
         ),
       );
     } else if (width > switchToMobileSize) {
