@@ -58,16 +58,18 @@ double navBarTextSize = 18.0;
 
 double normalElevation = 5.0;
 
+double textHeight = 48.0;
+
 // images
 // what is academy answer block
 String skillsImage = "assets/images/smile.png";
 String practiceImage = "assets/images/school.png";
 String projectImage = "assets/images/graduation.png";
 // what is academy question block
-String threeGaysImage = "assets/images/three-guys.png";
+String threeGuysImage = "assets/images/three-guys.png";
 // how it works block
-String penisImage = "assets/images/pencil.png";
-String shittyCase = "assets/images/briefcase.png";
+String pencilImage = "assets/images/pencil.png";
+String pontyCase = "assets/images/briefcase.png";
 String notMacbook = "assets/images/pc.png";
 String carrotidk = "assets/images/party-popper.png";
 // directions block
@@ -291,7 +293,7 @@ class MyHomePageState extends State<MyHomePage> {
                       // maybe
                       FittedBox(
                         child: Image(
-                          image: AssetImage(threeGaysImage),
+                          image: AssetImage(threeGuysImage),
                           width: (width > 800) ? 400 : 300,
                         ),
                       )
@@ -334,7 +336,7 @@ class MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                             Image(
-                                image: AssetImage(threeGaysImage), height: 500),
+                                image: AssetImage(threeGuysImage), height: 500),
                           ],
                         ),
                       ),
@@ -1008,7 +1010,7 @@ class MyHomePageState extends State<MyHomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image(
-          image: AssetImage(penisImage),
+          image: AssetImage(pencilImage),
           height: 70,
         ),
         Text(
@@ -1030,7 +1032,7 @@ class MyHomePageState extends State<MyHomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image(
-          image: AssetImage(shittyCase),
+          image: AssetImage(pontyCase),
           height: 70,
         ),
         Text(
@@ -1111,6 +1113,7 @@ class MyHomePageState extends State<MyHomePage> {
             Row(
               children: [
                 SizedBox(width: textIndent),
+                // first
                 Container(
                   decoration: BoxDecoration(
                     color: Color(0xff404040),
@@ -1128,6 +1131,7 @@ class MyHomePageState extends State<MyHomePage> {
                   child: firstDirection(width),
                 ),
                 SizedBox(width: schemeIndent),
+                // second
                 Container(
                   decoration: BoxDecoration(
                     color: Color(0xff404040),
@@ -1145,6 +1149,7 @@ class MyHomePageState extends State<MyHomePage> {
                   child: secondDirection(width),
                 ),
                 SizedBox(width: schemeIndent),
+                // third
                 Container(
                   decoration: BoxDecoration(
                     color: Color(0xff404040),
@@ -1171,90 +1176,162 @@ class MyHomePageState extends State<MyHomePage> {
     } else if (width > switchToMobileSize) {
       // Middle size
       return Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  SizedBox(width: textIndent),
-                  Flexible(
-                    child: Column(
-                      children: [
-                        SizedBox(height: horizontalIndent),
-                        Text(
-                          "Как это работает",
-                          style: normalTextStyle(36.0),
-                        ),
-                        SizedBox(height: horizontalIndent),
-                        Row(
-                          children: [
-                            Flexible(child: firstTime()),
-                            SizedBox(width: textIndent),
-                            Flexible(child: secondTime()),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Flexible(child: thirdTime()),
-                            SizedBox(width: textIndent),
-                            Flexible(child: fourthTime()),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: textIndent),
-                ],
+        color: Color(0xff2F2F2F),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: horizontalIndent),
+            Row(children: [
+              SizedBox(width: textIndent),
+              Text(
+                "Направления программы",
+                style: normalTextStyle(36.0),
               ),
-              SizedBox(height: horizontalIndent),
-            ],
-          ));
+            ]),
+            SizedBox(height: horizontalIndent),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(width: textIndent),
+                // first
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xff404040),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  width: (width - textIndent * 2 - schemeIndent * 2) / 2,
+                  height: (width - textIndent * 2 - schemeIndent * 2) / 2,
+                  child: firstDirection(width),
+                ),
+                SizedBox(width: schemeIndent),
+                // second
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xff404040),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  width: (width - textIndent * 2 - schemeIndent * 2) / 2,
+                  height: (width - textIndent * 2 - schemeIndent * 2) / 2,
+                  child: secondDirection(width),
+                ),
+                SizedBox(width: textIndent),
+              ],
+            ),
+            SizedBox(height: schemeIndent),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // third
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xff404040),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  width: (width - textIndent * 2 - schemeIndent * 2) / 2,
+                  height: (width - textIndent * 2 - schemeIndent * 2) / 2,
+                  child: thirdDirection(width),
+                ),
+              ],
+            ),
+            SizedBox(height: horizontalIndent),
+          ],
+        ),
+      );
     } else {
       // Little size
       return Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xff1E88E5), Color(0xff1F67A7)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+        color: Color(0xff2F2F2F),
+        width: width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: horizontalIndent),
+            Text(
+              "Направления программы",
+              textAlign: TextAlign.center,
+              style: normalTextStyle(36.0),
             ),
-          ),
-          child: Row(
-            children: [
-              SizedBox(width: textIndent),
-              Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: horizontalIndent),
-                    Container(
-                      width: width,
-                      child: Text(
-                        "Как это работает",
-                        style: normalTextStyle(36.0),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    SizedBox(height: horizontalIndent),
-                    firstTime(),
-                    SizedBox(height: horizontalIndent),
-                    secondTime(),
-                    SizedBox(height: horizontalIndent),
-                    thirdTime(),
-                    SizedBox(height: horizontalIndent),
-                    fourthTime(),
-                  ],
-                ),
+
+            SizedBox(height: horizontalIndent),
+            SizedBox(width: textIndent),
+            // first
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xff404040),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 2,
+                    offset: Offset(0, 2), // changes position of shadow
+                  ),
+                ],
               ),
-              SizedBox(width: textIndent),
-            ],
-          ));
+              width: (width - textIndent * 2 - schemeIndent * 2),
+              height: (width - textIndent * 2 - schemeIndent * 2),
+              child: firstDirection(width),
+            ),
+            SizedBox(height: schemeIndent),
+            // second
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xff404040),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 2,
+                    offset: Offset(0, 2), // changes position of shadow
+                  ),
+                ],
+              ),
+              width: (width - textIndent * 2 - schemeIndent * 2),
+              height: (width - textIndent * 2 - schemeIndent * 2),
+              child: secondDirection(width),
+            ),
+            SizedBox(height: schemeIndent),
+            // third
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xff404040),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 2,
+                    offset: Offset(0, 2), // changes position of shadow
+                  ),
+                ],
+              ),
+              width: (width - textIndent * 2 - schemeIndent * 2),
+              height: (width - textIndent * 2 - schemeIndent * 2),
+              child: thirdDirection(width),
+            ),
+            SizedBox(height: horizontalIndent),
+          ],
+        ),
+      );
     }
   }
 
@@ -1283,9 +1360,13 @@ class MyHomePageState extends State<MyHomePage> {
           children: [
             Image(
               image: AssetImage(wpfDirectionImage),
-              width: (width - textIndent * 2 - schemeIndent * 2) / 3,
+              height:
+                  (width - textIndent * 2 - schemeIndent * 2) / 3 - textHeight,
             ),
-            Text("WPF"),
+            Container(
+              height: textHeight,
+              child: Text("WPF"),
+            ),
           ],
         ),
       ],
