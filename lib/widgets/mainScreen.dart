@@ -1139,80 +1139,111 @@ class MyHomePageState extends State<MyHomePage> {
       // Big size
       return Container(
         color: Color(0xff2F2F2F),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: horizontalIndent),
-            Row(children: [
-              SizedBox(width: textIndent),
-              Text(
-                "Направления программы",
-                style: normalTextStyle(36.0),
-              ),
-            ]),
-            SizedBox(height: horizontalIndent),
-            Row(
+        width: double.infinity,
+        child: Container(
+            width: maxWidth,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(width: textIndent),
-                // first
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xff404040),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: Offset(0, 2), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  width: (width - textIndent * 2 - schemeIndent * 2) / 3,
-                  height: (width - textIndent * 2 - schemeIndent * 2) / 3,
-                  child: firstDirection(width),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: horizontalIndent),
+                    Row(
+                      children: [
+                        SizedBox(width: textIndent),
+                        Text(
+                          "Направления программы",
+                          style: normalTextStyle(36.0),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: horizontalIndent),
+                    Row(
+                      children: [
+                        SizedBox(width: textIndent),
+                        // first
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xff404040),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                offset:
+                                    Offset(0, 2), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          width: (width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3,
+                          height: (width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3,
+                          child: firstDirection(width),
+                        ),
+                        SizedBox(width: schemeIndent),
+                        // second
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xff404040),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                offset:
+                                    Offset(0, 2), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          width: (width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3,
+                          height: (width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3,
+                          child: secondDirection(width),
+                        ),
+                        SizedBox(width: schemeIndent),
+                        // third
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xff404040),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 2,
+                                offset:
+                                    Offset(0, 2), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          width: (width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3,
+                          height: (width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3,
+                          child: thirdDirection(width),
+                        ),
+                        SizedBox(width: textIndent),
+                      ],
+                    ),
+                    SizedBox(height: horizontalIndent),
+                  ],
                 ),
-                SizedBox(width: schemeIndent),
-                // second
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xff404040),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: Offset(0, 2), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  width: (width - textIndent * 2 - schemeIndent * 2) / 3,
-                  height: (width - textIndent * 2 - schemeIndent * 2) / 3,
-                  child: secondDirection(width),
-                ),
-                SizedBox(width: schemeIndent),
-                // third
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xff404040),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: Offset(0, 2), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  width: (width - textIndent * 2 - schemeIndent * 2) / 3,
-                  height: (width - textIndent * 2 - schemeIndent * 2) / 3,
-                  child: thirdDirection(width),
-                ),
-                SizedBox(width: textIndent),
               ],
-            ),
-            SizedBox(height: horizontalIndent),
-          ],
-        ),
+            )),
       );
     } else if (width > switchToMobileSize) {
       // Middle size
