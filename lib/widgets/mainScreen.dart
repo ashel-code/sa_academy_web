@@ -20,6 +20,14 @@ TextStyle normalBlackTextStyle(double fontSize) {
       fontSize: fontSize, color: Colors.black, fontFamily: "segoeui");
 }
 
+TextStyle boldBlackTextStyle(double fontSize) {
+  return TextStyle(
+      fontSize: fontSize,
+      color: Colors.black,
+      fontFamily: "segoeui",
+      fontWeight: FontWeight.w600);
+}
+
 TextStyle lightTextStyle(double fontSize) {
   return TextStyle(
       fontSize: fontSize,
@@ -114,7 +122,8 @@ class MyHomePageState extends State<MyHomePage> {
           aboutCources(width),
           learningScheme(width),
           howItWorks(width),
-          directions(width)
+          directions(width),
+          areYouReady(width),
         ],
       ),
     );
@@ -431,6 +440,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // what is academy
   Widget whatIsAcademyText() {
     return Container(
       height: 100,
@@ -565,6 +575,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // scheme
   Widget learningScheme(double width) {
     return Container(
       color: Color(0xff404040),
@@ -909,6 +920,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  //howitworks
   Widget howItWorks(double width) {
     if (width > navBarToMobile) {
       // Big size
@@ -1134,11 +1146,11 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // directions
   Widget directions(double width) {
     if (width > navBarToMobile) {
       // Big size
       return Container(
-        color: Color(0xff2F2F2F),
         width: double.infinity,
         child: Container(
             width: maxWidth,
@@ -1458,6 +1470,70 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  // are you ready?
+  Widget areYouReady(double width) {
+    if (width > navBarToMobile) {
+      return Container(
+        child: Container(
+          width: width - horizontalIndent * 2,
+          decoration: BoxDecoration(
+            color: Color(0xffCECECE),
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(),
+              Column(
+                children: [
+                  Text(
+                    "Уже готов стать частью академии?",
+                    style: boldBlackTextStyle(36.0),
+                    textAlign: TextAlign.center,
+                  ),
+                  Row(
+                    children: [firstStep(), firstStep(), firstStep()],
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+      );
+    } else {
+      return Container(
+        child: Row(
+          children: [
+            Column(
+              children: [Text("")],
+            )
+          ],
+        ),
+      );
+    }
+  }
+
+  Widget firstStep() {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+              height: 180,
+              decoration: BoxDecoration(
+                color: Color(0xff2F2F2F),
+                shape: BoxShape.circle,
+              ),
+              child: Image(
+                image: AssetImage(pencilImage),
+                height: 120,
+              )),
+          Text(""),
+        ],
+      ),
+    );
+  }
+
+  // navbar
   Widget navBar(double width, double height) {
     if (width > navBarToMobile) {
       return Container(
