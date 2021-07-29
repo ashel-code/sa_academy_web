@@ -68,6 +68,7 @@ double normalElevation = 5.0;
 
 double textHeight = 48.0;
 double maxWidth = 1500;
+double readyWidth = 200.0;
 // images
 // what is academy answer block
 String skillsImage = "assets/images/smile.png";
@@ -84,6 +85,9 @@ String carrotidk = "assets/images/party-popper.png";
 String aspDirectionImage = "assets/images/school.png";
 String wpfDirectionImage = "assets/images/school.png";
 String xamarinDirectionImage = "assets/images/school.png";
+
+//areYouReady block
+String calendarImage = "assets/images/school.png";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
@@ -124,6 +128,7 @@ class MyHomePageState extends State<MyHomePage> {
           howItWorks(width),
           directions(width),
           areYouReady(width),
+          united2(width),
         ],
       ),
     );
@@ -258,6 +263,62 @@ class MyHomePageState extends State<MyHomePage> {
           SizedBox(height: 15),
         ],
       )),
+    );
+  }
+
+  Widget united2(double width) {
+    return Stack(
+      alignment: Alignment(0, 0),
+      children: [
+        Column(
+          children: [
+            Container(
+              width: ((width > navBarToMobile))
+                  ? (readyWidth * 3 + textIndent * 4 + horizontalIndent * 4)
+                  : ((readyWidth + horizontalIndent * 2) * 2),
+              height: 50,
+              decoration: BoxDecoration(
+                color: Color(0xffCECECE),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+              ),
+            ),
+            Container(height: 50)
+          ],
+        ),
+        (width > navBarToMobile) ? fuckedLine2() : Container()
+      ],
+    );
+  }
+
+  Widget fuckedLine2() {
+    return Material(
+      color: Color(0xff404040),
+      borderRadius: BorderRadius.all(
+        Radius.circular(70),
+      ),
+      elevation: normalElevation,
+      child: Container(
+        height: 60,
+        width: 700,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(width: horizontalIndent),
+            Text(
+              "  Подача заявок открыта до 31 сентября. Поспеши!  ",
+              style: normalTextStyle(normalTextSize),
+              textAlign: TextAlign.center,
+            ),
+            Spacer(),
+            fuckedButtonMk2(),
+            SizedBox(width: 5.0),
+          ],
+        ),
+      ),
     );
   }
 
@@ -1260,7 +1321,6 @@ class MyHomePageState extends State<MyHomePage> {
     } else if (width > switchToMobileSize) {
       // Middle size
       return Container(
-        color: Color(0xff2F2F2F),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -1345,7 +1405,6 @@ class MyHomePageState extends State<MyHomePage> {
     } else {
       // Little size
       return Container(
-        color: Color(0xff2F2F2F),
         width: width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -1475,10 +1534,13 @@ class MyHomePageState extends State<MyHomePage> {
     if (width > navBarToMobile) {
       return Container(
         child: Container(
-          width: width - horizontalIndent * 2,
+          width: readyWidth * 3 + textIndent * 4 + horizontalIndent * 4,
           decoration: BoxDecoration(
             color: Color(0xffCECECE),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -1486,13 +1548,20 @@ class MyHomePageState extends State<MyHomePage> {
               SizedBox(),
               Column(
                 children: [
+                  SizedBox(height: 50),
                   Text(
                     "Уже готов стать частью академии?",
                     style: boldBlackTextStyle(36.0),
                     textAlign: TextAlign.center,
                   ),
                   Row(
-                    children: [firstStep(), firstStep(), firstStep()],
+                    children: [
+                      firstStep(),
+                      SizedBox(width: textIndent),
+                      secondStep(),
+                      SizedBox(width: textIndent),
+                      thirdStep(),
+                    ],
                   )
                 ],
               )
@@ -1502,12 +1571,39 @@ class MyHomePageState extends State<MyHomePage> {
       );
     } else {
       return Container(
-        child: Row(
-          children: [
-            Column(
-              children: [Text("")],
-            )
-          ],
+        child: Container(
+          width: (readyWidth + horizontalIndent * 2) * 2,
+          decoration: BoxDecoration(
+            color: Color(0xffCECECE),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: Row(
+            children: [
+              SizedBox(width: textIndent),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: textIndent / 2),
+                  Text(
+                    "Уже готов стать\nчастью академии?",
+                    style: boldBlackTextStyle(36.0),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  firstStep(),
+                  SizedBox(height: horizontalIndent),
+                  secondStep(),
+                  SizedBox(height: horizontalIndent),
+                  thirdStep(),
+                  SizedBox(height: horizontalIndent),
+                ],
+              ),
+              SizedBox(width: textIndent),
+            ],
+          ),
         ),
       );
     }
@@ -1518,16 +1614,71 @@ class MyHomePageState extends State<MyHomePage> {
       child: Column(
         children: [
           Container(
-              height: 180,
+              height: 190,
               decoration: BoxDecoration(
                 color: Color(0xff2F2F2F),
                 shape: BoxShape.circle,
               ),
               child: Image(
                 image: AssetImage(pencilImage),
-                height: 120,
+                height: 75,
               )),
-          Text(""),
+          SizedBox(height: horizontalIndent),
+          Text(
+            "Подай заявку на\nнашем сайте",
+            textAlign: TextAlign.center,
+            style: normalBlackTextStyle(24.0),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget secondStep() {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+              height: 190,
+              decoration: BoxDecoration(
+                color: Color(0xff2F2F2F),
+                shape: BoxShape.circle,
+              ),
+              child: Image(
+                image: AssetImage(calendarImage),
+                height: 75,
+              )),
+          SizedBox(height: horizontalIndent),
+          Text(
+            "Пройти\nсобеседование",
+            textAlign: TextAlign.center,
+            style: normalBlackTextStyle(24.0),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget thirdStep() {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+              height: 190,
+              decoration: BoxDecoration(
+                color: Color(0xff2F2F2F),
+                shape: BoxShape.circle,
+              ),
+              child: Image(
+                image: AssetImage(carrotidk),
+                height: 75,
+              )),
+          SizedBox(height: horizontalIndent),
+          Text(
+            "Приходи на первое\nзанятие!",
+            textAlign: TextAlign.center,
+            style: normalBlackTextStyle(24.0),
+          ),
         ],
       ),
     );
@@ -1690,7 +1841,32 @@ class MyHomePageState extends State<MyHomePage> {
       width: 190,
       decoration: BoxDecoration(
         color: Color(0xff0079D5),
-        borderRadius: BorderRadius.all(Radius.circular(15)),
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+      ),
+      child: TextButton(
+        onPressed: () {},
+        child: Text(
+          "Стать участником",
+          style: normalTextStyle(normalTextSize),
+        ),
+      ),
+    );
+  }
+
+  Widget fuckedButtonMk2() {
+    return Container(
+      width: 220,
+      height: 50,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color(0xff1E88E5),
+            Color(0xff0060B4),
+          ],
+        ),
+        borderRadius: BorderRadius.all(
+          Radius.circular(25.0),
+        ),
       ),
       child: TextButton(
         onPressed: () {},
