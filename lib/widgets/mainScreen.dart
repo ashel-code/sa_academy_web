@@ -70,6 +70,7 @@ double textHeight = 48.0;
 double maxWidth = 1500;
 double readyWidth = 200.0;
 // images
+String logoImage = "assets/images/logo.png";
 // what is academy answer block
 String skillsImage = "assets/images/smile.png";
 String practiceImage = "assets/images/school.png";
@@ -129,6 +130,7 @@ class MyHomePageState extends State<MyHomePage> {
           directions(width),
           areYouReady(width),
           united2(width),
+          supportByMLSA(width),
         ],
       ),
     );
@@ -288,7 +290,7 @@ class MyHomePageState extends State<MyHomePage> {
             Container(height: 50)
           ],
         ),
-        (width > navBarToMobile) ? fuckedLine2() : Container()
+        (width > navBarToMobile) ? fuckedLine2() : fuckedButtonMk2()
       ],
     );
   }
@@ -1679,6 +1681,73 @@ class MyHomePageState extends State<MyHomePage> {
             textAlign: TextAlign.center,
             style: normalBlackTextStyle(24.0),
           ),
+        ],
+      ),
+    );
+  }
+
+  // SupportByMLSA
+  Widget supportByMLSA(double width) {
+    return Container(
+      child: Column(
+        children: [
+          SizedBox(height: horizontalIndent),
+          Material(
+            color: Color(0xff404040),
+            child: Container(
+              child: (width > switchToMobileSize)
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(width: textIndent),
+                        Column(
+                          children: [
+                            SizedBox(height: schemeIndent),
+                            Image(
+                              image: AssetImage(logoImage),
+                            ),
+                            SizedBox(height: schemeIndent)
+                          ],
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        Flexible(
+                          child: Text(
+                            "Курс организован при поддержке международной студенческой\nпартнерской программы “Microsoft Learn Student Ambassadors”",
+                            textAlign: TextAlign.center,
+                            style: normalTextStyle(24.0),
+                          ),
+                        ),
+                        SizedBox(width: textIndent),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(width: textIndent),
+                        Flexible(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: horizontalIndent),
+                              Image(
+                                image: AssetImage(logoImage),
+                              ),
+                              SizedBox(height: schemeIndent),
+                              Text(
+                                "Курс организован при поддержке международной студенческой партнерской программы “Microsoft Learn Student Ambassadors”",
+                                textAlign: TextAlign.center,
+                                style: normalTextStyle(24.0),
+                              ),
+                              SizedBox(height: horizontalIndent),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: textIndent),
+                      ],
+                    ),
+            ),
+          ),
+          SizedBox(height: horizontalIndent),
         ],
       ),
     );
