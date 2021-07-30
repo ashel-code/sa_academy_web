@@ -71,6 +71,7 @@ double maxWidth = 1500;
 double readyWidth = 200.0;
 // images
 String logoImage = "assets/images/logo.png";
+String codeImage = "assets/images/code.jpg";
 // what is academy answer block
 String skillsImage = "assets/images/smile.png";
 String practiceImage = "assets/images/school.png";
@@ -131,6 +132,7 @@ class MyHomePageState extends State<MyHomePage> {
           areYouReady(width),
           united2(width),
           supportByMLSA(width),
+          faces(width),
         ],
       ),
     );
@@ -1750,6 +1752,240 @@ class MyHomePageState extends State<MyHomePage> {
           SizedBox(height: horizontalIndent),
         ],
       ),
+    );
+  }
+
+  Widget faces(double width) {
+    return Container(
+      child: Column(
+        children: [
+          Row(
+              mainAxisAlignment: (width > 1400)
+                  ? MainAxisAlignment.center
+                  : MainAxisAlignment.start,
+              children: (width > 1400)
+                  ? [
+                      facePC(
+                        codeImage,
+                        "Антон Кисляков",
+                        "Руководитель программы",
+                        "antonkislyakov@studentambassadors.com",
+                      ),
+                      SizedBox(width: horizontalIndent),
+                      facePC(
+                        codeImage,
+                        "Антон Кисляков",
+                        "Руководитель программы",
+                        "antonkislyakov@studentambassadors.com",
+                      ),
+                      SizedBox(width: horizontalIndent),
+                      facePC(
+                        codeImage,
+                        "Антон Кисляков",
+                        "Руководитель программы",
+                        "antonkislyakov@studentambassadors.com",
+                      ),
+                      SizedBox(width: horizontalIndent),
+                      facePC(
+                        codeImage,
+                        "Антон Кисляков",
+                        "Руководитель программы",
+                        "antonkislyakov@studentambassadors.com",
+                      ),
+                    ]
+                  : [
+                      SizedBox(width: textIndent),
+                      Column(
+                        children: [
+                          faceMobile(
+                            codeImage,
+                            "Антон Кисляков",
+                            "Руководитель программы",
+                            "antonkislyakov@studentambassadors.com",
+                            width,
+                          ),
+                          SizedBox(width: horizontalIndent),
+                          faceMobile(
+                            codeImage,
+                            "Антон Кисляков",
+                            "Руководитель программы",
+                            "antonkislyakov@studentambassadors.com",
+                            width,
+                          ),
+                          SizedBox(width: textIndent),
+                          faceMobile(
+                            codeImage,
+                            "Антон Кисляков",
+                            "Руководитель программы",
+                            "antonkislyakov@studentambassadors.com",
+                            width,
+                          ),
+                          SizedBox(width: horizontalIndent),
+                          faceMobile(
+                            codeImage,
+                            "Антон Кисляков",
+                            "Руководитель программы",
+                            "antonkislyakov@studentambassadors.com",
+                            width,
+                          ),
+                          SizedBox(width: horizontalIndent),
+                          faceMobile(
+                            codeImage,
+                            "Антон Кисляков",
+                            "Руководитель программы",
+                            "antonkislyakov@studentambassadors.com",
+                            width,
+                          ),
+                          SizedBox(width: horizontalIndent),
+                          faceMobile(
+                            codeImage,
+                            "Антон Кисляков",
+                            "Руководитель программы",
+                            "antonkislyakov@studentambassadors.com",
+                            width,
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: textIndent),
+                    ]),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: (width > 1400)
+                ? [
+                    facePC(
+                      codeImage,
+                      "Антон Кисляков",
+                      "Руководитель программы",
+                      "antonkislyakov@studentambassadors.com",
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    facePC(
+                      codeImage,
+                      "Антон Кисляков",
+                      "Руководитель программы",
+                      "antonkislyakov@studentambassadors.com",
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    facePC(
+                      codeImage,
+                      "Антон Кисляков",
+                      "Руководитель программы",
+                      "antonkislyakov@studentambassadors.com",
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    facePC(
+                      codeImage,
+                      "Антон Кисляков",
+                      "Руководитель программы",
+                      "antonkislyakov@studentambassadors.com",
+                    ),
+                  ]
+                : [],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget facePC(String photo, String name, String who, String email) {
+    return Column(
+      children: [
+        SizedBox(height: horizontalIndent),
+        CircleAvatar(
+          radius: 120,
+          backgroundImage: AssetImage(photo),
+        ),
+        SizedBox(height: schemeIndent),
+        Text(
+          name,
+          style: normalTextStyle(24.0),
+        ),
+        Text(
+          who,
+          style: normalTextStyle(normalTextSize),
+        ),
+        (email != "none")
+            ? Text(
+                email,
+                style: normalTextStyle(16.0),
+              )
+            : Container(),
+        SizedBox(height: horizontalIndent),
+      ],
+    );
+  }
+
+  Widget faceMobile(
+      String photo, String name, String who, String email, width) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        (width > switchToMobileSize)
+            ? SizedBox(height: horizontalIndent)
+            : Container(),
+        Container(
+          width: (width > switchToMobileSize) ? 150 : 100,
+          height: 100,
+          child: CircleAvatar(
+            radius: (width > switchToMobileSize) ? 50 : 25,
+            backgroundImage: AssetImage(photo),
+          ),
+        ),
+        SizedBox(height: textIndent),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: (width > 800)
+              ? [
+                  SizedBox(height: horizontalIndent),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: normalTextStyle(24.0),
+                      ),
+                      Text(
+                        " — ",
+                        style: normalTextStyle(24.0),
+                      ),
+                      Text(
+                        who,
+                        style: normalTextStyle(24.0),
+                      ),
+                    ],
+                  ),
+                  (email != "none")
+                      ? Text(
+                          email,
+                          style: normalTextStyle(16.0),
+                        )
+                      : Container(),
+                  SizedBox(height: horizontalIndent * 2),
+                ]
+              : [
+                  SizedBox(height: horizontalIndent),
+                  Text(
+                    "  " + name,
+                    style: normalTextStyle(normalTextSize),
+                  ),
+                  Text(
+                    "  " + who,
+                    style: normalTextStyle(16.0),
+                  ),
+                  (email != "none")
+                      ? Text(
+                          "  " + email,
+                          style: normalTextStyle(14.0),
+                        )
+                      : Container(),
+                  SizedBox(height: horizontalIndent * 2),
+                ],
+        ),
+        SizedBox(height: horizontalIndent),
+      ],
     );
   }
 
