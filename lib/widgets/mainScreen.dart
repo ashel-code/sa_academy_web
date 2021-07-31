@@ -55,6 +55,7 @@ double navBarIndent = navBarHeight;
 double menuButtonWidth = navBarHeight;
 
 double textIndent = 70.0;
+// double coverIndent = 500.0;
 double schemeIndent = 8.0;
 double horizontalIndent = 20;
 
@@ -154,7 +155,7 @@ class MyHomePageState extends State<MyHomePage> {
               ? SizedBox(height: 0)
               : SizedBox(height: 25),
           Container(
-            width: 130 + textIndent,
+            width: 130 + width / 5,
             height: 32,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -172,7 +173,7 @@ class MyHomePageState extends State<MyHomePage> {
               child: Row(
                 children: [
                   SizedBox(
-                    width: navBarIndent,
+                    width: width / 5,
                   ),
                   Text(
                     "онлайн-курс",
@@ -185,9 +186,8 @@ class MyHomePageState extends State<MyHomePage> {
           Row(
             children: [
               SizedBox(
-                width: (width > switchToMobileSize)
-                    ? textIndent
-                    : (textIndent / 2),
+                width:
+                    (width > switchToMobileSize) ? width / 5 : (width / 5 / 2),
               ),
               Container(
                 child: Flexible(
@@ -218,7 +218,7 @@ class MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               SizedBox(
-                width: (width > switchToMobileSize) ? 0 : (textIndent / 2),
+                width: (width > switchToMobileSize) ? 0 : (width / 5 / 2),
               ),
             ],
           ),
@@ -2215,3 +2215,4 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+// заголовок лиц
