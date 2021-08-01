@@ -65,6 +65,12 @@ flutter:
   - assets/images/briefcase.png
   - assets/images/pc.png
   - assets/images/party-popper.png
+
+  - assets/images/unity-icon.png
+  - assets/images/wpf-icon.png
+  - assets/images/xamarin-icon.png
+
+  - assets/images/calendar.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

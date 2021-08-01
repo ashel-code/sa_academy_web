@@ -85,12 +85,12 @@ String pontyCase = "assets/images/briefcase.png";
 String notMacbook = "assets/images/pc.png";
 String carrotidk = "assets/images/party-popper.png";
 // directions block
-String aspDirectionImage = "assets/images/school.png";
-String wpfDirectionImage = "assets/images/school.png";
-String xamarinDirectionImage = "assets/images/school.png";
+String aspDirectionImage = "assets/images/unity-icon.png";
+String wpfDirectionImage = "assets/images/wpf-icon.png";
+String xamarinDirectionImage = "assets/images/xamarin-icon.png";
 
 //areYouReady block
-String calendarImage = "assets/images/school.png";
+String calendarImage = "assets/images/calendar.png";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
@@ -1269,7 +1269,10 @@ class MyHomePageState extends State<MyHomePage> {
                               ? (width - textIndent * 2 - schemeIndent * 2) / 3
                               : (maxWidth - textIndent * 2 - schemeIndent * 2) /
                                   3,
-                          child: firstDirection(width),
+                          child: firstDirection((width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3),
                         ),
                         SizedBox(width: schemeIndent),
                         // second
@@ -1294,7 +1297,10 @@ class MyHomePageState extends State<MyHomePage> {
                               ? (width - textIndent * 2 - schemeIndent * 2) / 3
                               : (maxWidth - textIndent * 2 - schemeIndent * 2) /
                                   3,
-                          child: secondDirection(width),
+                          child: secondDirection((width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3),
                         ),
                         SizedBox(width: schemeIndent),
                         // third
@@ -1319,7 +1325,10 @@ class MyHomePageState extends State<MyHomePage> {
                               ? (width - textIndent * 2 - schemeIndent * 2) / 3
                               : (maxWidth - textIndent * 2 - schemeIndent * 2) /
                                   3,
-                          child: thirdDirection(width),
+                          child: thirdDirection((width < maxWidth)
+                              ? (width - textIndent * 2 - schemeIndent * 2) / 3
+                              : (maxWidth - textIndent * 2 - schemeIndent * 2) /
+                                  3),
                         ),
                         SizedBox(width: textIndent),
                       ],
@@ -1364,7 +1373,8 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   width: (width - textIndent * 2 - schemeIndent * 2) / 2,
                   height: (width - textIndent * 2 - schemeIndent * 2) / 2,
-                  child: firstDirection(width),
+                  child: firstDirection(
+                      (width - textIndent * 2 - schemeIndent * 2) / 2),
                 ),
                 SizedBox(width: schemeIndent),
                 // second
@@ -1382,7 +1392,8 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   width: (width - textIndent * 2 - schemeIndent * 2) / 2,
                   height: (width - textIndent * 2 - schemeIndent * 2) / 2,
-                  child: secondDirection(width),
+                  child: secondDirection(
+                      (width - textIndent * 2 - schemeIndent * 2) / 2),
                 ),
                 SizedBox(width: textIndent),
               ],
@@ -1406,7 +1417,8 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   width: (width - textIndent * 2 - schemeIndent * 2) / 2,
                   height: (width - textIndent * 2 - schemeIndent * 2) / 2,
-                  child: thirdDirection(width),
+                  child: thirdDirection(
+                      (width - textIndent * 2 - schemeIndent * 2) / 2),
                 ),
               ],
             ),
@@ -1445,7 +1457,8 @@ class MyHomePageState extends State<MyHomePage> {
               ),
               width: (width - textIndent * 2 - schemeIndent * 2),
               height: (width - textIndent * 2 - schemeIndent * 2),
-              child: firstDirection(width),
+              child:
+                  firstDirection((width - textIndent * 2 - schemeIndent * 2)),
             ),
             SizedBox(height: schemeIndent),
             // second
@@ -1463,7 +1476,8 @@ class MyHomePageState extends State<MyHomePage> {
               ),
               width: (width - textIndent * 2 - schemeIndent * 2),
               height: (width - textIndent * 2 - schemeIndent * 2),
-              child: secondDirection(width),
+              child:
+                  secondDirection((width - textIndent * 2 - schemeIndent * 2)),
             ),
             SizedBox(height: schemeIndent),
             // third
@@ -1481,7 +1495,8 @@ class MyHomePageState extends State<MyHomePage> {
               ),
               width: (width - textIndent * 2 - schemeIndent * 2),
               height: (width - textIndent * 2 - schemeIndent * 2),
-              child: thirdDirection(width),
+              child:
+                  thirdDirection((width - textIndent * 2 - schemeIndent * 2)),
             ),
             SizedBox(height: horizontalIndent),
           ],
@@ -1492,13 +1507,20 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget firstDirection(double width) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(width: textIndent),
         Column(children: [
+          Spacer(),
           Image(
             image: AssetImage(aspDirectionImage),
+            height: width - horizontalIndent * 2 - textHeight,
           ),
-          Text("ASP.NET"),
+          SizedBox(height: schemeIndent),
+          Text(
+            "Unity",
+            style: normalTextStyle(24.0),
+          ),
+          Spacer(),
         ])
       ],
     );
@@ -1506,37 +1528,42 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget secondDirection(double width) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(width: textIndent),
-        Column(
-          children: [
-            Image(
-              image: AssetImage(wpfDirectionImage),
-              height:
-                  (width - textIndent * 2 - schemeIndent * 2) / 3 - textHeight,
-            ),
-            Container(
-              height: textHeight,
-              child: Text("WPF"),
-            ),
-          ],
-        ),
+        Column(children: [
+          Spacer(),
+          Image(
+            image: AssetImage(wpfDirectionImage),
+            height: width - horizontalIndent * 2 - textHeight,
+          ),
+          SizedBox(height: schemeIndent),
+          Text(
+            "WPF",
+            style: normalTextStyle(24.0),
+          ),
+          Spacer(),
+        ])
       ],
     );
   }
 
   Widget thirdDirection(double width) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(width: textIndent),
-        Column(
-          children: [
-            Image(
-              image: AssetImage(xamarinDirectionImage),
-            ),
-            Text("Xamarin"),
-          ],
-        ),
+        Column(children: [
+          Spacer(),
+          Image(
+            image: AssetImage(xamarinDirectionImage),
+            height: width - horizontalIndent * 2 - textHeight,
+          ),
+          SizedBox(height: schemeIndent),
+          Text(
+            "Xamarin",
+            style: normalTextStyle(24.0),
+          ),
+          Spacer(),
+        ])
       ],
     );
   }
@@ -1783,7 +1810,7 @@ class MyHomePageState extends State<MyHomePage> {
                         codeImage,
                         "Антон Кисляков",
                         "Руководитель программы",
-                        "antonkislyakov@studentambassadors.com",
+                        "none",
                       ),
                       SizedBox(width: horizontalIndent),
                       facePC(
@@ -1912,11 +1939,11 @@ class MyHomePageState extends State<MyHomePage> {
           style: normalTextStyle(normalTextSize),
         ),
         (email != "none")
-            ? Text(
+            ? SelectableText(
                 email,
                 style: normalTextStyle(16.0),
               )
-            : Container(),
+            : Text(""),
         SizedBox(height: horizontalIndent),
       ],
     );
@@ -1965,11 +1992,11 @@ class MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                   (email != "none")
-                      ? Text(
+                      ? SelectableText(
                           email,
                           style: normalTextStyle(16.0),
                         )
-                      : Container(),
+                      : Text(""),
                   SizedBox(height: horizontalIndent * 2),
                 ]
               : [
@@ -1983,11 +2010,11 @@ class MyHomePageState extends State<MyHomePage> {
                     style: normalTextStyle(14.0),
                   ),
                   (email != "none")
-                      ? Text(
+                      ? SelectableText(
                           "  " + email,
                           style: normalTextStyle(12.0),
                         )
-                      : Container(),
+                      : Text(""),
                   SizedBox(height: horizontalIndent * 2),
                 ],
         ),
@@ -2223,3 +2250,4 @@ class MyHomePageState extends State<MyHomePage> {
   }
 }
 // заголовок лиц
+// почта можно скопировать
