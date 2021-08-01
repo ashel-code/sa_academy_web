@@ -123,7 +123,7 @@ class MyHomePageState extends State<MyHomePage> {
         children: [
           SizedBox(height: navBarHeight),
           coverFrame(width, height),
-          whatIsAcademyText(),
+          whatIsAcademyText(width),
           whatIsAcademyAnswer(width),
           united(width),
           aboutCources(width),
@@ -506,9 +506,9 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   // what is academy
-  Widget whatIsAcademyText() {
+  Widget whatIsAcademyText(double width) {
     return Container(
-      height: 100,
+      height: (width > switchToMobileSize) ? 100 : 150,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -663,7 +663,7 @@ class MyHomePageState extends State<MyHomePage> {
                             width: (width < maxWidth)
                                 ? (textIndent)
                                 : ((width - maxWidth) / 2 + textIndent)),
-                        firstPeriod(),
+                        firstPeriod(width),
                         SizedBox(width: horizontalIndent),
                         DottedLine(
                           direction: Axis.vertical,
@@ -671,7 +671,7 @@ class MyHomePageState extends State<MyHomePage> {
                           dashColor: Color(0xffC4C4C4),
                         ),
                         SizedBox(width: horizontalIndent),
-                        secondPeriod(),
+                        secondPeriod(width),
                         SizedBox(width: horizontalIndent),
                         DottedLine(
                           direction: Axis.vertical,
@@ -695,17 +695,17 @@ class MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: [
                         SizedBox(height: horizontalIndent * 2),
-                        firstPeriod(),
+                        firstPeriod(width),
                         SizedBox(height: horizontalIndent / 2),
                         DottedLine(
-                          lineLength: 350,
+                          lineLength: (width > switchToMobileSize) ? 350 : 190,
                           dashColor: Color(0xffC4C4C4),
                         ),
                         SizedBox(height: horizontalIndent / 2),
-                        secondPeriod(),
+                        secondPeriod(width),
                         SizedBox(height: horizontalIndent / 2),
                         DottedLine(
-                          lineLength: 350,
+                          lineLength: (width > switchToMobileSize) ? 350 : 190,
                           dashColor: Color(0xffC4C4C4),
                         ),
                         SizedBox(height: horizontalIndent / 2),
@@ -713,7 +713,7 @@ class MyHomePageState extends State<MyHomePage> {
                         SizedBox(height: horizontalIndent),
                       ],
                     ),
-                    Spacer()
+                    Spacer(),
                   ],
                 ),
         ],
@@ -721,7 +721,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget firstPeriod() {
+  Widget firstPeriod(double width) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -740,13 +740,15 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           elevation: normalElevation,
           child: Container(
-            height: 40,
-            width: 240,
+            height: (width > switchToMobileSize) ? 40 : 75,
+            width: (width > switchToMobileSize) ? 240 : 170,
             child: Column(
               children: [
                 Spacer(),
                 Text(
-                  "Изучение синтаксиса",
+                  (width > switchToMobileSize)
+                      ? "Изучение синтаксиса"
+                      : "Изучение\nсинтаксиса",
                   style: normalBlackTextStyle(normalTextSize),
                   textAlign: TextAlign.center,
                 ),
@@ -759,7 +761,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget secondPeriod() {
+  Widget secondPeriod(double width) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -778,13 +780,15 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           elevation: normalElevation,
           child: Container(
-            height: 40,
-            width: 240,
+            height: (width > switchToMobileSize) ? 40 : 75,
+            width: (width > switchToMobileSize) ? 240 : 170,
             child: Column(
               children: [
                 Spacer(),
                 Text(
-                  "Веб-направление",
+                  (width > switchToMobileSize)
+                      ? "Веб-направление"
+                      : "Веб\nнаправление",
                   style: normalBlackTextStyle(normalTextSize),
                   textAlign: TextAlign.center,
                 ),
@@ -803,13 +807,15 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           elevation: normalElevation,
           child: Container(
-            height: 40,
-            width: 240,
+            height: (width > switchToMobileSize) ? 40 : 75,
+            width: (width > switchToMobileSize) ? 240 : 170,
             child: Column(
               children: [
                 Spacer(),
                 Text(
-                  "Десктопное направление",
+                  (width > switchToMobileSize)
+                      ? "Десктопное направление"
+                      : "Десктопное\nнаправление",
                   style: normalBlackTextStyle(normalTextSize),
                   textAlign: TextAlign.center,
                 ),
@@ -828,13 +834,15 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           elevation: normalElevation,
           child: Container(
-            height: 40,
-            width: 240,
+            height: (width > switchToMobileSize) ? 40 : 75,
+            width: (width > switchToMobileSize) ? 240 : 170,
             child: Column(
               children: [
                 Spacer(),
                 Text(
-                  "GameDev направление",
+                  (width > switchToMobileSize)
+                      ? "GameDev направление"
+                      : "GameDev\nнаправление",
                   style: normalBlackTextStyle(normalTextSize),
                   textAlign: TextAlign.center,
                 ),
@@ -844,7 +852,7 @@ class MyHomePageState extends State<MyHomePage> {
           ),
         ),
         Container(
-          width: 240,
+          width: (width > switchToMobileSize) ? 240 : 170,
           child: Text(
             "* На данном этапе выбор направления производится по конкурсу посещаемости и оценок за практические работы.",
             style: normalTextStyle(12.0),
@@ -971,7 +979,7 @@ class MyHomePageState extends State<MyHomePage> {
               ? ((width < maxWidth)
                   ? (width - textIndent * 2 - 240 * 2 - horizontalIndent * 4)
                   : 500)
-              : 400,
+              : 300,
         ),
         SizedBox(
           height: schemeIndent,
@@ -1586,11 +1594,10 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           child: Row(
             children: [
-              SizedBox(width: textIndent),
+              Spacer(),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: textIndent / 2),
                   Text(
                     "Уже готов стать\nчастью академии?",
                     style: boldBlackTextStyle(36.0),
@@ -1605,7 +1612,7 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: horizontalIndent),
                 ],
               ),
-              SizedBox(width: textIndent),
+              Spacer(),
             ],
           ),
         ),
@@ -1730,7 +1737,7 @@ class MyHomePageState extends State<MyHomePage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(height: horizontalIndent),
+                              SizedBox(height: horizontalIndent / 3),
                               Image(
                                 image: AssetImage(logoImage),
                               ),
@@ -1740,7 +1747,7 @@ class MyHomePageState extends State<MyHomePage> {
                                 textAlign: TextAlign.center,
                                 style: normalTextStyle(24.0),
                               ),
-                              SizedBox(height: horizontalIndent),
+                              SizedBox(height: horizontalIndent / 3),
                             ],
                           ),
                         ),
@@ -1794,7 +1801,7 @@ class MyHomePageState extends State<MyHomePage> {
                       ),
                     ]
                   : [
-                      SizedBox(width: textIndent),
+                      SizedBox(width: horizontalIndent / 2),
                       Column(
                         children: [
                           faceMobile(
@@ -1925,14 +1932,14 @@ class MyHomePageState extends State<MyHomePage> {
             ? SizedBox(height: horizontalIndent)
             : Container(),
         Container(
-          width: (width > switchToMobileSize) ? 150 : 100,
-          height: 100,
+          width: (width > switchToMobileSize) ? 150 : 50,
+          height: (width > switchToMobileSize) ? 100 : 110,
           child: CircleAvatar(
-            radius: (width > switchToMobileSize) ? 50 : 25,
+            radius: (width > switchToMobileSize) ? 50 : 20,
             backgroundImage: AssetImage(photo),
           ),
         ),
-        SizedBox(height: textIndent),
+        SizedBox(height: (width > switchToMobileSize) ? textIndent : 0),
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1969,16 +1976,16 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: horizontalIndent),
                   Text(
                     "  " + name,
-                    style: normalTextStyle(normalTextSize),
+                    style: normalTextStyle(16.0),
                   ),
                   Text(
                     "  " + who,
-                    style: normalTextStyle(16.0),
+                    style: normalTextStyle(14.0),
                   ),
                   (email != "none")
                       ? Text(
                           "  " + email,
-                          style: normalTextStyle(14.0),
+                          style: normalTextStyle(12.0),
                         )
                       : Container(),
                   SizedBox(height: horizontalIndent * 2),
