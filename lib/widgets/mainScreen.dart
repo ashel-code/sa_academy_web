@@ -50,53 +50,66 @@ TextStyle boldTextStyle(double fontSize) {
 }
 
 bool isNavBarOpened = false;
-double navBarHeight = 50.0;
-double navBarIndent = navBarHeight;
-double menuButtonWidth = navBarHeight;
-
-double textIndent = 70.0;
+const double navBarHeight = 50.0;
+const double navBarIndent = navBarHeight;
+const double menuButtonWidth = navBarHeight;
+const double textIndent = 70.0;
 // double coverIndent = 500.0;
-double schemeIndent = 8.0;
-double horizontalIndent = 20;
-
-double switchToMobileSize = 650;
-double navBarToMobile = 1000;
-
-double normalTextSize = 18.0;
-double navBarTextSize = 18.0;
-
-double normalElevation = 5.0;
-
-double textHeight = 48.0;
-double maxWidth = 1500;
-double readyWidth = 200.0;
+const double schemeIndent = 8.0;
+const double horizontalIndent = 20;
+const double switchToMobileSize = 650;
+const double navBarToMobile = 1000;
+const double normalTextSize = 18.0;
+const double navBarTextSize = 18.0;
+const double normalElevation = 5.0;
+const double textHeight = 48.0;
+const double maxWidth = 1500;
+const double readyWidth = 200.0;
 // images
-String logoImage = "assets/images/logo.png";
-String codeImage = "assets/images/code.jpg";
+const String logoImage = "assets/images/logo.png";
+const String codeImage = "assets/images/code.jpg";
+
 // what is academy answer block
-String skillsImage = "assets/images/smile.png";
-String practiceImage = "assets/images/school.png";
-String projectImage = "assets/images/graduation.png";
+const String skillsImage = "assets/images/smile.png";
+const String practiceImage = "assets/images/school.png";
+const String projectImage = "assets/images/graduation.png";
+
 // what is academy question block
-String threeGuysImage = "assets/images/three-guys.png";
+const String threeGuysImage = "assets/images/three-guys.png";
+
 // how it works block
-String pencilImage = "assets/images/pencil.png";
-String pontyCase = "assets/images/briefcase.png";
-String notMacbook = "assets/images/pc.png";
-String carrotidk = "assets/images/party-popper.png";
-// directions block
-String aspDirectionImage = "assets/images/unity-icon.png";
-String wpfDirectionImage = "assets/images/wpf-icon.png";
-String xamarinDirectionImage = "assets/images/xamarin-icon.png";
+const String pencilImage = "assets/images/pencil.png";
+const String pontyCase = "assets/images/briefcase.png";
+const String notMacbook = "assets/images/pc.png";
+const String carrotidk = "assets/images/party-popper.png";
+
+// directions blockconst
+const String aspDirectionImage = "assets/images/unity-icon.png";
+const String wpfDirectionImage = "assets/images/wpf-icon.png";
+const String xamarinDirectionImage = "assets/images/xamarin-icon.png";
+
+// people
+const String AKimage = "assets/images/faces/ak.png";
+const String DMimage = "assets/images/faces/dm.png";
+const String LMimage = "assets/images/faces/lm.png";
+const String ASimage = "assets/images/faces/as.png";
+
+const String MKimage = "assets/images/faces/mk.png";
+const String EMimage = "assets/images/faces/em.png";
+const String ACimage = "assets/images/faces/ac.png";
 
 //areYouReady block
-String calendarImage = "assets/images/calendar.png";
+const String calendarImage = "assets/images/calendar.png";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
+  final academyKey = new GlobalKey();
+
   final aboutKey = new GlobalKey();
-  final answersKey = new GlobalKey();
-  final aboutCourcesKey = new GlobalKey();
+  // final answersKey = new GlobalKey();
+  final directionsKey = new GlobalKey();
+  final selectionKey = new GlobalKey();
+  final contactsKey = new GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -141,6 +154,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget coverFrame(double width, height) {
     return Container(
+      key: academyKey,
       height: height - navBarHeight,
       decoration: BoxDecoration(
         color: Color(0x00222222),
@@ -243,12 +257,12 @@ class MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-        fuckedLine()
+        line()
       ],
     );
   }
 
-  Widget fuckedLine() {
+  Widget line() {
     return Material(
       color: Color(0xff404040),
       borderRadius: BorderRadius.all(
@@ -292,12 +306,12 @@ class MyHomePageState extends State<MyHomePage> {
             Container(height: 50)
           ],
         ),
-        (width > navBarToMobile) ? fuckedLine2() : fuckedButtonMk2()
+        (width > navBarToMobile) ? line2() : applyToMk2()
       ],
     );
   }
 
-  Widget fuckedLine2() {
+  Widget line2() {
     return Material(
       color: Color(0xff404040),
       borderRadius: BorderRadius.all(
@@ -318,7 +332,7 @@ class MyHomePageState extends State<MyHomePage> {
               textAlign: TextAlign.center,
             ),
             Spacer(),
-            fuckedButtonMk2(),
+            applyToMk2(),
             SizedBox(width: 5.0),
           ],
         ),
@@ -430,79 +444,6 @@ class MyHomePageState extends State<MyHomePage> {
             SizedBox(height: horizontalIndent * 2),
           ],
         ));
-  }
-
-  Widget aboutCourcesOld(double width) {
-    return Container(
-      key: aboutCourcesKey,
-      child: (width > navBarToMobile)
-          ? Container(
-              child: Row(
-                children: [
-                  Flexible(
-                      child: Container(
-                          child: RichText(
-                              text: TextSpan(children: [
-                    TextSpan(
-                        text: "Что за курсы?\n", style: boldTextStyle(36.0)),
-                    TextSpan(
-                        text:
-                            "Это спецпрограмма, где ты получишь практические ",
-                        style: normalTextStyle(normalTextSize)),
-                    TextSpan(
-                        text: "навыки разработки ",
-                        style: boldTextStyle(normalTextSize)),
-                    TextSpan(
-                        text: "на языке программирования C# и ",
-                        style: normalTextStyle(normalTextSize)),
-                    TextSpan(
-                        text: "закодишь в команде ",
-                        style: boldTextStyle(normalTextSize)),
-                    TextSpan(
-                        text: "с нуля проект на пратформе .NET! ",
-                        style: normalTextStyle(normalTextSize))
-                  ])))),
-                  Image(
-                      image: AssetImage("assets/images/logo.png"), height: 300)
-                ],
-              ),
-            )
-          : Column(
-              children: [
-                Container(
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                            text: "Что за курсы?\n",
-                            style: boldTextStyle(36.0)),
-                        TextSpan(
-                            text:
-                                "Это спецпрограмма, где ты получишь практические ",
-                            style: normalTextStyle(normalTextSize)),
-                        TextSpan(
-                            text: "навыки разработки ",
-                            style: boldTextStyle(normalTextSize)),
-                        TextSpan(
-                            text: "на языке программирования C# и ",
-                            style: normalTextStyle(normalTextSize)),
-                        TextSpan(
-                            text: "закодишь в команде ",
-                            style: boldTextStyle(normalTextSize)),
-                        TextSpan(
-                            text: "с нуля проект на пратформе .NET! ",
-                            style: normalTextStyle(normalTextSize))
-                      ],
-                    ),
-                  ),
-                ),
-                Center(
-                    child: Image(
-                        image: AssetImage("assets/images/logo.png"),
-                        height: 300))
-              ],
-            ),
-    );
   }
 
   // what is academy
@@ -1224,6 +1165,7 @@ class MyHomePageState extends State<MyHomePage> {
     if (width > navBarToMobile) {
       // Big size
       return Container(
+        key: directionsKey,
         width: double.infinity,
         child: Container(
             width: maxWidth,
@@ -1342,6 +1284,7 @@ class MyHomePageState extends State<MyHomePage> {
     } else if (width > switchToMobileSize) {
       // Middle size
       return Container(
+        key: directionsKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -1429,6 +1372,7 @@ class MyHomePageState extends State<MyHomePage> {
     } else {
       // Little size
       return Container(
+        key: directionsKey,
         width: width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -1572,6 +1516,7 @@ class MyHomePageState extends State<MyHomePage> {
   Widget areYouReady(double width) {
     if (width > navBarToMobile) {
       return Container(
+        key: selectionKey,
         child: Container(
           width: readyWidth * 3 + textIndent * 4 + horizontalIndent * 4,
           decoration: BoxDecoration(
@@ -1610,6 +1555,7 @@ class MyHomePageState extends State<MyHomePage> {
       );
     } else {
       return Container(
+        key: selectionKey,
         child: Container(
           width: (readyWidth + horizontalIndent * 2) * 2,
           decoration: BoxDecoration(
@@ -1789,8 +1735,10 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
+//  faces
   Widget faces(double width) {
     return Container(
+      key: contactsKey,
       child: Column(
         children: [
           Row(
@@ -1800,39 +1748,41 @@ class MyHomePageState extends State<MyHomePage> {
               children: (width > 1400)
                   ? [
                       facePC(
-                        codeImage,
+                        AKimage,
                         "Антон Кисляков",
                         "Руководитель программы",
                         "antonkislyakov@studentambassadors.com",
                       ),
                       SizedBox(width: horizontalIndent),
                       facePC(
-                        codeImage,
-                        "Антон Кисляков",
+                        DMimage,
+                        "Денис Миков",
+                        "Заместитель руководителя",
+                        "breakout.dm.06@gmail.com",
+                      ),
+                      SizedBox(width: horizontalIndent),
+                      facePC(
+                        LMimage,
+                        "Лаура Манукян",
                         "Руководитель программы",
                         "none",
                       ),
                       SizedBox(width: horizontalIndent),
                       facePC(
-                        codeImage,
-                        "Антон Кисляков",
-                        "Руководитель программы",
-                        "antonkislyakov@studentambassadors.com",
-                      ),
-                      SizedBox(width: horizontalIndent),
-                      facePC(
-                        codeImage,
-                        "Антон Кисляков",
-                        "Руководитель программы",
-                        "antonkislyakov@studentambassadors.com",
+                        ASimage,
+                        "Алексей Штей",
+                        "Соорг",
+                        "none",
                       ),
                     ]
                   : [
                       SizedBox(width: horizontalIndent / 2),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           faceMobile(
-                            codeImage,
+                            AKimage,
                             "Антон Кисляков",
                             "Руководитель программы",
                             "antonkislyakov@studentambassadors.com",
@@ -1840,42 +1790,50 @@ class MyHomePageState extends State<MyHomePage> {
                           ),
                           SizedBox(width: horizontalIndent),
                           faceMobile(
-                            codeImage,
-                            "Антон Кисляков",
-                            "Руководитель программы",
-                            "antonkislyakov@studentambassadors.com",
+                            DMimage,
+                            "Денис Миков",
+                            "Заместитель руководителя",
+                            "breakout.dm.06@gmail.com",
                             width,
                           ),
                           SizedBox(width: textIndent),
                           faceMobile(
-                            codeImage,
-                            "Антон Кисляков",
+                            LMimage,
+                            "Лаура Манукян",
                             "Руководитель программы",
-                            "antonkislyakov@studentambassadors.com",
+                            "none",
                             width,
                           ),
                           SizedBox(width: horizontalIndent),
                           faceMobile(
-                            codeImage,
-                            "Антон Кисляков",
-                            "Руководитель программы",
-                            "antonkislyakov@studentambassadors.com",
+                            ASimage,
+                            "Алексей Штей",
+                            "Соорг",
+                            "none",
                             width,
                           ),
                           SizedBox(width: horizontalIndent),
                           faceMobile(
-                            codeImage,
-                            "Антон Кисляков",
-                            "Руководитель программы",
-                            "antonkislyakov@studentambassadors.com",
+                            MKimage,
+                            "Максим Корсаков",
+                            "Unity",
+                            "none",
                             width,
                           ),
                           SizedBox(width: horizontalIndent),
                           faceMobile(
-                            codeImage,
-                            "Антон Кисляков",
-                            "Руководитель программы",
-                            "antonkislyakov@studentambassadors.com",
+                            EMimage,
+                            "Евгения Морозова",
+                            "Соорг",
+                            "none",
+                            width,
+                          ),
+                          SizedBox(width: horizontalIndent),
+                          faceMobile(
+                            ACimage,
+                            "Александр Цымбалов",
+                            "Когнитивные технологии",
+                            "none",
                             width,
                           ),
                         ],
@@ -1887,31 +1845,24 @@ class MyHomePageState extends State<MyHomePage> {
             children: (width > 1400)
                 ? [
                     facePC(
-                      codeImage,
-                      "Антон Кисляков",
-                      "Руководитель программы",
-                      "antonkislyakov@studentambassadors.com",
+                      MKimage,
+                      "Максим Корсаков",
+                      "Unity",
+                      "none",
                     ),
                     SizedBox(width: horizontalIndent),
                     facePC(
-                      codeImage,
-                      "Антон Кисляков",
-                      "Руководитель программы",
-                      "antonkislyakov@studentambassadors.com",
+                      EMimage,
+                      "Евгения Морозова",
+                      "Соорг",
+                      "none",
                     ),
                     SizedBox(width: horizontalIndent),
                     facePC(
-                      codeImage,
-                      "Антон Кисляков",
-                      "Руководитель программы",
-                      "antonkislyakov@studentambassadors.com",
-                    ),
-                    SizedBox(width: horizontalIndent),
-                    facePC(
-                      codeImage,
-                      "Антон Кисляков",
-                      "Руководитель программы",
-                      "antonkislyakov@studentambassadors.com",
+                      ACimage,
+                      "Александр Цымбалов",
+                      "Когнитивные технологии",
+                      "none",
                     ),
                   ]
                 : [],
@@ -2052,11 +2003,11 @@ class MyHomePageState extends State<MyHomePage> {
                     SizedBox(width: 50),
                     selectionTextButton(),
                     SizedBox(width: 50),
-                    FAQTextButton(),
-                    SizedBox(width: 50),
+                    // FAQTextButton(),
+                    // SizedBox(width: 50),
                     contactsTextButton(),
                     SizedBox(width: 50),
-                    fuckedButton(),
+                    applyTo(),
                     SizedBox(width: 30),
                   ],
                 ),
@@ -2117,7 +2068,7 @@ class MyHomePageState extends State<MyHomePage> {
               AnimatedOpacity(
                 opacity: isNavBarOpened ? 1.0 : 0.0,
                 duration: Duration(milliseconds: isNavBarOpened ? 350 : 100),
-                child: fuckedButton(),
+                child: applyTo(),
               ),
             ],
           ),
@@ -2140,14 +2091,24 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget directionsTextButton() {
     return TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Scrollable.ensureVisible(directionsKey.currentContext!);
+          setState(() {
+            isNavBarOpened = false;
+          });
+        },
         child: Text("Направления", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
   Widget selectionTextButton() {
     return TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Scrollable.ensureVisible(selectionKey.currentContext!);
+          setState(() {
+            isNavBarOpened = false;
+          });
+        },
         child: Text("Отбор", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
@@ -2162,21 +2123,31 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget academyTextButton() {
     return TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Scrollable.ensureVisible(academyKey.currentContext!);
+          setState(() {
+            isNavBarOpened = false;
+          });
+        },
         child: Text("Academy", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
   Widget contactsTextButton() {
     return TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Scrollable.ensureVisible(contactsKey.currentContext!);
+          setState(() {
+            isNavBarOpened = false;
+          });
+        },
         child: Text("Контакты", style: lightTextStyle(navBarTextSize)),
         style: ButtonStyle());
   }
 
-  Widget fuckedButton() {
+  Widget applyTo() {
     return Container(
-      height: 30,
+      height: 40,
       width: 190,
       decoration: BoxDecoration(
         color: Color(0xff0079D5),
@@ -2192,7 +2163,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget fuckedButtonMk2() {
+  Widget applyToMk2() {
     return Container(
       width: 220,
       height: 50,

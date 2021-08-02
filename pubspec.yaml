@@ -71,6 +71,16 @@ flutter:
   - assets/images/xamarin-icon.png
 
   - assets/images/calendar.png
+
+  # faces
+  - assets/images/faces/ak.png
+  - assets/images/faces/dm.png
+  - assets/images/faces/lm.png
+  - assets/images/faces/as.png
+
+  - assets/images/faces/mk.png
+  - assets/images/faces/em.png
+  - assets/images/faces/ac.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
