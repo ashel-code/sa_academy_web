@@ -1687,6 +1687,7 @@ class MyHomePageState extends State<MyHomePage> {
                             SizedBox(height: schemeIndent),
                             Image(
                               image: AssetImage(logoImage),
+                              height: 120,
                             ),
                             SizedBox(height: schemeIndent)
                           ],
@@ -1713,6 +1714,7 @@ class MyHomePageState extends State<MyHomePage> {
                               SizedBox(height: horizontalIndent / 3),
                               Image(
                                 image: AssetImage(logoImage),
+                                height: 120,
                               ),
                               SizedBox(height: schemeIndent),
                               Text(
