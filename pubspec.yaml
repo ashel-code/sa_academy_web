@@ -82,6 +82,12 @@ flutter:
   - assets/images/faces/mk.png
   - assets/images/faces/em.png
   - assets/images/faces/ac.png
+
+  # updated 
+  - assets/images/DISCORD-UPDATED.png
+  - assets/images/UNITY-UPDATED.png
+  - assets/images/WPF-UPDATED.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

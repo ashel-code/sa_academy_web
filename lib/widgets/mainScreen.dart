@@ -87,9 +87,9 @@ const String notMacbook = "assets/images/pc.png";
 const String carrotidk = "assets/images/party-popper.png";
 
 // directions blockconst
-const String aspDirectionImage = "assets/images/unity-icon.png";
-const String wpfDirectionImage = "assets/images/wpf-icon.png";
-const String xamarinDirectionImage = "assets/images/xamarin-icon.png";
+const String aspDirectionImage = "assets/images/DISCORD-UPDATED.png";
+const String wpfDirectionImage = "assets/images/UNITY-UPDATED.png";
+const String xamarinDirectionImage = "assets/images/WPF-UPDATED.png";
 
 // people
 const String AKimage = "assets/images/faces/ak.png";
