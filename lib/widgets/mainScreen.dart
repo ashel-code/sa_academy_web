@@ -212,7 +212,7 @@ class MyHomePageState extends State<MyHomePage> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: ".NET academy\n",
+                          text: "WASP-Academy\n",
                           style: normalTextStyle(64),
                         ),
                         TextSpan(
@@ -363,7 +363,7 @@ class MyHomePageState extends State<MyHomePage> {
                               children: [
                                 TextSpan(
                                   text: "Что за курсы?",
-                                  style: boldTextStyle(36.0),
+                                  style: lightTextStyle(36.0),
                                 ),
                                 spaceEnter,
                                 TextSpan(
@@ -467,7 +467,7 @@ class MyHomePageState extends State<MyHomePage> {
         alignment: Alignment.center,
         child: Text(
           "Что такое академия?",
-          style: boldTextStyle(48.0),
+          style: boldTextStyle(36.0),
         ),
       ),
     );
@@ -532,7 +532,7 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(height: schemeIndent),
           Text(
-            "Здесь получают крутые навыки разработки на языке программирования C#",
+            "Здесь получают крутые навыки разработки на языке программирования C#!",
             style: normalBlackTextStyle(normalTextSize),
             textAlign: TextAlign.center,
           ),
@@ -553,7 +553,7 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(height: schemeIndent),
           Text(
-            "Тебя ждет проект, который ты запилишь вместе с командой и добавишь в свое портфолио",
+            "Тебя ждет проект, который ты запилишь вместе с командой и добавишь в свое портфолио!",
             style: normalBlackTextStyle(normalTextSize),
             textAlign: TextAlign.center,
           ),
@@ -957,7 +957,7 @@ class MyHomePageState extends State<MyHomePage> {
               SizedBox(height: horizontalIndent),
               Text(
                 "Как это работает",
-                style: normalTextStyle(36.0),
+                style: boldTextStyle(36.0),
               ),
               SizedBox(height: horizontalIndent),
               Row(
@@ -1184,7 +1184,7 @@ class MyHomePageState extends State<MyHomePage> {
                         SizedBox(width: textIndent),
                         Text(
                           "Направления программы",
-                          style: normalTextStyle(36.0),
+                          style: boldTextStyle(36.0),
                         ),
                       ],
                     ),
@@ -1637,7 +1637,7 @@ class MyHomePageState extends State<MyHomePage> {
               )),
           SizedBox(height: horizontalIndent),
           Text(
-            "Пройти\nсобеседование",
+            "Пройди\nсобеседование",
             textAlign: TextAlign.center,
             style: normalBlackTextStyle(24.0),
           ),
@@ -1699,7 +1699,7 @@ class MyHomePageState extends State<MyHomePage> {
                         Flexible(
                           child: Text(
                             "Курс организован при поддержке международной студенческой\nпартнерской программы “Microsoft Learn Student Ambassadors”",
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.left,
                             style: normalTextStyle(24.0),
                           ),
                         ),
