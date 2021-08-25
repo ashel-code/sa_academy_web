@@ -1,5 +1,5 @@
 // widgets from the test code
-import 'dart:html';
+import 'dart:html' as html;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -100,6 +100,9 @@ const String ACimage = "assets/images/faces/ac.png";
 
 //areYouReady block
 const String calendarImage = "assets/images/calendar.png";
+
+const String formLink =
+    "https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9P9r1OKddVJrVkKWuN2F9dUNEQwUUtHNVM0WDRSV0sxS1VSTkYxN0xHUS4u";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
@@ -2156,7 +2159,9 @@ class MyHomePageState extends State<MyHomePage> {
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
       ),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          html.window.location.href = formLink;
+        },
         child: Text(
           "Стать участником",
           style: normalTextStyle(normalTextSize),
