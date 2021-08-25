@@ -1851,7 +1851,7 @@ class MyHomePageState extends State<MyHomePage> {
                         ),
                         SizedBox(width: horizontalIndent),
                         faceMobile(
-                          ACimage,
+                          EMimage,
                           "Евгений Збанок",
                           "Преподаватель Unity",
                           "none",
@@ -1901,7 +1901,7 @@ class MyHomePageState extends State<MyHomePage> {
             children: (width > 1400)
                 ? [
                     facePC(
-                      MKimage,
+                      EMimage,
                       "Евгений Збанок",
                       "Преподаватель Unity",
                       "none",
