@@ -1747,104 +1747,121 @@ class MyHomePageState extends State<MyHomePage> {
       child: Column(
         children: [
           Row(
-              mainAxisAlignment: (width > 1400)
-                  ? MainAxisAlignment.center
-                  : MainAxisAlignment.start,
-              children: (width > 1400)
-                  ? [
-                      facePC(
-                        AKimage,
-                        "Антон Кисляков",
-                        "Руководитель программы",
-                        "antonkislyakov@studentambassadors.com",
-                      ),
-                      SizedBox(width: horizontalIndent),
-                      facePC(
-                        DMimage,
-                        "Денис Миков",
-                        "Заместитель руководителя",
-                        "breakout.dm.06@gmail.com",
-                      ),
-                      SizedBox(width: horizontalIndent),
-                      facePC(
-                        LMimage,
-                        "Лаура Манукян",
-                        "Руководитель программы",
-                        "none",
-                      ),
-                      SizedBox(width: horizontalIndent),
-                      facePC(
-                        ASimage,
-                        "Алексей Штей",
-                        "Соорг",
-                        "none",
-                      ),
-                    ]
-                  : [
-                      SizedBox(width: horizontalIndent / 2),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          faceMobile(
-                            AKimage,
-                            "Антон Кисляков",
-                            "Руководитель программы",
-                            "antonkislyakov@studentambassadors.com",
-                            width,
-                          ),
-                          SizedBox(width: horizontalIndent),
-                          faceMobile(
-                            DMimage,
-                            "Денис Миков",
-                            "Заместитель руководителя",
-                            "breakout.dm.06@gmail.com",
-                            width,
-                          ),
-                          SizedBox(width: textIndent),
-                          faceMobile(
-                            LMimage,
-                            "Лаура Манукян",
-                            "Руководитель программы",
-                            "none",
-                            width,
-                          ),
-                          SizedBox(width: horizontalIndent),
-                          faceMobile(
-                            ASimage,
-                            "Алексей Штей",
-                            "Соорг",
-                            "none",
-                            width,
-                          ),
-                          SizedBox(width: horizontalIndent),
-                          faceMobile(
-                            MKimage,
-                            "Максим Корсаков",
-                            "Unity",
-                            "none",
-                            width,
-                          ),
-                          SizedBox(width: horizontalIndent),
-                          faceMobile(
-                            EMimage,
-                            "Евгения Морозова",
-                            "Соорг",
-                            "none",
-                            width,
-                          ),
-                          SizedBox(width: horizontalIndent),
-                          faceMobile(
-                            ACimage,
-                            "Александр Цымбалов",
-                            "Когнитивные технологии",
-                            "none",
-                            width,
-                          ),
-                        ],
-                      ),
-                      SizedBox(width: textIndent),
-                    ]),
+            mainAxisAlignment: (width > 1400)
+                ? MainAxisAlignment.center
+                : MainAxisAlignment.start,
+            children: (width > 1400)
+                ? [
+                    facePC(
+                      AKimage,
+                      "Антон Кисляков",
+                      "Руководитель программы",
+                      "antonkislyakov\n@studentambassadors.com",
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    facePC(
+                      DMimage,
+                      "Денис Миков",
+                      "Заместитель руководителя",
+                      "mikov@wasp-academy.com",
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    facePC(
+                      LMimage,
+                      "Лаура Манукян",
+                      "Координатор программы",
+                      "manukian@wasp-academy.com",
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    facePC(
+                      ASimage,
+                      "Алексей Штей",
+                      "Ops-инженер",
+                      "none",
+                    ),
+                  ]
+                : [
+                    SizedBox(width: horizontalIndent / 2),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        faceMobile(
+                          AKimage,
+                          "Антон Кисляков",
+                          "Руководитель программы",
+                          "antonkislyakov@studentambassadors.com",
+                          width,
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        faceMobile(
+                          DMimage,
+                          "Денис Миков",
+                          "Заместитель руководителя",
+                          "breakout.dm.06@gmail.com",
+                          width,
+                        ),
+                        SizedBox(width: textIndent),
+                        faceMobile(
+                          LMimage,
+                          "Лаура Манукян",
+                          "Координатор программы",
+                          "none",
+                          width,
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        faceMobile(
+                          ASimage,
+                          "Алексей Штей",
+                          "Ops-инженер",
+                          "none",
+                          width,
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        faceMobile(
+                          MKimage,
+                          "Максим Корсаков",
+                          "Преподаватель Unity",
+                          "none",
+                          width,
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        faceMobile(
+                          EMimage,
+                          "Евгения Морозова",
+                          "Менеджер команд",
+                          "none",
+                          width,
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        faceMobile(
+                          ACimage,
+                          "Александр Цымбалов",
+                          "Эксперт",
+                          "none",
+                          width,
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        faceMobile(
+                          ACimage,
+                          "Тимофей Булгаков",
+                          "Преподаватель C#",
+                          "none",
+                          width,
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        faceMobile(
+                          ACimage,
+                          "Евгений Збанок",
+                          "Преподаватель Unity",
+                          "none",
+                          width,
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: textIndent),
+                  ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: (width > 1400)
@@ -1852,26 +1869,46 @@ class MyHomePageState extends State<MyHomePage> {
                     facePC(
                       MKimage,
                       "Максим Корсаков",
-                      "Unity",
+                      "Преподаватель WPF",
                       "none",
                     ),
                     SizedBox(width: horizontalIndent),
                     facePC(
                       EMimage,
                       "Евгения Морозова",
-                      "Соорг",
+                      "Менеджер команд",
                       "none",
                     ),
                     SizedBox(width: horizontalIndent),
                     facePC(
                       ACimage,
                       "Александр Цымбалов",
-                      "Когнитивные технологии",
+                      "Эксперт",
+                      "none",
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    facePC(
+                      ACimage,
+                      "Тимофей Булгаков",
+                      "Преподаватель C#",
                       "none",
                     ),
                   ]
                 : [],
-          )
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: (width > 1400)
+                ? [
+                    facePC(
+                      MKimage,
+                      "Евгений Збанок",
+                      "Преподаватель Unity",
+                      "none",
+                    ),
+                  ]
+                : [],
+          ),
         ],
       ),
     );
