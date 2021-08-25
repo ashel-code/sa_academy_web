@@ -82,6 +82,9 @@ flutter:
   - assets/images/faces/mk.png
   - assets/images/faces/em.png
   - assets/images/faces/ac.png
+  - assets/images/faces/tb.png
+
+  - assets/images/faces/ez.png
 
   # updated 
   - assets/images/DISCORD-UPDATED.png

@@ -100,6 +100,9 @@ const String ASimage = "assets/images/faces/as.png";
 const String MKimage = "assets/images/faces/mk.png";
 const String EMimage = "assets/images/faces/em.png";
 const String ACimage = "assets/images/faces/ac.png";
+const String TBimage = "assets/images/faces/tb.png";
+
+const String EZimage = "assets/images/faces/ez.png";
 
 //areYouReady block
 const String calendarImage = "assets/images/calendar.png";
@@ -976,11 +979,11 @@ class MyHomePageState extends State<MyHomePage> {
                           ? (textIndent)
                           : ((width - maxWidth) / 2 + textIndent)),
                   Flexible(child: firstTime()),
-                  Spacer(),
+                  SizedBox(height: textIndent),
                   Flexible(child: secondTime()),
-                  Spacer(),
+                  SizedBox(height: textIndent),
                   Flexible(child: thirdTime()),
-                  Spacer(),
+                  SizedBox(height: textIndent),
                   Flexible(child: fourthTime()),
                   SizedBox(
                       width: (width < maxWidth)
@@ -1097,7 +1100,7 @@ class MyHomePageState extends State<MyHomePage> {
           textAlign: TextAlign.start,
         ),
         Text(
-          "Вписываетесь через форму регистрации на сайте",
+          "Вписываетесь через форму регистрации на сайте.",
           style: normalTextStyle(normalTextSize),
           textAlign: TextAlign.start,
         ),
@@ -1119,7 +1122,7 @@ class MyHomePageState extends State<MyHomePage> {
           textAlign: TextAlign.start,
         ),
         Text(
-          "Первая встреча: знакомимся друг с другом",
+          "Первая встреча: знакомимся друг с другом.",
           style: normalTextStyle(normalTextSize),
           textAlign: TextAlign.start,
         ),
@@ -1141,7 +1144,7 @@ class MyHomePageState extends State<MyHomePage> {
           textAlign: TextAlign.start,
         ),
         Text(
-          "Проходите обучение и работаете над проектом",
+          "Проходите обучение и работаете над проектом.",
           style: normalTextStyle(normalTextSize),
           textAlign: TextAlign.start,
         ),
@@ -1163,7 +1166,7 @@ class MyHomePageState extends State<MyHomePage> {
           textAlign: TextAlign.start,
         ),
         Text(
-          "Демо-день: презентуете результаты своей работы, подводим итоги",
+          "Демо-день: презентуете результаты своей работы, подводим итоги.",
           style: normalTextStyle(normalTextSize),
           textAlign: TextAlign.start,
         ),
@@ -1549,6 +1552,7 @@ class MyHomePageState extends State<MyHomePage> {
                     style: boldBlackTextStyle(36.0),
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: horizontalIndent),
                   Row(
                     children: [
                       firstStep(),
