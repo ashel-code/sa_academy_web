@@ -65,6 +65,9 @@ const double normalElevation = 5.0;
 const double textHeight = 48.0;
 const double maxWidth = 1500;
 const double readyWidth = 200.0;
+
+// background
+const String backgroundImage = "assets/images/background.png";
 // images
 const String logoImage = "assets/images/logo.png";
 const String codeImage = "assets/images/code.jpg";
@@ -103,6 +106,7 @@ const String calendarImage = "assets/images/calendar.png";
 
 const String formLink =
     "https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9P9r1OKddVJrVkKWuN2F9dUNEQwUUtHNVM0WDRSV0sxS1VSTkYxN0xHUS4u";
+const String logoLink = "https://studentambassadors.microsoft.com";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
@@ -161,6 +165,10 @@ class MyHomePageState extends State<MyHomePage> {
       height: height - navBarHeight,
       decoration: BoxDecoration(
         color: Color(0x00222222),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(backgroundImage),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1688,9 +1696,14 @@ class MyHomePageState extends State<MyHomePage> {
                         Column(
                           children: [
                             SizedBox(height: schemeIndent),
-                            Image(
-                              image: AssetImage(logoImage),
-                              height: 120,
+                            TextButton(
+                              onPressed: () {
+                                html.window.location.href = logoLink;
+                              },
+                              child: Image(
+                                image: AssetImage(logoImage),
+                                height: 120,
+                              ),
                             ),
                             SizedBox(height: schemeIndent)
                           ],
@@ -1715,9 +1728,14 @@ class MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(height: horizontalIndent / 3),
-                              Image(
-                                image: AssetImage(logoImage),
-                                height: 120,
+                              TextButton(
+                                onPressed: () {
+                                  html.window.location.href = logoLink;
+                                },
+                                child: Image(
+                                  image: AssetImage(logoImage),
+                                  height: 120,
+                                ),
                               ),
                               SizedBox(height: schemeIndent),
                               Text(
