@@ -1472,7 +1472,7 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(height: schemeIndent),
           Text(
-            "Unity",
+            "Discord",
             style: normalTextStyle(24.0),
           ),
           Spacer(),
@@ -1493,7 +1493,7 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(height: schemeIndent),
           Text(
-            "WPF",
+            "Unity",
             style: normalTextStyle(24.0),
           ),
           Spacer(),
@@ -1514,7 +1514,7 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(height: schemeIndent),
           Text(
-            "Xamarin",
+            "WPF",
             style: normalTextStyle(24.0),
           ),
           Spacer(),
