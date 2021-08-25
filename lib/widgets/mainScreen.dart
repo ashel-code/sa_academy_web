@@ -2186,7 +2186,9 @@ class MyHomePageState extends State<MyHomePage> {
         ),
       ),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          html.window.location.href = formLink;
+        },
         child: Text(
           "Стать участником",
           style: normalTextStyle(normalTextSize),
