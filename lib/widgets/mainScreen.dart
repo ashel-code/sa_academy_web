@@ -107,6 +107,12 @@ const String EZimage = "assets/images/faces/ez.png";
 //areYouReady block
 const String calendarImage = "assets/images/calendar.png";
 
+// FAQ block
+const String FAQImage = "assets/images/faq-icon.png";
+const String emailImage = "assets/images/email.png";
+const String lockupImage = "assets/images/lockup.png";
+
+// links
 const String formLink =
     "https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9P9r1OKddVJrVkKWuN2F9dUNEQwUUtHNVM0WDRSV0sxS1VSTkYxN0xHUS4u";
 const String logoLink = "https://studentambassadors.microsoft.com";
@@ -157,6 +163,7 @@ class MyHomePageState extends State<MyHomePage> {
           united2(width),
           supportByMLSA(width),
           faces(width),
+          FAQBlock(width),
         ],
       ),
     );
@@ -1931,6 +1938,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ]
                 : [],
           ),
+          SizedBox(height: textIndent * 1.5),
         ],
       ),
     );
@@ -2035,6 +2043,193 @@ class MyHomePageState extends State<MyHomePage> {
         ),
         SizedBox(height: horizontalIndent),
       ],
+    );
+  }
+
+  // FAQ
+  // ignore: non_constant_identifier_names
+  Widget FAQBlock(double width) {
+    return Container(
+      child: (width > navBarToMobile) ? FAQPC(width) : FAQMobile(width),
+    );
+  }
+
+  // ignore: non_constant_identifier_names
+  Widget FAQPC(double width) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(width: textIndent),
+        Column(
+          children: [
+            Text("FAQ", style: boldTextStyle(36.0)),
+            Image(
+              image: AssetImage(FAQImage),
+              width: 300,
+            )
+          ],
+        ),
+        SizedBox(width: textIndent),
+        FAQQuestions(width),
+        SizedBox(width: textIndent),
+      ],
+    );
+  }
+
+  String longText1 =
+      "Да, это бесплатный официальный курс, организованный студентами международной студенческой партнерской программы Microsoft Learn Student Ambassadors (в прошлом, Microsoft Student Partners). Курс будут вести спикеры почти твоего возраста, у которых есть большой опыт работы с технологиями Microsoft.";
+  String longText2 =
+      "Достаточно знания одного языка программирования (например, C/C++/Python/Java и т.д.) на базовом уровне.";
+  String longText3 =
+      "Мы лишь зададим тебе несколько вопросов, и возможно дадим несколько простых задач, чтобы убедиться в том, что этот курс точно тебе подходит и твоих знаний достаточно для участия. Так что бояться не нужно :) Координатор также расскажет, что делать дальше и какие из документов нужно отправить для зачисления в академию.";
+  String longText4 =
+      "Проверь почту и папку “Спам”, там должно лежать письмо с подтверждением регистрации и ссылкой на Discord-сервер. Присоединись к серверу и обязательно смени свой ник на сервере на фамилию и имя по инструкции, приложенной к письму. В течение 7 дней бот отправит тебе в личные сообщения приглашение на собеседование. Если ты не получил письмо или сообщение от бота, свяжись с нами как можно скорее, написав письмо на адрес support@wasp-academy.com.";
+  String longText5 =
+      "Обучение начнется на первой неделе октября. Занятия будут проходить дистанционно с применением платформы Discord.\nПервый поток занимается по понедельникам и средам с 19.00 до 21.00, второй поток - по вторникам и четвергам с 19.00 до 21.00.";
+  String longText6 =
+      "Классный experience, возможность изучить новые инструменты разработки, такие как Visual Studio, Unity, Azure, GitHub и другие, новых знакомых и друзей в лице участников академии и экспертов. А участники академии, успешно выполнившие финальное тестирование и защитившие итоговый проект, получат ценные сертификаты от сообщества Microsoft Learn Student Ambassadors";
+
+  // ignore: non_constant_identifier_names
+  Widget FAQQuestions(double width) {
+    return Container(
+        width: (width > maxWidth)
+            ? maxWidth - textIndent * 2
+            : width - textIndent * 2,
+        decoration: BoxDecoration(
+          color: Color(0xffCECECE),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
+        child: Row(
+          children: [
+            SizedBox(width: textIndent),
+            Container(
+              width: (width > maxWidth)
+                  ? maxWidth - textIndent * 4
+                  : width - textIndent * 4,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: horizontalIndent * 2),
+                  SelectableText(
+                    "Это официальный курс?",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText1,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLine(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Входной порог навыков",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText2,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLine(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Собеседование",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText3,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLine(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Со мной не связались @#%*/&",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText4,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLine(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Место и время",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText5,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLine(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Что я получу?",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText6,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent * 2),
+                ],
+              ),
+            ),
+            SizedBox(width: textIndent),
+          ],
+        ));
+  }
+
+  Widget FAQMobile(double width) {
+    return Column(
+      children: [
+        SizedBox(width: textIndent),
+        Text("FAQ", style: boldTextStyle(36.0)),
+        Image(
+          image: AssetImage(FAQImage),
+          width: 300,
+        ),
+        SizedBox(height: textIndent),
+        FAQQuestions(width),
+        SizedBox(height: textIndent),
+      ],
+    );
+  }
+
+  // ignore: non_constant_identifier_names
+  Widget FAQLine(double width) {
+    return Container(
+      width: (width > maxWidth)
+          ? maxWidth - textIndent * 4
+          : width - textIndent * 4,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            color: Colors.black,
+            width: (width > maxWidth)
+                ? maxWidth - textIndent * 4 - 50
+                : width - textIndent * 4 - 50,
+            height: 2,
+          ),
+        ],
+      ),
     );
   }
 
