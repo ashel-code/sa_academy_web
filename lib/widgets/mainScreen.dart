@@ -2058,6 +2058,7 @@ class MyHomePageState extends State<MyHomePage> {
   Widget FAQPC(double width) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(width: textIndent),
         Column(
@@ -2219,12 +2220,12 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: horizontalIndent * 2),
                   SelectableText(
                     "Это официальный курс?",
-                    style: boldBlackTextStyle(30),
+                    style: boldBlackTextStyle(24),
                     textAlign: TextAlign.left,
                   ),
                   SelectableText(
                     longText1,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(18),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2232,12 +2233,12 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: horizontalIndent),
                   SelectableText(
                     "Входной порог навыков",
-                    style: boldBlackTextStyle(30),
+                    style: boldBlackTextStyle(24),
                     textAlign: TextAlign.left,
                   ),
                   SelectableText(
                     longText2,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(18),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2245,12 +2246,12 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: horizontalIndent),
                   SelectableText(
                     "Собеседование",
-                    style: boldBlackTextStyle(30),
+                    style: boldBlackTextStyle(24),
                     textAlign: TextAlign.left,
                   ),
                   SelectableText(
                     longText3,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(18),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2258,12 +2259,12 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: horizontalIndent),
                   SelectableText(
                     "Со мной не связались @#%*/&",
-                    style: boldBlackTextStyle(30),
+                    style: boldBlackTextStyle(24),
                     textAlign: TextAlign.left,
                   ),
                   SelectableText(
                     longText4,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(18),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2271,12 +2272,12 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: horizontalIndent),
                   SelectableText(
                     "Место и время",
-                    style: boldBlackTextStyle(30),
+                    style: boldBlackTextStyle(24),
                     textAlign: TextAlign.left,
                   ),
                   SelectableText(
                     longText5,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(18),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2284,12 +2285,12 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(height: horizontalIndent),
                   SelectableText(
                     "Что я получу?",
-                    style: boldBlackTextStyle(30),
+                    style: boldBlackTextStyle(24),
                     textAlign: TextAlign.left,
                   ),
                   SelectableText(
                     longText6,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(18),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent * 2),
