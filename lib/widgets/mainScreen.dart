@@ -2050,14 +2050,13 @@ class MyHomePageState extends State<MyHomePage> {
   // ignore: non_constant_identifier_names
   Widget FAQBlock(double width) {
     return Container(
-      child: (width > navBarToMobile) ? FAQPC(width) : FAQMobile(width),
+      child: (width > navBarToMobile) ? FAQPC(width) : FAQMobile(),
     );
   }
 
   // ignore: non_constant_identifier_names
   Widget FAQPC(double width) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(width: textIndent),
@@ -2094,19 +2093,19 @@ class MyHomePageState extends State<MyHomePage> {
   Widget FAQQuestions(double width) {
     return Container(
         width: (width > maxWidth)
-            ? maxWidth - textIndent * 2
-            : width - textIndent * 2,
+            ? maxWidth - textIndent * 3 - 300
+            : width - textIndent * 3 - 300,
         decoration: BoxDecoration(
           color: Color(0xffCECECE),
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Row(
           children: [
-            SizedBox(width: textIndent),
+            SizedBox(width: 100),
             Container(
               width: (width > maxWidth)
-                  ? maxWidth - textIndent * 4
-                  : width - textIndent * 4,
+                  ? maxWidth - textIndent * 3 - 500
+                  : width - textIndent * 3 - 500,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -2196,36 +2195,24 @@ class MyHomePageState extends State<MyHomePage> {
         ));
   }
 
-  Widget FAQMobile(double width) {
-    return Column(
-      children: [
-        SizedBox(width: textIndent),
-        Text("FAQ", style: boldTextStyle(36.0)),
-        Image(
-          image: AssetImage(FAQImage),
-          width: 300,
-        ),
-        SizedBox(height: textIndent),
-        FAQQuestions(width),
-        SizedBox(height: textIndent),
-      ],
-    );
+  Widget FAQMobile() {
+    return Column();
   }
 
   // ignore: non_constant_identifier_names
   Widget FAQLine(double width) {
     return Container(
       width: (width > maxWidth)
-          ? maxWidth - textIndent * 4
-          : width - textIndent * 4,
+          ? maxWidth - textIndent * 3 - 300
+          : width - textIndent * 3 - 300,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             color: Colors.black,
             width: (width > maxWidth)
-                ? maxWidth - textIndent * 4 - 50
-                : width - textIndent * 4 - 50,
+                ? maxWidth - textIndent * 3 - 500
+                : width - textIndent * 3 - 500,
             height: 2,
           ),
         ],
