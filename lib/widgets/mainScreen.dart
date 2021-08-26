@@ -2050,7 +2050,7 @@ class MyHomePageState extends State<MyHomePage> {
   // ignore: non_constant_identifier_names
   Widget FAQBlock(double width) {
     return Container(
-      child: (width > navBarToMobile) ? FAQPC(width) : FAQMobile(),
+      child: (width > navBarToMobile) ? FAQPC(width) : FAQMobile(width),
     );
   }
 
@@ -2195,8 +2195,148 @@ class MyHomePageState extends State<MyHomePage> {
         ));
   }
 
-  Widget FAQMobile() {
-    return Column();
+  // ignore: non_constant_identifier_names
+  Widget FAQQuestionsMobile(double width) {
+    return Container(
+        width: (width > maxWidth)
+            ? maxWidth - textIndent * 2
+            : width - textIndent * 2,
+        decoration: BoxDecoration(
+          color: Color(0xffCECECE),
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+        ),
+        child: Row(
+          children: [
+            SizedBox(width: textIndent),
+            Container(
+              width: (width > maxWidth)
+                  ? maxWidth - textIndent * 4
+                  : width - textIndent * 4,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: horizontalIndent * 2),
+                  SelectableText(
+                    "Это официальный курс?",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText1,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLineMobile(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Входной порог навыков",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText2,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLineMobile(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Собеседование",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText3,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLineMobile(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Со мной не связались @#%*/&",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText4,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLineMobile(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Место и время",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText5,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent),
+                  FAQLineMobile(width),
+                  SizedBox(height: horizontalIndent),
+                  SelectableText(
+                    "Что я получу?",
+                    style: boldBlackTextStyle(30),
+                    textAlign: TextAlign.left,
+                  ),
+                  SelectableText(
+                    longText6,
+                    style: normalBlackTextStyle(24),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: horizontalIndent * 2),
+                ],
+              ),
+            ),
+            SizedBox(width: textIndent),
+          ],
+        ));
+  }
+
+  // ignore: non_constant_identifier_names
+  Widget FAQLineMobile(double width) {
+    return Container(
+      width: (width > maxWidth)
+          ? maxWidth - textIndent * 4
+          : width - textIndent * 4,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            color: Colors.black,
+            width: (width > maxWidth)
+                ? maxWidth - textIndent * 4 - 50
+                : width - textIndent * 4 - 50,
+            height: 2,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ignore: non_constant_identifier_names
+  Widget FAQMobile(double width) {
+    return Column(
+      children: [
+        SizedBox(width: textIndent),
+        Text("FAQ", style: boldTextStyle(36.0)),
+        Image(
+          image: AssetImage(FAQImage),
+          width: 300,
+        ),
+        SizedBox(height: textIndent),
+        FAQQuestionsMobile(width),
+        SizedBox(height: textIndent),
+      ],
+    );
   }
 
   // ignore: non_constant_identifier_names
