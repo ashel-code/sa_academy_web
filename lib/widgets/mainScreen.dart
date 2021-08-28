@@ -986,11 +986,11 @@ class MyHomePageState extends State<MyHomePage> {
                           ? (textIndent)
                           : ((width - maxWidth) / 2 + textIndent)),
                   Flexible(child: firstTime()),
-                  SizedBox(height: textIndent),
+                  SizedBox(width: textIndent),
                   Flexible(child: secondTime()),
-                  SizedBox(height: textIndent),
+                  SizedBox(width: textIndent),
                   Flexible(child: thirdTime()),
-                  SizedBox(height: textIndent),
+                  SizedBox(width: textIndent),
                   Flexible(child: fourthTime()),
                   SizedBox(
                       width: (width < maxWidth)
@@ -1872,7 +1872,7 @@ class MyHomePageState extends State<MyHomePage> {
                         ),
                         SizedBox(width: horizontalIndent),
                         faceMobile(
-                          ACimage,
+                          TBimage,
                           "Тимофей Булгаков",
                           "Преподаватель C#",
                           "none",
@@ -1880,7 +1880,7 @@ class MyHomePageState extends State<MyHomePage> {
                         ),
                         SizedBox(width: horizontalIndent),
                         faceMobile(
-                          EMimage,
+                          EZimage,
                           "Евгений Збанок",
                           "Преподаватель Unity",
                           "none",
@@ -1917,7 +1917,7 @@ class MyHomePageState extends State<MyHomePage> {
                     ),
                     SizedBox(width: horizontalIndent),
                     facePC(
-                      ACimage,
+                      TBimage,
                       "Тимофей Булгаков",
                       "Преподаватель C#",
                       "none",
@@ -1930,7 +1930,7 @@ class MyHomePageState extends State<MyHomePage> {
             children: (width > 1400)
                 ? [
                     facePC(
-                      EMimage,
+                      EZimage,
                       "Евгений Збанок",
                       "Преподаватель Unity",
                       "none",
@@ -1965,6 +1965,7 @@ class MyHomePageState extends State<MyHomePage> {
             ? SelectableText(
                 email,
                 style: normalTextStyle(16.0),
+                textAlign: TextAlign.center,
               )
             : Text(""),
         SizedBox(height: horizontalIndent),
@@ -2047,6 +2048,19 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   // FAQ
+  String longText1 =
+      "Да, это бесплатный официальный курс, организованный студентами международной студенческой партнерской программы Microsoft Learn Student Ambassadors (в прошлом, Microsoft Student Partners). Курс будут вести спикеры почти твоего возраста, у которых есть большой опыт работы с технологиями Microsoft.";
+  String longText2 =
+      "Достаточно знания одного языка программирования (например, C/C++/Python/Java и т.д.) на базовом уровне.";
+  String longText3 =
+      "Мы лишь зададим тебе несколько вопросов, и возможно дадим несколько простых задач, чтобы убедиться в том, что этот курс точно тебе подходит и твоих знаний достаточно для участия. Так что бояться не нужно :) Координатор также расскажет, что делать дальше и какие из документов нужно отправить для зачисления в академию.";
+  String longText4 =
+      "Проверь почту и папку “Спам”, там должно лежать письмо с подтверждением регистрации и ссылкой на Discord-сервер. Присоединись к серверу и обязательно смени свой ник на сервере на фамилию и имя по инструкции, приложенной к письму. В течение 7 дней бот отправит тебе в личные сообщения приглашение на собеседование. Если ты не получил письмо или сообщение от бота, свяжись с нами как можно скорее, написав письмо на адрес support@wasp-academy.com.";
+  String longText5 =
+      "Обучение начнется на первой неделе октября. Занятия будут проходить дистанционно с применением платформы Discord.\nПервый поток занимается по понедельникам и средам с 19.00 до 21.00, второй поток - по вторникам и четвергам с 19.00 до 21.00.";
+  String longText6 =
+      "Классный experience, возможность изучить новые инструменты разработки, такие как Visual Studio, Unity, Azure, GitHub и другие, новых знакомых и друзей в лице участников академии и экспертов. А участники академии, успешно выполнившие финальное тестирование и защитившие итоговый проект, получат ценные сертификаты от сообщества Microsoft Learn Student Ambassadors";
+
   // ignore: non_constant_identifier_names
   Widget FAQBlock(double width) {
     return Container(
@@ -2077,19 +2091,6 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  String longText1 =
-      "Да, это бесплатный официальный курс, организованный студентами международной студенческой партнерской программы Microsoft Learn Student Ambassadors (в прошлом, Microsoft Student Partners). Курс будут вести спикеры почти твоего возраста, у которых есть большой опыт работы с технологиями Microsoft.";
-  String longText2 =
-      "Достаточно знания одного языка программирования (например, C/C++/Python/Java и т.д.) на базовом уровне.";
-  String longText3 =
-      "Мы лишь зададим тебе несколько вопросов, и возможно дадим несколько простых задач, чтобы убедиться в том, что этот курс точно тебе подходит и твоих знаний достаточно для участия. Так что бояться не нужно :) Координатор также расскажет, что делать дальше и какие из документов нужно отправить для зачисления в академию.";
-  String longText4 =
-      "Проверь почту и папку “Спам”, там должно лежать письмо с подтверждением регистрации и ссылкой на Discord-сервер. Присоединись к серверу и обязательно смени свой ник на сервере на фамилию и имя по инструкции, приложенной к письму. В течение 7 дней бот отправит тебе в личные сообщения приглашение на собеседование. Если ты не получил письмо или сообщение от бота, свяжись с нами как можно скорее, написав письмо на адрес support@wasp-academy.com.";
-  String longText5 =
-      "Обучение начнется на первой неделе октября. Занятия будут проходить дистанционно с применением платформы Discord.\nПервый поток занимается по понедельникам и средам с 19.00 до 21.00, второй поток - по вторникам и четвергам с 19.00 до 21.00.";
-  String longText6 =
-      "Классный experience, возможность изучить новые инструменты разработки, такие как Visual Studio, Unity, Azure, GitHub и другие, новых знакомых и друзей в лице участников академии и экспертов. А участники академии, успешно выполнившие финальное тестирование и защитившие итоговый проект, получат ценные сертификаты от сообщества Microsoft Learn Student Ambassadors";
-
   // ignore: non_constant_identifier_names
   Widget FAQQuestions(double width) {
     return Container(
@@ -2102,11 +2103,11 @@ class MyHomePageState extends State<MyHomePage> {
         ),
         child: Row(
           children: [
-            SizedBox(width: 100),
+            SizedBox(width: textIndent / 2),
             Container(
               width: (width > maxWidth)
-                  ? maxWidth - textIndent * 3 - 500
-                  : width - textIndent * 3 - 500,
+                  ? maxWidth - textIndent * 3 - 300 - textIndent
+                  : width - textIndent * 3 - 300 - textIndent,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -2191,7 +2192,7 @@ class MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            SizedBox(width: textIndent),
+            SizedBox(width: textIndent / 2),
           ],
         ));
   }
