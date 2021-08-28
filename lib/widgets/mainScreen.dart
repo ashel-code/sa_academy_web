@@ -724,7 +724,7 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget secondPeriod(double width) {
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -732,55 +732,59 @@ class MyHomePageState extends State<MyHomePage> {
           style: normalTextStyle(14),
           textAlign: TextAlign.left,
         ),
-        SizedBox(width: horizontalIndent),
-        Material(
-          color: Color(0xffC7C7C7),
-          borderRadius: BorderRadius.all(
-            Radius.circular(70),
-          ),
-          elevation: normalElevation,
-          child: Container(
-            height: 40,
-            width: 60,
-            child: Column(
-              children: [
-                Spacer(),
-                Text(
-                  "WPF",
-                  style: normalBlackTextStyle(normalTextSize),
-                  textAlign: TextAlign.center,
-                ),
-                Spacer(),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(width: horizontalIndent),
-        Material(
-          color: Color(0xffC7C7C7),
-          borderRadius: BorderRadius.all(
-            Radius.circular(70),
-          ),
-          elevation: normalElevation,
-          child: Container(
-            height: 40,
-            width: 60,
-            child: Column(
-              children: [
-                Spacer(),
-                Text(
-                  "Боты",
-                  style: normalBlackTextStyle(normalTextSize),
-                  textAlign: TextAlign.center,
-                ),
-                Spacer(),
-              ],
-            ),
-          ),
-        ),
         SizedBox(
           height: schemeIndent,
         ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Material(
+              color: Color(0xffC7C7C7),
+              borderRadius: BorderRadius.all(
+                Radius.circular(70),
+              ),
+              elevation: normalElevation,
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Text(
+                      "WPF",
+                      style: normalBlackTextStyle(normalTextSize),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(width: horizontalIndent),
+            Material(
+              color: Color(0xffC7C7C7),
+              borderRadius: BorderRadius.all(
+                Radius.circular(70),
+              ),
+              elevation: normalElevation,
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Text(
+                      "Боты",
+                      style: normalBlackTextStyle(normalTextSize),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }
