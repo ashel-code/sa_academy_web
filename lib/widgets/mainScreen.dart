@@ -724,7 +724,7 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget secondPeriod(double width) {
-    return Column(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -732,9 +732,7 @@ class MyHomePageState extends State<MyHomePage> {
           style: normalTextStyle(14),
           textAlign: TextAlign.left,
         ),
-        SizedBox(
-          height: schemeIndent,
-        ),
+        SizedBox(width: horizontalIndent),
         Material(
           color: Color(0xffC7C7C7),
           borderRadius: BorderRadius.all(
@@ -742,15 +740,36 @@ class MyHomePageState extends State<MyHomePage> {
           ),
           elevation: normalElevation,
           child: Container(
-            height: (width > switchToMobileSize) ? 40 : 75,
-            width: (width > switchToMobileSize) ? 240 : 170,
+            height: 40,
+            width: 60,
             child: Column(
               children: [
                 Spacer(),
                 Text(
-                  (width > switchToMobileSize)
-                      ? "Веб-направление"
-                      : "Веб\nнаправление",
+                  "WPF",
+                  style: normalBlackTextStyle(normalTextSize),
+                  textAlign: TextAlign.center,
+                ),
+                Spacer(),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(width: horizontalIndent),
+        Material(
+          color: Color(0xffC7C7C7),
+          borderRadius: BorderRadius.all(
+            Radius.circular(70),
+          ),
+          elevation: normalElevation,
+          child: Container(
+            height: 40,
+            width: 60,
+            child: Column(
+              children: [
+                Spacer(),
+                Text(
+                  "Боты",
                   style: normalBlackTextStyle(normalTextSize),
                   textAlign: TextAlign.center,
                 ),
@@ -761,64 +780,6 @@ class MyHomePageState extends State<MyHomePage> {
         ),
         SizedBox(
           height: schemeIndent,
-        ),
-        Material(
-          color: Color(0xffC7C7C7),
-          borderRadius: BorderRadius.all(
-            Radius.circular(70),
-          ),
-          elevation: normalElevation,
-          child: Container(
-            height: (width > switchToMobileSize) ? 40 : 75,
-            width: (width > switchToMobileSize) ? 240 : 170,
-            child: Column(
-              children: [
-                Spacer(),
-                Text(
-                  (width > switchToMobileSize)
-                      ? "Десктопное направление"
-                      : "Десктопное\nнаправление",
-                  style: normalBlackTextStyle(normalTextSize),
-                  textAlign: TextAlign.center,
-                ),
-                Spacer(),
-              ],
-            ),
-          ),
-        ),
-        SizedBox(
-          height: schemeIndent,
-        ),
-        Material(
-          color: Color(0xffC7C7C7),
-          borderRadius: BorderRadius.all(
-            Radius.circular(70),
-          ),
-          elevation: normalElevation,
-          child: Container(
-            height: (width > switchToMobileSize) ? 40 : 75,
-            width: (width > switchToMobileSize) ? 240 : 170,
-            child: Column(
-              children: [
-                Spacer(),
-                Text(
-                  (width > switchToMobileSize)
-                      ? "GameDev направление"
-                      : "GameDev\nнаправление",
-                  style: normalBlackTextStyle(normalTextSize),
-                  textAlign: TextAlign.center,
-                ),
-                Spacer(),
-              ],
-            ),
-          ),
-        ),
-        Container(
-          width: (width > switchToMobileSize) ? 240 : 170,
-          child: Text(
-            "* На данном этапе выбор направления производится по конкурсу посещаемости и оценок за практические работы.",
-            style: normalTextStyle(12.0),
-          ),
         ),
       ],
     );
@@ -851,6 +812,29 @@ class MyHomePageState extends State<MyHomePage> {
                   children: [
                     Spacer(),
                     Text(
+                      "Unity",
+                      style: normalBlackTextStyle(normalTextSize),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(width: horizontalIndent),
+            Material(
+              color: Color(0xffC7C7C7),
+              borderRadius: BorderRadius.all(
+                Radius.circular(70),
+              ),
+              elevation: normalElevation,
+              child: Container(
+                height: 40,
+                width: 60,
+                child: Column(
+                  children: [
+                    Spacer(),
+                    Text(
                       "SQL",
                       style: normalBlackTextStyle(normalTextSize),
                       textAlign: TextAlign.center,
@@ -869,59 +853,13 @@ class MyHomePageState extends State<MyHomePage> {
               elevation: normalElevation,
               child: Container(
                 height: 40,
-                width: 60,
+                width: 200,
                 child: Column(
                   children: [
                     Spacer(),
                     Text(
-                      "Боты",
-                      style: normalBlackTextStyle(normalTextSize),
-                      textAlign: TextAlign.center,
-                    ),
-                    Spacer(),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(width: horizontalIndent),
-            Material(
-              color: Color(0xffC7C7C7),
-              borderRadius: BorderRadius.all(
-                Radius.circular(70),
-              ),
-              elevation: normalElevation,
-              child: Container(
-                height: 40,
-                width: 60,
-                child: Column(
-                  children: [
-                    Spacer(),
-                    Text(
-                      "ML",
-                      style: normalBlackTextStyle(normalTextSize),
-                      textAlign: TextAlign.center,
-                    ),
-                    Spacer(),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(width: horizontalIndent),
-            Material(
-              color: Color(0xffC7C7C7),
-              borderRadius: BorderRadius.all(
-                Radius.circular(70),
-              ),
-              elevation: normalElevation,
-              child: Container(
-                height: 40,
-                width: 60,
-                child: Column(
-                  children: [
-                    Spacer(),
-                    Text(
-                      "...",
-                      style: normalBlackTextStyle(normalTextSize),
+                      "Дополнительный материал",
+                      style: normalBlackTextStyle(14.0),
                       textAlign: TextAlign.center,
                     ),
                     Spacer(),
@@ -937,11 +875,7 @@ class MyHomePageState extends State<MyHomePage> {
         Container(
           color: Color(0xff1E88E5),
           height: 5,
-          width: (width > navBarToMobile)
-              ? ((width < maxWidth)
-                  ? (width - textIndent * 2 - 240 * 2 - horizontalIndent * 4)
-                  : 500)
-              : 300,
+          width: 320 + horizontalIndent * 2,
         ),
         SizedBox(
           height: schemeIndent,
@@ -2612,5 +2546,3 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-// заголовок лиц
-// почта можно скопировать
