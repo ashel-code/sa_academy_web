@@ -2516,7 +2516,7 @@ class MyHomePageState extends State<MyHomePage> {
             isNavBarOpened = false;
           });
         },
-        child: Text("Academy", style: lightTextStyle(navBarTextSize)),
+        child: Image(image: AssetImage(lockupImage), height: textHeight),
         style: ButtonStyle());
   }
 
@@ -2605,7 +2605,7 @@ class MyHomePageState extends State<MyHomePage> {
           //   width: 20,
           //   height: 20,
           // ),
-          Text("Academy", style: boldTextStyle(22))
+          Image(image: AssetImage(lockupImage), height: textHeight / 1.5)
         ],
       ),
     );
