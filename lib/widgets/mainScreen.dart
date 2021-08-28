@@ -2201,19 +2201,19 @@ class MyHomePageState extends State<MyHomePage> {
   Widget FAQQuestionsMobile(double width) {
     return Container(
         width: (width > maxWidth)
-            ? maxWidth - textIndent * 2
-            : width - textIndent * 2,
+            ? maxWidth - textIndent * 0.5
+            : width - textIndent * 0.5,
         decoration: BoxDecoration(
           color: Color(0xffCECECE),
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Row(
           children: [
-            SizedBox(width: textIndent),
+            SizedBox(width: textIndent * 0.5),
             Container(
               width: (width > maxWidth)
-                  ? maxWidth - textIndent * 4
-                  : width - textIndent * 4,
+                  ? maxWidth - textIndent * 1.5
+                  : width - textIndent * 1.5,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -2298,7 +2298,7 @@ class MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            SizedBox(width: textIndent),
+            SizedBox(width: textIndent * 0.5),
           ],
         ));
   }
