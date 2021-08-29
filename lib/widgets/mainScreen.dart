@@ -2435,7 +2435,7 @@ class MyHomePageState extends State<MyHomePage> {
                                 width: (width > maxWidth)
                                     ? maxWidth -
                                         textIndent -
-                                        600 -
+                                        350 -
                                         textIndent * 2 / 1.5
                                     : width -
                                         textIndent -
