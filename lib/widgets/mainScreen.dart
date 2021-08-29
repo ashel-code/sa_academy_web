@@ -2347,44 +2347,100 @@ class MyHomePageState extends State<MyHomePage> {
                       style:
                           boldTextStyle((width > switchToMobileSize) ? 36 : 24),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Image(
-                          image: AssetImage(emailImage),
-                          width: 150,
-                        ),
-                        Container(
-                          width: (width > maxWidth)
-                              ? maxWidth -
-                                  textIndent -
-                                  textIndent * 2 / 1.5 -
-                                  150
-                              : width - textIndent - textIndent * 2 / 1.5 - 150,
-                          child: SelectableText.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "Скорее пиши нам на адрес ",
-                                  style: normalTextStyle(
-                                      (width > switchToMobileSize) ? 24 : 18),
+                    (width > switchToMobileSize)
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image(
+                                image: AssetImage(emailImage),
+                                width: 150,
+                              ),
+                              Container(
+                                width: (width > maxWidth)
+                                    ? maxWidth -
+                                        textIndent -
+                                        textIndent * 2 / 1.5 -
+                                        150
+                                    : width -
+                                        textIndent -
+                                        textIndent * 2 / 1.5 -
+                                        150,
+                                child: SelectableText.rich(
+                                  TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: "Скорее пиши нам на адрес ",
+                                        style: normalTextStyle(
+                                            (width > switchToMobileSize)
+                                                ? 24
+                                                : 18),
+                                      ),
+                                      TextSpan(
+                                        text: "support@wasp-academy.com",
+                                        style: boldTextStyle(
+                                            (width > switchToMobileSize)
+                                                ? 24
+                                                : 18),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            ", и мы обязательно тебе ответим!",
+                                        style: normalTextStyle(
+                                            (width > switchToMobileSize)
+                                                ? 24
+                                                : 18),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                TextSpan(
-                                  text: "support@wasp-academy.com",
-                                  style: boldTextStyle(
-                                      (width > switchToMobileSize) ? 24 : 18),
+                              ),
+                            ],
+                          )
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image(
+                                image: AssetImage(emailImage),
+                                width: 50,
+                              ),
+                              Container(
+                                width: (width > maxWidth)
+                                    ? maxWidth -
+                                        textIndent -
+                                        textIndent * 2 / 1.5
+                                    : width - textIndent - textIndent * 2 / 1.5,
+                                child: SelectableText.rich(
+                                  TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: "Скорее пиши нам на адрес ",
+                                        style: normalTextStyle(
+                                            (width > switchToMobileSize)
+                                                ? 24
+                                                : 18),
+                                      ),
+                                      TextSpan(
+                                        text: "support@wasp-academy.com",
+                                        style: boldTextStyle(
+                                            (width > switchToMobileSize)
+                                                ? 24
+                                                : 18),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            ", и мы обязательно тебе ответим!",
+                                        style: normalTextStyle(
+                                            (width > switchToMobileSize)
+                                                ? 24
+                                                : 18),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                TextSpan(
-                                  text: ", и мы обязательно тебе ответим!",
-                                  style: normalTextStyle(
-                                      (width > switchToMobileSize) ? 24 : 18),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
                     Container(
                       width: (width > maxWidth)
                           ? maxWidth - textIndent - textIndent * 2 / 1.5
