@@ -2334,14 +2334,18 @@ class MyHomePageState extends State<MyHomePage> {
             ),
             child: Row(
               children: [
-                SizedBox(width: textIndent / 1.5),
+                SizedBox(
+                    width: (width > switchToMobileSize)
+                        ? textIndent / 1.5
+                        : textIndent / 3),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: textIndent / 2),
                     Text(
                       "Остались вопросы?",
-                      style: boldTextStyle(36),
+                      style:
+                          boldTextStyle((width > switchToMobileSize) ? 36 : 24),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -2362,15 +2366,18 @@ class MyHomePageState extends State<MyHomePage> {
                               children: [
                                 TextSpan(
                                   text: "Скорее пиши нам на адрес ",
-                                  style: normalTextStyle(24),
+                                  style: normalTextStyle(
+                                      (width > switchToMobileSize) ? 24 : 18),
                                 ),
                                 TextSpan(
                                   text: "support@wasp-academy.com",
-                                  style: boldTextStyle(24),
+                                  style: boldTextStyle(
+                                      (width > switchToMobileSize) ? 24 : 18),
                                 ),
                                 TextSpan(
                                   text: ", и мы обязательно тебе ответим!",
-                                  style: normalTextStyle(24),
+                                  style: normalTextStyle(
+                                      (width > switchToMobileSize) ? 24 : 18),
                                 ),
                               ],
                             ),
@@ -2387,15 +2394,18 @@ class MyHomePageState extends State<MyHomePage> {
                           children: [
                             TextSpan(
                               text: "Вы партнер? Свяжитесь с нами по адресу ",
-                              style: normalGreyTextStyle(18),
+                              style: normalGreyTextStyle(
+                                  (width > switchToMobileSize) ? 18 : 14),
                             ),
                             TextSpan(
                               text: "hr@wasp-academy.com",
-                              style: boldGreyTextStyle(18),
+                              style: boldGreyTextStyle(
+                                  (width > switchToMobileSize) ? 18 : 14),
                             ),
                             TextSpan(
                               text: ".",
-                              style: normalGreyTextStyle(18),
+                              style: normalGreyTextStyle(
+                                  (width > switchToMobileSize) ? 18 : 14),
                             ),
                           ],
                         ),
@@ -2416,7 +2426,8 @@ class MyHomePageState extends State<MyHomePage> {
                                 height: textHeight,
                                 child: Text(
                                   "Microsoft Learn Student Ambassadors",
-                                  style: lightTextStyle(14),
+                                  style: lightTextStyle(
+                                      (width > switchToMobileSize) ? 14 : 10),
                                   textAlign: TextAlign.left,
                                 ),
                               ),
@@ -2437,7 +2448,8 @@ class MyHomePageState extends State<MyHomePage> {
                                 child: Text(
                                   "2021",
                                   textAlign: TextAlign.right,
-                                  style: lightTextStyle(14),
+                                  style: lightTextStyle(
+                                      (width > switchToMobileSize) ? 14 : 10),
                                 ),
                               ),
                             ],
@@ -2448,17 +2460,22 @@ class MyHomePageState extends State<MyHomePage> {
                             children: [
                               Text(
                                 "Microsoft Learn Student Ambassadors",
-                                style: lightTextStyle(14),
+                                style: lightTextStyle(
+                                    (width > switchToMobileSize) ? 14 : 10),
                                 textAlign: TextAlign.left,
                               ),
                               Text("2021",
-                                  style: lightTextStyle(14),
+                                  style: lightTextStyle(
+                                      (width > switchToMobileSize) ? 14 : 10),
                                   textAlign: TextAlign.left),
                             ],
                           )
                   ],
                 ),
-                SizedBox(width: textIndent / 1.5),
+                SizedBox(
+                    width: (width > switchToMobileSize)
+                        ? textIndent / 1.5
+                        : textIndent / 3),
               ],
             ),
           ),
