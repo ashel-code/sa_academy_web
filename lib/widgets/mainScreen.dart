@@ -28,6 +28,19 @@ TextStyle boldBlackTextStyle(double fontSize) {
       fontWeight: FontWeight.w600);
 }
 
+TextStyle boldGreyTextStyle(double fontSize) {
+  return TextStyle(
+      fontSize: fontSize,
+      color: Colors.grey,
+      fontFamily: "segoeui",
+      fontWeight: FontWeight.w600);
+}
+
+TextStyle normalGreyTextStyle(double fontSize) {
+  return TextStyle(
+      fontSize: fontSize, color: Colors.grey, fontFamily: "segoeui");
+}
+
 TextStyle lightTextStyle(double fontSize) {
   return TextStyle(
       fontSize: fontSize,
@@ -164,6 +177,7 @@ class MyHomePageState extends State<MyHomePage> {
           supportByMLSA(width),
           faces(width),
           FAQBlock(width),
+          basement(width),
         ],
       ),
     );
@@ -2297,6 +2311,159 @@ class MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+    );
+  }
+
+  // basement
+  Widget basement(double width) {
+    return Column(
+      children: [
+        SizedBox(height: textIndent),
+        Material(
+          color: Color(0xFF292929),
+          child: Container(
+            height: 350,
+            width:
+                (width > maxWidth) ? maxWidth - textIndent : width - textIndent,
+            decoration: BoxDecoration(
+              color: Color(0xff404040),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+            ),
+            child: Row(
+              children: [
+                SizedBox(width: textIndent / 1.5),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: textIndent / 2),
+                    Text(
+                      "Остались вопросы?",
+                      style: boldTextStyle(36),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image(
+                          image: AssetImage(emailImage),
+                          width: 150,
+                        ),
+                        Container(
+                          width: (width > maxWidth)
+                              ? maxWidth -
+                                  textIndent -
+                                  textIndent * 2 / 1.5 -
+                                  150
+                              : width - textIndent - textIndent * 2 / 1.5 - 150,
+                          child: SelectableText.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "Скорее пиши нам на адрес ",
+                                  style: normalTextStyle(24),
+                                ),
+                                TextSpan(
+                                  text: "support@wasp-academy.com",
+                                  style: boldTextStyle(24),
+                                ),
+                                TextSpan(
+                                  text: ", и мы обязательно тебе ответим!",
+                                  style: normalTextStyle(24),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      width: (width > maxWidth)
+                          ? maxWidth - textIndent - textIndent * 2 / 1.5
+                          : width - textIndent - textIndent * 2 / 1.5,
+                      child: SelectableText.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Вы партнер? Свяжитесь с нами по адресу ",
+                              style: normalGreyTextStyle(18),
+                            ),
+                            TextSpan(
+                              text: "hr@wasp-academy.com",
+                              style: boldGreyTextStyle(18),
+                            ),
+                            TextSpan(
+                              text: ".",
+                              style: normalGreyTextStyle(18),
+                            ),
+                          ],
+                        ),
+                        minLines: 1,
+                        maxLines: 3,
+                        scrollPhysics: NeverScrollableScrollPhysics(),
+                      ),
+                    ),
+                    SizedBox(
+                        height: (width > switchToMobileSize)
+                            ? textIndent / 2
+                            : horizontalIndent / 2),
+                    (width > switchToMobileSize)
+                        ? Row(
+                            children: [
+                              Container(
+                                width: 300,
+                                height: textHeight,
+                                child: Text(
+                                  "Microsoft Learn Student Ambassadors",
+                                  style: lightTextStyle(14),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
+                              SizedBox(
+                                width: (width > maxWidth)
+                                    ? maxWidth -
+                                        textIndent -
+                                        600 -
+                                        textIndent * 2 / 1.5
+                                    : width -
+                                        textIndent -
+                                        350 -
+                                        textIndent * 2 / 1.5,
+                              ),
+                              Container(
+                                width: 50,
+                                height: textHeight,
+                                child: Text(
+                                  "2021",
+                                  textAlign: TextAlign.right,
+                                  style: lightTextStyle(14),
+                                ),
+                              ),
+                            ],
+                          )
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Microsoft Learn Student Ambassadors",
+                                style: lightTextStyle(14),
+                                textAlign: TextAlign.left,
+                              ),
+                              Text("2021",
+                                  style: lightTextStyle(14),
+                                  textAlign: TextAlign.left),
+                            ],
+                          )
+                  ],
+                ),
+                SizedBox(width: textIndent / 1.5),
+              ],
+            ),
+          ),
+        )
+      ],
     );
   }
 
