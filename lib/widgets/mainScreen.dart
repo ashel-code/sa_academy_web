@@ -2466,7 +2466,7 @@ class MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         minLines: 1,
-                        maxLines: 3,
+                        maxLines: 4,
                         scrollPhysics: NeverScrollableScrollPhysics(),
                       ),
                     ),
