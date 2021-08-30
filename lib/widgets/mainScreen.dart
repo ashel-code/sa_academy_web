@@ -1782,12 +1782,12 @@ class MyHomePageState extends State<MyHomePage> {
                           "breakout.dm.06@gmail.com",
                           width,
                         ),
-                        SizedBox(width: textIndent),
+                        SizedBox(width: horizontalIndent),
                         faceMobile(
                           LMimage,
                           "Лаура Манукян",
                           "Координатор программы",
-                          "none",
+                          "manukian@wasp-academy.com",
                           width,
                         ),
                         SizedBox(width: horizontalIndent),
@@ -1937,9 +1937,9 @@ class MyHomePageState extends State<MyHomePage> {
         Container(
           width: (width > switchToMobileSize) ? 150 : 50,
           height: (width > switchToMobileSize) ? 100 : 110,
-          child: CircleAvatar(
-            radius: (width > switchToMobileSize) ? 50 : 20,
-            backgroundImage: AssetImage(photo),
+          child: Image(
+            image: AssetImage(photo),
+            width: (width > switchToMobileSize) ? 100 : 40,
           ),
         ),
         SizedBox(height: (width > switchToMobileSize) ? textIndent : 0),
