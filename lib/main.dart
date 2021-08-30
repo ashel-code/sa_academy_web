@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 // files from "widgets"
-import 'package:sa_academy_web/widgets/oldWidgets.dart' as old;
-import 'package:sa_academy_web/widgets/mainScreen.dart';
+import 'package:WASP/widgets/oldWidgets.dart' as old;
+import 'package:WASP/widgets/mainScreen.dart';
 
 String? email = "";
 AutovalidateMode validate = AutovalidateMode.disabled;

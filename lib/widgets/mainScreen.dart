@@ -7,8 +7,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/rendering.dart';
 import 'package:dotted_line/dotted_line.dart';
 
-import 'package:sa_academy_web/widgets/oldWidgets.dart' as old;
-import 'package:sa_academy_web/main.dart';
+import 'package:WASP/widgets/oldWidgets.dart' as old;
+import 'package:WASP/main.dart';
 
 TextStyle normalTextStyle(double fontSize) {
   return TextStyle(

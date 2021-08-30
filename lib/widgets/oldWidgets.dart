@@ -5,7 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
-import 'package:sa_academy_web/main.dart';
+import 'package:WASP/main.dart';
 
 class MyHomePageState extends State<MyHomePage> {
   @override
