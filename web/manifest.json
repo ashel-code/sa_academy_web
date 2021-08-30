@@ -1,6 +1,6 @@
 {
-    "name": "sa_academy_web",
-    "short_name": "sa_academy_web",
+    "name": "WASP-Academy",
+    "short_name": "WASP",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
