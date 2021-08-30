@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Ты школьник, любящий программировать в свободное время, но не знающий, в какую сторону продолжать обучение? Тогда мы ждём тебя в проекте WASP-Academy!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
