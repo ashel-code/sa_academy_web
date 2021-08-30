@@ -380,7 +380,7 @@ class MyHomePageState extends State<MyHomePage> {
         key: aboutKey,
         child: Column(
           children: [
-            SizedBox(height: horizontalIndent * 2),
+            SizedBox(height: horizontalIndent * 1.7),
             (width > switchToMobileSize)
                 ? Row(
                     children: [
@@ -394,33 +394,33 @@ class MyHomePageState extends State<MyHomePage> {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: "Что за курсы?",
-                                  style: lightTextStyle(36.0),
+                                  text: "Для кого программа?",
+                                  style: boldTextStyle(36.0),
                                 ),
                                 spaceEnter,
                                 TextSpan(
                                   text:
                                       "Тебя ждут 40 интересных занятий, которые будут проходить онлайн вечером дважды в неделю. После каждого занятия мы даем несложное домашнее задание, поэтому резервируй еще 2 часа от своего свободного времени на выполнение домашки. Билл Гейтс говорил, что “много спать - признак лени”, поэтому тех, кто не умеет укладываться в дедлайны, отчисляем.",
-                                  style: normalTextStyle(normalTextSize),
+                                  style: lightTextStyle(normalTextSize),
                                 ),
                                 spaceEnter,
                                 TextSpan(
                                   text:
                                       "Чтобы пройти отбор, тебе необходимо знать как минимум один из языков программирования на уровне записи и чтения файлов. Мы не учим программировать с нуля.",
-                                  style: normalTextStyle(normalTextSize),
+                                  style: lightTextStyle(normalTextSize),
                                 ),
                                 spaceEnter,
                                 TextSpan(
                                   text:
                                       "Мы ждем школьников 8-11 классов, которые по-настоящему замотивированы и нацелены на крутой результат! Будет сложно, но интересно.",
-                                  style: normalTextStyle(normalTextSize),
+                                  style: lightTextStyle(normalTextSize),
                                 ),
                               ],
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: horizontalIndent * 4),
+                      SizedBox(height: textIndent * 2),
                       // maybe
                       Image(
                         image: AssetImage(threeGuysImage),
@@ -443,7 +443,7 @@ class MyHomePageState extends State<MyHomePage> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: "Что за курсы?",
+                                      text: "Для кого программа?",
                                       style: boldTextStyle(36.0),
                                     ),
                                     spaceEnter,
@@ -476,7 +476,7 @@ class MyHomePageState extends State<MyHomePage> {
                       SizedBox(width: textIndent / 2),
                     ],
                   ),
-            SizedBox(height: horizontalIndent * 2),
+            SizedBox(height: horizontalIndent * 1.7),
           ],
         ));
   }
@@ -2011,7 +2011,7 @@ class MyHomePageState extends State<MyHomePage> {
   String longText5 =
       "Обучение начнется на первой неделе октября. Занятия будут проходить дистанционно с применением платформы Discord.\nПервый поток занимается по понедельникам и средам с 19.00 до 21.00, второй поток - по вторникам и четвергам с 19.00 до 21.00.";
   String longText6 =
-      "Классный experience, возможность изучить новые инструменты разработки, такие как Visual Studio, Unity, Azure, GitHub и другие, новых знакомых и друзей в лице участников академии и экспертов. А участники академии, успешно выполнившие финальное тестирование и защитившие итоговый проект, получат ценные сертификаты от сообщества Microsoft Learn Student Ambassadors";
+      "Классный experience, возможность изучить новые инструменты разработки, такие как Visual Studio, Unity, Azure, GitHub и другие, новых знакомых и друзей в лице участников академии и экспертов. А участники академии, успешно выполнившие финальное тестирование и защитившие итоговый проект, получат ценные сертификаты от сообщества Microsoft Learn Student Ambassadors.";
 
   // ignore: non_constant_identifier_names
   Widget FAQBlock(double width) {
@@ -2072,7 +2072,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText1,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(normalTextSize),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2085,7 +2085,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText2,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(normalTextSize),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2098,7 +2098,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText3,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(normalTextSize),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2111,7 +2111,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText4,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(normalTextSize),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2124,7 +2124,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText5,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(normalTextSize),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2137,7 +2137,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText6,
-                    style: normalBlackTextStyle(24),
+                    style: normalBlackTextStyle(normalTextSize),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent * 2),
@@ -2178,7 +2178,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText1,
-                    style: normalBlackTextStyle(18),
+                    style: normalBlackTextStyle(16),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2191,7 +2191,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText2,
-                    style: normalBlackTextStyle(18),
+                    style: normalBlackTextStyle(16),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2204,7 +2204,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText3,
-                    style: normalBlackTextStyle(18),
+                    style: normalBlackTextStyle(16),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2217,7 +2217,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText4,
-                    style: normalBlackTextStyle(18),
+                    style: normalBlackTextStyle(16),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2230,7 +2230,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText5,
-                    style: normalBlackTextStyle(18),
+                    style: normalBlackTextStyle(16),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent),
@@ -2243,7 +2243,7 @@ class MyHomePageState extends State<MyHomePage> {
                   ),
                   SelectableText(
                     longText6,
-                    style: normalBlackTextStyle(18),
+                    style: normalBlackTextStyle(16),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(height: horizontalIndent * 2),
