@@ -2,6 +2,7 @@
 import 'dart:html' as html;
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/rendering.dart';
@@ -129,6 +130,7 @@ const String lockupImage = "assets/images/lockup.png";
 const String formLink =
     "https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9P9r1OKddVJrVkKWuN2F9dUNEQwUUtHNVM0WDRSV0sxS1VSTkYxN0xHUS4u";
 const String logoLink = "https://studentambassadors.microsoft.com";
+const String infoDocLink = "https://studentambassadors.microsoft.com";
 
 class MyHomePageState extends State<MyHomePage> {
   // keys
@@ -662,7 +664,6 @@ class MyHomePageState extends State<MyHomePage> {
                                 : ((width - maxWidth) / 2 + textIndent)),
                       ],
                     ),
-                    SizedBox(height: textIndent),
                   ],
                 )
               : Row(
@@ -692,6 +693,9 @@ class MyHomePageState extends State<MyHomePage> {
                     Spacer(),
                   ],
                 ),
+          SizedBox(height: textIndent / 2),
+          docText(width),
+          SizedBox(height: textIndent),
         ],
       ),
     );
@@ -904,6 +908,36 @@ class MyHomePageState extends State<MyHomePage> {
           textAlign: TextAlign.left,
         )
       ],
+    );
+  }
+
+  Widget docText(double width) {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: "Регламент участия и структура программы прописаны в ",
+            style: normalGreyTextStyle(14),
+          ),
+          TextSpan(
+            text: "документе",
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+                fontFamily: "segoeui",
+                fontWeight: FontWeight.w600,
+                decoration: TextDecoration.underline),
+            recognizer: new TapGestureRecognizer()
+              ..onTap = () {
+                html.window.location.href = infoDocLink;
+              },
+          ),
+          TextSpan(
+            text: ", на который обычно не обращают внимание.",
+            style: normalGreyTextStyle(14),
+          )
+        ],
+      ),
     );
   }
 
