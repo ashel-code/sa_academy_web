@@ -694,7 +694,15 @@ class MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
           SizedBox(height: textIndent / 2),
-          docText(width),
+          Row(
+            children: [
+              Spacer(),
+              SizedBox(height: textIndent / 3),
+              docText(width),
+              SizedBox(height: textIndent / 3),
+              Spacer()
+            ],
+          ),
           SizedBox(height: textIndent),
         ],
       ),
@@ -912,31 +920,35 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   Widget docText(double width) {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: "Регламент участия и структура программы прописаны в ",
-            style: normalGreyTextStyle(14),
-          ),
-          TextSpan(
-            text: "документе",
-            style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
-                fontFamily: "segoeui",
-                fontWeight: FontWeight.w600,
-                decoration: TextDecoration.underline),
-            recognizer: new TapGestureRecognizer()
-              ..onTap = () {
-                html.window.location.href = infoDocLink;
-              },
-          ),
-          TextSpan(
-            text: ", на который обычно не обращают внимание.",
-            style: normalGreyTextStyle(14),
-          )
-        ],
+    return Container(
+      width: width - textIndent / 3 * 2,
+      child: RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: "Регламент участия и структура программы прописаны в ",
+              style: normalGreyTextStyle(14),
+            ),
+            TextSpan(
+              text: "документе",
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey,
+                  fontFamily: "segoeui",
+                  fontWeight: FontWeight.w600,
+                  decoration: TextDecoration.underline),
+              recognizer: new TapGestureRecognizer()
+                ..onTap = () {
+                  html.window.location.href = infoDocLink;
+                },
+            ),
+            TextSpan(
+              text: ", на который обычно не обращают внимание.",
+              style: normalGreyTextStyle(14),
+            )
+          ],
+        ),
       ),
     );
   }
