@@ -1743,7 +1743,7 @@ class MyHomePageState extends State<MyHomePage> {
                     facePC(
                       DMimage,
                       "Денис Миков",
-                      "Заместитель руководителя",
+                      "Преподаватель ботов",
                       "mikov@wasp-academy.com",
                     ),
                     SizedBox(width: horizontalIndent),
@@ -1778,7 +1778,7 @@ class MyHomePageState extends State<MyHomePage> {
                         faceMobile(
                           DMimage,
                           "Денис Миков",
-                          "Заместитель руководителя",
+                          "Преподаватель ботов",
                           "breakout.dm.06@gmail.com",
                           width,
                         ),
@@ -1802,7 +1802,7 @@ class MyHomePageState extends State<MyHomePage> {
                         faceMobile(
                           MKimage,
                           "Максим Корсаков",
-                          "Преподаватель Unity",
+                          "Преподаватель WPF",
                           "none",
                           width,
                         ),
