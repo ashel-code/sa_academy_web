@@ -268,7 +268,7 @@ class MyHomePageState extends State<MyHomePage> {
                           style: normalTextStyle(normalTextSize),
                         ),
                         TextSpan(
-                          text: "Подача заявок открыта до 31 сентября.",
+                          text: "Подача заявок продлена до 5 октября.",
                           style: TextStyle(
                             fontSize: normalTextSize,
                             color: Color(0xFF808080),
@@ -376,7 +376,7 @@ class MyHomePageState extends State<MyHomePage> {
           children: [
             SizedBox(width: horizontalIndent),
             Text(
-              "  Подача заявок открыта до 31 сентября. Поспеши!  ",
+              "  Подача заявок продлена до 5 октября. Поспеши!  ",
               style: normalTextStyle(normalTextSize),
               textAlign: TextAlign.center,
             ),
