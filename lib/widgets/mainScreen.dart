@@ -127,7 +127,7 @@ const String lockupImage = "assets/images/lockup.png";
 
 // links
 const String formLink =
-    "https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9P9r1OKddVJrVkKWuN2F9dUNEQwUUtHNVM0WDRSV0sxS1VSTkYxN0xHUS4u";
+    "https://forms.office.com/Pages/ResponsePage.aspx?id=oBzDhDusrk6tEVGdgCM-b9P9r1OKddVJrVkKWuN2F9dUNzJJV0U2R0xUUzFPMk1LM0kwTjhJWDhVQy4u";
 const String logoLink = "https://studentambassadors.microsoft.com";
 
 // FAQ
@@ -268,7 +268,11 @@ class MyHomePageState extends State<MyHomePage> {
                           style: normalTextStyle(normalTextSize),
                         ),
                         TextSpan(
+<<<<<<< HEAD
                           text: "Подача заявок продлена до 5 октября.",
+=======
+                          text: "Онлайн-сезон 2021 стартовал!",
+>>>>>>> parent of 50f5922 (Revert "application closed")
                           style: TextStyle(
                             fontSize: normalTextSize,
                             color: Color(0xFF808080),
@@ -376,7 +380,11 @@ class MyHomePageState extends State<MyHomePage> {
           children: [
             SizedBox(width: horizontalIndent),
             Text(
+<<<<<<< HEAD
               "  Подача заявок продлена до 5 октября. Поспеши!  ",
+=======
+              "  Подача заявок откроется в августе 2022 года.  ",
+>>>>>>> parent of 50f5922 (Revert "application closed")
               style: normalTextStyle(normalTextSize),
               textAlign: TextAlign.center,
             ),
@@ -1755,17 +1763,17 @@ class MyHomePageState extends State<MyHomePage> {
                     ),
                     SizedBox(width: horizontalIndent),
                     facePC(
-                      DMimage,
-                      "Денис Миков",
-                      "Преподаватель ботов",
-                      "mikov@wasp-academy.com",
-                    ),
-                    SizedBox(width: horizontalIndent),
-                    facePC(
                       LMimage,
                       "Лаура Манукян",
                       "Координатор программы",
                       "manukian@wasp-academy.com",
+                    ),
+                    SizedBox(width: horizontalIndent),
+                    facePC(
+                      DMimage,
+                      "Денис Миков",
+                      "Преподаватель ботов",
+                      "none",
                     ),
                     SizedBox(width: horizontalIndent),
                     facePC(
@@ -1790,18 +1798,18 @@ class MyHomePageState extends State<MyHomePage> {
                         ),
                         SizedBox(width: horizontalIndent),
                         faceMobile(
-                          DMimage,
-                          "Денис Миков",
-                          "Преподаватель ботов",
-                          "breakout.dm.06@gmail.com",
-                          width,
-                        ),
-                        SizedBox(width: horizontalIndent),
-                        faceMobile(
                           LMimage,
                           "Лаура Манукян",
                           "Координатор программы",
                           "manukian@wasp-academy.com",
+                          width,
+                        ),
+                        SizedBox(width: horizontalIndent),
+                        faceMobile(
+                          DMimage,
+                          "Денис Миков",
+                          "Преподаватель ботов",
+                          "none",
                           width,
                         ),
                         SizedBox(width: horizontalIndent),
@@ -2687,18 +2695,6 @@ class MyHomePageState extends State<MyHomePage> {
         style: ButtonStyle());
   }
 
-  Widget academyTextButton() {
-    return TextButton(
-        onPressed: () {
-          Scrollable.ensureVisible(academyKey.currentContext!);
-          setState(() {
-            isNavBarOpened = false;
-          });
-        },
-        child: Image(image: AssetImage(lockupImage), height: textHeight),
-        style: ButtonStyle());
-  }
-
   Widget contactsTextButton() {
     return TextButton(
         onPressed: () {
@@ -2714,7 +2710,7 @@ class MyHomePageState extends State<MyHomePage> {
   Widget applyTo() {
     return Container(
       height: 40,
-      width: 190,
+      width: 250,
       decoration: BoxDecoration(
         color: Color(0xff0079D5),
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -2724,7 +2720,7 @@ class MyHomePageState extends State<MyHomePage> {
           html.window.location.href = formLink;
         },
         child: Text(
-          "Стать участником",
+          "Подписаться на рассылку",
           style: normalTextStyle(normalTextSize),
         ),
       ),
@@ -2733,7 +2729,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   Widget applyToMk2() {
     return Container(
-      width: 220,
+      width: 250,
       height: 50,
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -2751,7 +2747,7 @@ class MyHomePageState extends State<MyHomePage> {
           html.window.location.href = formLink;
         },
         child: Text(
-          "Стать участником",
+          "Подписаться на рассылку",
           style: normalTextStyle(normalTextSize),
         ),
       ),
@@ -2784,11 +2780,14 @@ class MyHomePageState extends State<MyHomePage> {
           //   width: 20,
           //   height: 20,
           // ),
-          Image(image: AssetImage(lockupImage), height: textHeight / 1.5)
+          Text(
+            "Academy",
+            style: boldTextStyle(28),
+          ),
         ],
       ),
     );
   }
 }
 
-// v1.0.2
+// v1.0.3
