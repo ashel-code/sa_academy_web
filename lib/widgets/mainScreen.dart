@@ -376,11 +376,7 @@ class MyHomePageState extends State<MyHomePage> {
           children: [
             SizedBox(width: horizontalIndent),
             Text(
-<<<<<<< HEAD
               "  Подача заявок продлена до 5 октября. Поспеши!  ",
-=======
-              "  Подача заявок откроется в августе 2022 года.  ",
->>>>>>> parent of 50f5922 (Revert "application closed")
               style: normalTextStyle(normalTextSize),
               textAlign: TextAlign.center,
             ),
