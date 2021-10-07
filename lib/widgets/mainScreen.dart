@@ -268,11 +268,7 @@ class MyHomePageState extends State<MyHomePage> {
                           style: normalTextStyle(normalTextSize),
                         ),
                         TextSpan(
-<<<<<<< HEAD
-                          text: "Подача заявок продлена до 5 октября.",
-=======
                           text: "Онлайн-сезон 2021 стартовал!",
->>>>>>> parent of 50f5922 (Revert "application closed")
                           style: TextStyle(
                             fontSize: normalTextSize,
                             color: Color(0xFF808080),
