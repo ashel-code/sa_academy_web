@@ -51,6 +51,7 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 
+
   Widget GridOfText() {
     return GridView.count(
       shrinkWrap: true,

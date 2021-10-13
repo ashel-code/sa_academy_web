@@ -7,7 +7,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/rendering.dart';
 import 'package:dotted_line/dotted_line.dart';
 
-import 'package:WASP/widgets/oldWidgets.dart' as old;
+import 'package:WASP/widgets/oldWidgets.dart';
 import 'package:WASP/main.dart';
 
 TextStyle normalTextStyle(double fontSize) {
@@ -154,6 +154,8 @@ class MyHomePageState extends State<MyHomePage> {
   final selectionKey = new GlobalKey();
   final contactsKey = new GlobalKey();
 
+
+  
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -2782,4 +2784,4 @@ class MyHomePageState extends State<MyHomePage> {
   }
 }
 
-// v1.0.3
+// v1.0.4
