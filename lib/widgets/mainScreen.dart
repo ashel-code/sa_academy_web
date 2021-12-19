@@ -2,6 +2,7 @@
 import 'dart:html' as html;
 import 'dart:ui';
 
+import 'package:WASP/main2.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/rendering.dart';
@@ -9,6 +10,7 @@ import 'package:dotted_line/dotted_line.dart';
 
 import 'package:WASP/widgets/oldWidgets.dart';
 import 'package:WASP/main.dart';
+import 'package:WASP/main2.dart';
 
 TextStyle normalTextStyle(double fontSize) {
   return TextStyle(
@@ -154,8 +156,6 @@ class MyHomePageState extends State<MyHomePage> {
   final selectionKey = new GlobalKey();
   final contactsKey = new GlobalKey();
 
-
-  
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -240,10 +240,16 @@ class MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     width: width / 5,
                   ),
-                  Text(
-                    "онлайн-курс",
-                    style: normalTextStyle(normalTextSize),
-                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => Solit()));
+                    },
+                    child: Text(
+                      "онлайн-курс",
+                      style: normalTextStyle(normalTextSize),
+                    ),
+                  )
                 ],
               ),
             ),

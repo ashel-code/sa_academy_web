@@ -96,6 +96,12 @@ flutter:
   - assets/images/email.png
   - assets/images/lockup.png
 
+  - assets/images/hearts.png
+  - assets/images/diamonds.png
+  - assets/images/clubs.png
+  - assets/images/spades.png
+  - assets/images/back_side.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
